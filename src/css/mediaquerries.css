@@ -1,0 +1,43 @@
+@media screen and (max-width: 412px) {
+    .container {
+        min-width: 100%;
+    }
+
+    header {
+        height: 50px;
+    }
+
+    .logo img {
+        height: 50px;
+    }
+
+    .main-navigation,
+    .user-search {
+        display: none;
+    }
+
+    
+}
+
+@media screen and (max-width: 768px) {
+    .main-navigation {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .container {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 1070px) {
+
+    .mobile-menu {
+        display: block;
+    }
+
+    .user-search {
+        display: none;
+    }
+}

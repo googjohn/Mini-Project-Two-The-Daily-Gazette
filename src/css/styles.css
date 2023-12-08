@@ -1,0 +1,135 @@
+body {
+    background: url(/src/images/icons/rain/rain.png) no-repeat center center/cover;
+    height: 100dvh;
+}
+
+/* navigation */
+header {
+    position: sticky;
+    top: 0;
+    height: 70px;
+    width: 100%;
+    background-color: #00000044;
+    backdrop-filter: blur(100px );
+    overflow: hidden;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    height: 100%;
+    width: 100%;
+}
+
+.logo img {
+    height: 70px;
+    vertical-align: middle;
+}
+
+.main-navigation ul {
+    display: flex;
+    gap: 20px;
+}
+
+.main-navigation ul a {
+    /* text-decoration: none;
+    color: #ffffff; */
+}
+
+.user-search {
+    display: flex; 
+}
+
+.search input {
+    /* font-size: 1rem; */
+    /* width: auto; */
+    background-color: rgba(255, 255, 255, .4);
+    padding: 10px 10px 10px 40px;
+    outline: none;
+    /* border: 2px solid transparent; */
+    border: none;
+    border-radius: 20px;
+    box-shadow: 2px 2px 5px 0 rgba(0,0,0, .5);
+}
+
+input:focus {
+    /* border: 2px solid var(--primary-clr); */
+}
+
+:placeholder {
+    /* color: var(--text-light-clr); */
+    color: white;
+}
+
+.form-group {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+}
+
+.search label {
+    position: absolute;
+    /* padding: 5px; */
+    z-index: 10;
+    vertical-align: middle;
+    /* background-color: rgb(0,0,0, .1); */
+    left: 0;
+    /* backdrop-filter: blur(100px); */
+    overflow: hidden;
+}
+
+.search label i {
+    font-size: 1rem;
+    padding: 8px 15px;
+    /* color: var(--text-light-clr); */
+    cursor: pointer;
+}
+
+/* mobile navigation menu */
+.mobile-menu {
+    display: none;
+    /* width: auto; */
+    /* aspect-ratio: 1; */
+}
+
+.nav-toggle {
+    position: relative;
+    vertical-align: middle;
+    padding: 10px;
+    width: 100%;
+    height: 100%;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.mobile-btn {
+    display: block;
+    width: 30px;
+    height: 4px;
+    background-color: var(--primary-clr);
+    transition: all 350ms ease-in-out;
+    margin: 5px 0;
+    z-index: 10;
+}
+
+.close-btn.mobile-btn:nth-of-type(2) {
+    opacity: 0;
+    transform: translateX(20px);
+    transition: all 350ms ease-in-out;
+}
+
+.close-btn.mobile-btn:first-of-type {
+    transform: rotate(225deg) translate(-6px, -6px);
+    transition: all 350ms ease-in-out;
+}
+
+.close-btn.mobile-btn:last-of-type {
+    transform: rotate(-225deg) translate(-6px, 7px);
+    transition: all 350ms ease-in-out;
+}

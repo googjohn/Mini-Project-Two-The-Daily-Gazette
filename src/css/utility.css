@@ -82,3 +82,7 @@ a:not(.logo a):hover::before {
 i {
   font-size: 1.2em;
 }
+
+h1 {
+  color: var(--text-light-clr);
+}

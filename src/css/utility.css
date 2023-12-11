@@ -84,5 +84,24 @@ i {
 }
 
 h1 {
-  color: var(--text-light-clr);
+  color: var(--text-dark-clr);
+}
+
+section {
+  height: 100dvh;
+  padding-top: 90px;
+}
+
+.grid {
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto;
+}
+
+.grid > div {
+  border: 1px solid green;
+  height: 150px;
+}
+
+.grid div:first-child{
+  grid-area: span 2 / span 2;
 }

@@ -18,8 +18,9 @@ body::after {
 
 /* navigation */
 header {
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
     height: 80px;
     width: 100%;
     background-color: #000000fe;
@@ -323,3 +324,18 @@ nav > div {
     box-shadow: var(--box-shadow-blight);
 }
 
+/* world news section */
+.salutation-date {
+    display: flex;
+}
+
+.salutation-date .date-today {
+    align-self: flex-end;
+    margin-left: auto;
+    font-size: 1.3em;
+}
+
+.salutation-date .salutation {
+    margin-right: auto;
+    font-size: 1.3em;
+}

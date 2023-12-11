@@ -50,6 +50,7 @@
         display: block;
         width: max-content;
         margin: auto;
+        padding: 5px 50px;
     }
 
     .main-navigation.mobile-active {
@@ -58,17 +59,27 @@
         font-size: 1em;
     }
 }
+
+@media screen and (max-width: 568px) {
+    .main-navigation ul {
+        gap: 20px;
+    }
+}
+
 @media screen and (max-width: 768px) {
     .main-navigation {
         display: none;
+    }
+
+    .salutation-date .date-today,
+    .salutation-date .salutation {
+        font-size: 1em;
     }
 
 }
 
 @media screen and (max-width: 859px) {
     .main-navigation ul {
-        gap: 20px;
-        justify-content: space-between;
     }
 }
 

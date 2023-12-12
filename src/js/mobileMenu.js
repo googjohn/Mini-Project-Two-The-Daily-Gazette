@@ -17,7 +17,7 @@ function mobileNavHandle() {
             mobileNavigation.classList.remove('mobile-active');
 
             windowSizeHandle();
-        };
+        }; 
 
         isMobileActive = false;
     } else {
@@ -28,8 +28,6 @@ function mobileNavHandle() {
             
             entmentElement.style.display = 'block';
             scitechElement.style.display = 'block';
-
-            
         };
 
         isMobileActive = true;

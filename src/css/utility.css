@@ -34,7 +34,8 @@ html {
 	margin: auto;
 }
 
-ul {
+ul,
+ol {
 	list-style: none;
 	padding: 0;
 	margin: 0;
@@ -106,7 +107,11 @@ section {
 	height: 365px;
 }
 
-.bg {
+.section-title h2 {
+	font-weight: 600;
+}
 
-	background-image: linear-gradient(to top, lightgrey 0%, lightgrey 1%, #e0e0e0 26%, #efefef 48%, #d9d9d9 75%, #bcbcbc 100%);
+.aside-title h2 {
+	font-weight: 600;
+	font-size: 1.2rem;
 }

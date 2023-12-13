@@ -402,8 +402,35 @@ aside {
     background-color: var(--tertiary-clr);
 }
 
-.more-trend-news {
-    margin-left: 30px;
+.more-trend-news { 
+    height: 300px; /* check later if needed*/
+    overflow: auto;
+}
+
+.more-trend-news li {
+    margin: 1px 0;
+    display: flex;
+    align-items: center;
+}
+
+.more-trend-news li a {
+    color: var(--text-dark-clr);
+}
+
+.item-number {
+    width: 50px;
+    height: 50px;
+    background-color: #ffffff;
+    font-size: 2rem;
+    margin: 15px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    color: var(--text-lida-clr);
+}
+
+::-webkit-scrollbar {
+    display: none;
 }
 
 /* local news */

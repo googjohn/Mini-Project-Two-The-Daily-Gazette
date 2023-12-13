@@ -30,7 +30,7 @@ html {
 }
 
 .container {
-	width: 80%;
+	width: 90%;
 	margin: auto;
 }
 
@@ -95,13 +95,14 @@ section {
 	gap: 5px;
 }
 
-.grid-container>div {
+.grid-container .grid-item {
 	border: 1px solid green;
 	padding: 5px;
-	height: 150px;
+	height: 180px;
 }
 
-.grid-container .item:first-child {
+#hero-world-news article .grid-container .grid-item:first-child {
 	grid-area: span 2 / span 2;
-	height: 305px;
+	height: 365px;
 }
+

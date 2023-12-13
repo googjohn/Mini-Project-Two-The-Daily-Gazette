@@ -17,15 +17,15 @@ function mobileNavHandle() {
             mobileNavigation.classList.remove('mobile-active');
 
             windowSizeHandle();
-        }; 
+        };
 
         isMobileActive = false;
     } else {
-        
+
         if (!isMobileActive) {
             mobileBtn.classList.toggle('active');
             mobileNavigation.classList.toggle('mobile-active');
-            
+
             entmentElement.style.display = 'block';
             scitechElement.style.display = 'block';
         };
@@ -48,21 +48,21 @@ function windowSizeHandle() {
         scitechElement.style.display = 'none';
     } else {
         scitechElement.style.display = 'block';
-        
+
     };
 };
 
-window.addEventListener('resize', ()=> {
+window.addEventListener('resize', () => {
     if (!mobileNavigation.classList.contains('mobile-active')) {
 
         windowSizeHandle();
-    } 
+    }
 });
 
-mobileBtn.addEventListener('click', ()=> {
+mobileBtn.addEventListener('click', () => {
     mobileNavHandle();
 
-    mobileBtns.forEach( button => {
+    mobileBtns.forEach(button => {
         button.classList.toggle('close-btn');
     });
 });

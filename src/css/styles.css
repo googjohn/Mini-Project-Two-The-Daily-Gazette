@@ -29,6 +29,7 @@ header {
 
     /* backdrop-filter: blur(100px ); */
     overflow: hidden;
+    z-index: 10;
 }
 
 nav {
@@ -344,6 +345,11 @@ section#world-news {
 
 .date-time {
     display: flex;
+}
+
+.time-now {
+    width: 111px;
+    text-align: right;
 }
 
 span.date-today {

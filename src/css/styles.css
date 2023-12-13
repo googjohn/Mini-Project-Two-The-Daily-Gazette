@@ -1,6 +1,6 @@
 body {
     position: relative;
-    background-color: #bcbcbefe;
+    /* background-color: #bcbcbefe; */
 }
 
 /* body::after {
@@ -348,7 +348,7 @@ section#world-news {
 }
 
 .time-now {
-    width: 111px;
+    width: 115px;
     text-align: right;
 }
 
@@ -359,6 +359,10 @@ span.date-today {
 #world-news .container > div:last-child{
     padding-top: 30px;
 }
+
+/* #world-news .grid-item.card {
+    background-color: var(--tertiary-clr);
+} */
 
 #trending-world-local-news article .grid-container {
     width: 70%;
@@ -398,7 +402,7 @@ aside {
     background-color: var(--tertiary-clr);
 }
 
-.popular-news {
+.more-trend-news {
     margin-left: 30px;
 }
 
@@ -415,4 +419,6 @@ aside {
 #local-news .grid-item.card {
 	height: 360px;
     padding: 0;
+    /* background-color: #ffffff; */
 }
+

@@ -29,6 +29,9 @@ function timeNow() {
     const date = new Date();
 
     let hours = date.getHours().toLocaleString();
+    let ampm = hours < 12 ? 'AM' : 'PM';
+    hours = hours % 12;
+    hours = hours ? hours : 12;
     hours < 10 ? hours = '0' + hours : hours;
 
     let minutes = date.getMinutes().toLocaleString();
@@ -37,7 +40,6 @@ function timeNow() {
     let seconds = date.getSeconds().toLocaleString();
     seconds < 10 ? seconds = '0' + seconds : seconds;
 
-    let ampm = hours < 12 ? 'AM' : 'PM';
 
     return time_Now.innerHTML = `${hours}:${minutes}:${seconds} ${ampm}`;
 }

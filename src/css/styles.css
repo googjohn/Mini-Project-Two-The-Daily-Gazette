@@ -439,7 +439,6 @@ aside {
     padding-bottom: 20px;
 }
 #local-news .grid-container {
-	grid-template-columns: repeat(4, 1fr);
     gap: 15px;
 }
 
@@ -449,3 +448,76 @@ aside {
     /* background-color: #ffffff; */
 }
 
+/* finance news */
+#finance-news {
+    height: 100%;
+    background: linear-gradient(to bottom, #323232 0%, #3F3F3F 40%, #1C1C1C 150%), linear-gradient(to top, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.25) 200%);
+    background-blend-mode: multiply;
+    padding-bottom: 20px;
+}
+
+#finance-news .grid-container {
+    grid-template-rows: repeat(5, 1fr);
+    gap: 15px;
+    height: 500px; /* check again for change */
+}
+
+#finance-news .grid-item.card {
+    height: 120px;
+}
+
+#finance-news article .grid-container .grid-item:first-child,
+#finance-news article .grid-container .grid-item:nth-child(4) {
+	grid-column: span 2;
+	grid-row: span 3;
+    height: 100%;
+}
+
+#finance-news article .grid-container .grid-item:nth-child(2),
+#finance-news article .grid-container .grid-item:nth-child(3) {
+    grid-row: span 2;
+    height: 100%;
+}
+
+#finance-news article .grid-container .grid-item:nth-child(5) {
+    grid-column: span 2;
+    grid-row: span 2;
+    height: 100%;
+}
+
+.more-finance-news {
+    margin-top: 40px;
+}
+
+.more-finance-news .section-title {
+    text-align: center;
+}
+
+.more-finance-news .sub-grid-container {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.more-finance-news .sub-grid-container .sub-grid-item.card {
+    border: 1px solid green;
+    /* height: 180px; */
+}
+
+.more-finance-news .sub-grid-container .sub-grid-item.card:first-child,
+.more-finance-news .sub-grid-container .sub-grid-item.card:nth-child(3) {
+    grid-column: 1fr;
+}
+
+.more-finance-news .sub-grid-container .sub-grid-item.card:nth-child(2) {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+.more-finance-news .sub-grid-container .sub-grid-item.card:nth-child(6),
+.more-finance-news .sub-grid-container .sub-grid-item.card:nth-child(7),
+.more-finance-news .sub-grid-container .sub-grid-item.card:nth-child(8),
+.more-finance-news .sub-grid-container .sub-grid-item.card:nth-child(9) {
+    grid-column: span 2;
+}

@@ -46,9 +46,34 @@
         width: 100%;
     }
 
-    aside.more-news {
+    #trending-world-local-news aside.more-news {
         display: none;
     }
+
+    #finance-news article .grid-container {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(4, 1fr) ;
+        height: 100%;
+    }
+
+    #finance-news article .grid-container .grid-item:first-child {
+        grid-column: span 3;
+        grid-row: span 2;
+    }
+
+    #finance-news article .grid-container .grid-item:nth-child(3),
+    #finance-news article .grid-container .grid-item:nth-child(4) {
+        grid-column: span 1;
+        grid-row: span 1;
+
+    }
+
+    #finance-news article .grid-container .grid-item:nth-child(2),
+    #finance-news article .grid-container .grid-item:nth-child(5) {
+        grid-column: span 2;
+        grid-row: span 1;
+    }
+
 }
 
 @media screen and (max-width: 768px) {
@@ -114,6 +139,24 @@
 @media screen and (max-width: 600px) {
     .salutation-date {
         display: none;
+    }
+
+    #finance-news article .grid-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(6,1fr);
+    }
+
+    #finance-news article .grid-container .grid-item:first-child {
+        grid-column: 1;
+        grid-row: span 2;
+    }
+
+    #finance-news article .grid-container .grid-item:nth-child(2),
+    #finance-news article .grid-container .grid-item:nth-child(3),
+    #finance-news article .grid-container .grid-item:nth-child(4),
+    #finance-news article .grid-container .grid-item:nth-child(5) {
+        grid-column: 1;
+        grid-row: span 1;
     }
 }
 

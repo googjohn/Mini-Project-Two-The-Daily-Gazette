@@ -35,6 +35,7 @@ html {
 }
 
 .container {
+	max-width: 1280px;
 	width: 90%;
 	margin: auto;
 	background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);

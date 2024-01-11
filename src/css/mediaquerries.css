@@ -23,79 +23,66 @@
 
 }
 
+@media screen and (max-width: 950px) {
+
+}
+
 @media screen and (max-width: 900px) {
     .main-navigation ul li:nth-child(3){
         display: none;
     }
-    
-    .grid-container {
-        gap: 10px;
+
+    #head-news > .grid-container {
+        grid-template-areas: 
+        'A A A A'
+        'A A A A'
+        'B B B B'
+        'B B B B';
     }
 
-    #hero-world-news article .grid-container .grid-item:first-child {
-        grid-column: span 4 / span 3;
-        height: 450px;
+    #box-news.grid-item .grid-container {
+        grid-template-areas: 
+        'A A B B'
+        'C C D D';
     }
 
-    #hero-world-news .grid-container .grid-item {
-        grid-column: span 2;
-        height: 200px;
+    .trend-news > .grid-container {
+        flex: 1 1 calc(100% - 350px);
+        grid-template-areas: 
+        'A A'
+        'B B'
+        'C C';
     }
 
-    #trending-world-local-news article .grid-container {
-        width: 100%;
+    .trend-news aside {
+        flex: 1 1 350px;
+        max-height: 100%;
+        box-shadow: 0 0 2px 0 rgba(0,0,0,.5);
+        border-radius: 5px;
+        overflow: hidden;
     }
 
-    #trending-world-local-news aside.more-news {
-        display: none;
+    .trend-news .card {
+        flex-direction: row;
+        max-height: 180px;
     }
 
-    #finance-news article .grid-container {
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(4, 1fr) ;
+    #trend-news .aside-content {
+        overflow: auto;
         height: 100%;
+        padding-bottom: 50px;
     }
 
-    #finance-news article .grid-container .grid-item:first-child {
-        grid-column: span 3;
-        grid-row: span 2;
+    #local-news .grid-container {
+        grid-template-areas: 
+        'A A A A B B B B'
+        'C C C C D D D D'
+        'E E E E F F F F'
+        'G G G G H H H H';
     }
-
-    #finance-news article .grid-container .grid-item:nth-child(3),
-    #finance-news article .grid-container .grid-item:nth-child(4) {
-        grid-column: span 1;
-        grid-row: span 1;
-
-    }
-
-    #finance-news article .grid-container .grid-item:nth-child(2),
-    #finance-news article .grid-container .grid-item:nth-child(5) {
-        grid-column: span 2;
-        grid-row: span 1;
-    }
-
-    #sports-news article .grid-container .grid-item:not(.grid-item:first-child) {
-        grid-column: span 3;
-    }
-
 }
 
 @media screen and (max-width: 850px) {
-    #entertainment-news aside {
-        display: none;
-    }
-
-    #entertainment-news article .grid-container {
-        width: 100%;
-    }
-
-    #scitech-news aside {
-        display: none;
-    }
-
-    #scitech-news article .grid-container {
-        width: 100%;
-    }
 }
 
 @media screen and (max-width: 768px) {
@@ -125,65 +112,30 @@
         width: 95px;
     }
 
-    #hero-world-news article .grid-container .grid-item:first-child {
-        height: 400px;
+    #finance-news .grid-container {
+        grid-template-rows: repeat(4, 180px);
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-areas: 
+        'A A A'
+        'A A A'
+        'B B C'
+        'E D D';
     }
-
-    #hero-world-news .grid-container .grid-item {
-        height: 150px;
+    #finance-news .card > div {
+        height: 100%;
+        max-height: 100% ;
     }
-
-    #local-news .grid-item {
-        grid-column: span 2;
-    }
-
-    #sports-news aside.more-news {
-        display: none;
-    }
-
-    #sports-news article {
-        display: block;
-    }
-
-    #sports-news article .grid-container {
-        /* width: 100%; */
-        /* grid-template-columns: repeat(3, 1fr); */
-    }
-    
-    #sports-news article .grid-container .grid-item.card:nth-child(2),
-    #sports-news article .grid-container .grid-item.card:nth-child(5),
-    #sports-news article .grid-container .grid-item.card:nth-child(6),
-    #sports-news article .grid-container .grid-item.card:nth-child(9) {
-        grid-column: span 2;
-    }
-
-    #sports-news article .grid-container .grid-item.card:nth-child(3),
-    #sports-news article .grid-container .grid-item.card:nth-child(4),
-    #sports-news article .grid-container .grid-item.card:nth-child(7),
-    #sports-news article .grid-container .grid-item.card:nth-child(8) {
-        grid-column: span 1;
-    }
-    
-
-
 }
 
-@media screen and (max-width: 640px) {
-    #trending-world-local-news .grid-container .grid-item {
-        grid-column: span 3;
-    }
-
-    #trending-world-local-news .grid-item.card {
+@media screen and (max-width: 660px) {
+    .trend-news .card .card-content {
+        position: absolute;
+        bottom: 0;
+        left: 0;
         display: flex;
-        height: 250px;
-    }
-
-    #trending-world-local-news .card .card-image {
-        flex: 1 1 60%;
-        height: 100%;
-    } 
-    #trending-world-local-news .card .card-content {
-        flex: 1 1 40%;
+        flex-direction: column;
+        justify-content: end;
+        max-height: 180px;
     }
 }
 
@@ -192,22 +144,8 @@
         display: none;
     }
 
-    #finance-news article .grid-container {
-        grid-template-columns: 1fr;
-        grid-template-rows: repeat(6,1fr);
-    }
-
-    #finance-news article .grid-container .grid-item:first-child {
-        grid-column: 1;
-        grid-row: span 2;
-    }
-
-    #finance-news article .grid-container .grid-item:nth-child(2),
-    #finance-news article .grid-container .grid-item:nth-child(3),
-    #finance-news article .grid-container .grid-item:nth-child(4),
-    #finance-news article .grid-container .grid-item:nth-child(5) {
-        grid-column: 1;
-        grid-row: span 1;
+    .trend-news aside {
+       display: none;
     }
 }
 
@@ -215,6 +153,7 @@
     .main-navigation ul {
         gap: 20px;
     }
+
 }
 
 @media screen and (max-width: 490px) {
@@ -266,80 +205,34 @@
         font-size: 1em;
     }
 
-    #hero-world-news .grid-container > div:not(.grid-item:first-child),
-    #local-news .grid-container .grid-item {
-        grid-column: span 4
+    #head-news > .grid-container {
+        grid-template-areas: 
+        'A A A A'
+        'A A A A'
+        'B B B B'
+        'B B B B';
     }
 
-    #trending-world-local-news .grid-container .grid-item {
-        grid-column: span 3
+    #box-news.grid-item .grid-container {
+        grid-template-areas: 
+        'A A A A'
+        'B B B B'
+        'C C C C'
+        'D D D D';
     }
 
-    #trending-world-local-news .grid-item.card,
-    #local-news .grid-container .grid-item.card {
-        height: 200px;
-    }
-
-    #trending-world-local-news .card .card-content .news-content,
-    #local-news .card .card-content .news-content {
-        display: none;
-    }
-
-    #local-news .grid-item.card {
-        display: flex;
-        height: 250px;
-    }
-
-    #local-news .card .card-image {
-        flex: 1 1 60%;
-        height: 100%;
-        order: 2;
-    } 
-
-    #local-news .card .card-content {
-        flex: 1 1 40%;
-        order: 1;
-    }
-
-    #entertainment-news article .grid-container .grid-item:nth-child(2),
-    #entertainment-news article .grid-container .grid-item:nth-child(3),
-    #entertainment-news article .grid-container .grid-item:nth-child(4),
-    #entertainment-news article .grid-container .grid-item:nth-child(5),
-    #entertainment-news article .grid-container .grid-item:nth-child(6),
-    #entertainment-news article .grid-container .grid-item:nth-child(7) {
-        grid-column: span 3;
-    }
-
-    #scitech-news article .grid-container .grid-item:nth-child(2),
-    #scitech-news article .grid-container .grid-item:nth-child(3),
-    #scitech-news article .grid-container .grid-item:nth-child(4),
-    #scitech-news article .grid-container .grid-item:nth-child(5),
-    #scitech-news article .grid-container .grid-item:nth-child(6),
-    #scitech-news article .grid-container .grid-item:nth-child(7) {
-        grid-column: span 3;
-    }
-
-    #sports-news {
-        height: 100dvh;
-    }
-
-    #sports-news article .grid-container {
-        display: flex;
+    #carousel-news.grid-item .card .card-image {
         height: 300px;
-        overflow: auto;
     }
 
-    #sports-news article .grid-container .grid-item {
-        height: 100%;
-        min-width: 100%;
+    #box-news.grid-item .card .card-image {
+        height: 150px;
     }
 
-    #sports-news article aside.more-news {
-        display: block;
-        width: 100%;
-        min-width: 100%;
-        margin-top: 20px;
+    .trend-news .card {
+        max-height: 150px;
     }
+
 }
 
 @media screen and (max-width: 412px) {
@@ -357,4 +250,25 @@
         padding-bottom: 0;
     }
 
+    #local-news .grid-container {
+        grid-template-areas: 
+        'A A A A'
+        'B B B B'
+        'C C C C'
+        'D D D D'
+        'E E E E'
+        'F F F F'
+        'G G G G'
+        'H H H H';
+    }
+
+    #local-news .card {
+        flex-direction: row;
+        max-height: 180px;
+    }
+
+    #local-news .card > div {
+        flex-basis: 50%;
+        height: 100%;
+    }
 }

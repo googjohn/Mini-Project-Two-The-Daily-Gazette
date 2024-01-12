@@ -162,6 +162,7 @@ async function headNews(endpoint) {
                         <img src=${article.image} alt="">
                     </div>
                     <div class="card-content">
+                        <span class="news-source"><a href=${article.source.url} target="_blank">${article.source.name}</a></span>
                         <div class="news-title">
                             <h2><a href=${article.url} target="_blank">${article.title}</a></h2>
                         </div>
@@ -184,6 +185,7 @@ async function headNews(endpoint) {
                             <img src=${article.image} alt="">
                         </div>
                         <div class="card-content">
+                            <span class="news-source"><a href=${article.source.url} target="_blank">${article.source.name}</a></span>
                             <div class="news-title">
                                 <h2><a href=${article.url} target="_blank">${article.title}</a></h2>
                             </div>
@@ -209,7 +211,7 @@ async function trendNews(endpoint) {
         category: 'general',
         language: 'en',
         max : 10,
-    }
+    };
     
     const { 
         API_KEY,
@@ -219,6 +221,8 @@ async function trendNews(endpoint) {
         max
     } = gnews_params;
 
+    let itemCount = 0;
+
     try {
         const results = await fetchApiData(endpoint, country, category, language, max, API_KEY)
 
@@ -227,6 +231,49 @@ async function trendNews(endpoint) {
         };
 
         const { articles } = results;
+
+        const trendNews = document.querySelector('#trend-news .grid-container');
+        const moreTrendNews = document.querySelector('#more-trend-news .aside-content ul');
+        moreTrendNews.addEventListener('change', () => {
+
+        })
+        for (let ii = 0; ii < articles.length; ii++) {
+            const article = articles[ii];
+            
+            
+            if (ii < 3) {
+                
+                const articleElement = document.createElement('article');
+                articleElement.classList = 'grid-item';
+
+                articleElement.innerHTML = 
+                    `<div class='card'>
+                        <div class='card-image'>
+                            <img src=${article.image} alt="">
+                        </div>
+                        <div class="card-content">
+                            <span class="news-source"><a href=${article.source.url} target="_blank">${article.source.name}</a></span>
+                            <div class="news-title">
+                                <h2><a href=${article.url} target="_blank">${article.title}</a></h2>
+                            </div>
+                        <div>
+                    </div>`;
+            
+                trendNews.appendChild(articleElement)
+            } else if (ii >= 3 && ii < articles.length) {
+                
+                const liElement = document.createElement('li');
+
+                if (liElement) {
+                    itemCount++;
+                }
+
+                liElement.innerHTML = 
+                    `<span class="item-number">${itemCount}</span><a href=${article.url} target="_blank">${article.title}</a>`;
+
+                moreTrendNews.appendChild(liElement)
+            }
+        }
 
     } catch (error) {
         console.error('Failed to fetch data from API', error)
@@ -275,6 +322,7 @@ async function localNews(endpoint) {
                         <img src=${article.image} alt="">
                     </div>
                     <div class="card-content">
+                        <span class="news-source"><a href=${article.source.url} target="_blank">${article.source.name}</a></span>
                         <div class="news-title">
                             <h2><a href=${article.url} target="_blank">${article.title}</a></h2>
                         </div>
@@ -335,6 +383,7 @@ async function financeNews(endpoint) {
                                 <img src=${article.image} alt="">
                             </div>
                             <div class="card-content">
+                                <span class="news-source"><a href=${article.source.url} target="_blank">${article.source.name}</a></span>
                                 <div class="news-title">
                                     <h2><a href=${article.url} target="_blank">${article.title}</a></h2>
                                 </div>
@@ -349,6 +398,7 @@ async function financeNews(endpoint) {
                                 <img src=${article.image} alt="">
                             </div>
                             <div class="card-content">
+                                <span class="news-source"><a href=${article.source.url} target="_blank">${article.source.name}</a></span>
                                 <div class="news-title">
                                     <h2><a href=${article.url} target="_blank">${article.title}</a></h2>
                                 </div>
@@ -396,6 +446,7 @@ async function moreFinanceNews(endpoint) {
         };
 
         const { articles } = results;
+        console.log(articles);
 
         const moreFinanceNews = document.querySelector('#more-finance-news .grid-container');
 
@@ -415,6 +466,7 @@ async function moreFinanceNews(endpoint) {
                             <img src=${article.image} alt="">
                         </div>
                         <div class="card-content">
+                            <span class="news-source"><a href=${article.source.url} target="_blank">${article.source.name}</a></span>
                             <div class="news-title">
                                 <h2><a href=${article.url} target="_blank">${article.title}</a></h2>
                             </div>
@@ -429,6 +481,7 @@ async function moreFinanceNews(endpoint) {
                             <img src=${article.image} alt="">
                         </div>
                         <div class="card-content">
+                            <span class="news-source"><a href=${article.source.url} target="_blank">${article.source.name}</a></span>
                             <div class="news-title">
                                 <h2><a href=${article.url} target="_blank">${article.title}</a></h2>
                             </div>
@@ -588,7 +641,7 @@ async function entmentNews(endpoint) {
 
 window.addEventListener('DOMContentLoaded', () => {
     headNews('top-headlines');
-    // trendNews('top-headlines');
+    trendNews('top-headlines');
     localNews('top-headlines');
     financeNews('top-headlines');
     moreFinanceNews('top-headlines');
@@ -597,3 +650,7 @@ window.addEventListener('DOMContentLoaded', () => {
     // scienceNews('top-headlines');
     // entmentNews('top-headlines');
 })
+
+function itemCount() {
+
+}

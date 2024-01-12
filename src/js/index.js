@@ -35,7 +35,7 @@ function listItemStyle(arr) {
 // listItemStyle(msn)
 
 // apikeys global variable
-const globalApiKeys = {
+const gnewsApiKeys = {
     apiKey_1: "59933f0e365a71e63e8b2c9e38d08455",
     apiKey_2: "bd6c2317d02803fb4cf4fa5deaff149c",
     apiKey_3: "9167dae881545d7d1ebf42ac1186d6ae",
@@ -46,76 +46,25 @@ const globalApiKeys = {
     apiKey_8: "26fd80a7289d79b300b99af28392c8c7",
     apiKey_9: "d7dfd99147ac538715d80f39a0277163",
     apiKey_10: "1321923f82f3680d72f02d2147d154b6",
+    apiKey_11: "36b7d60e3aa710516f138835973345e5",
+    apiKey_12: "1382e204787b970f3b304a0a0e7a3cd1",
+    apiKey_13: "00699591f08ddb241b7952693e0a09e4",
+    apiKey_14: "eef7eda04c20226e8230017f41d9bd0b",
+    apiKey_15: "0bc2dbb5459b76180ca5ce9eda5c06d6",
+    apiKey_16: "60d69a4c8da5a75c4e5f61a40b689562",
+    apiKey_17: "36637b64a142c041f31b44f7d6ed948a",
+    apiKey_18: "938eb01487792b76892a22a07cb25b4b",
+    apiKey_19: "1a6bba83f9ccf329e711dd1c0de6ff0a",
+    apiKey_20: "053a3fcc1281cccf0c88f55d60373e34",
+    apiKey_21: "bab393516f488acf9c3fedf5325c1ec2",
+    apiKey_22: "835798eefbde7435fa1b95029eeb73ee",
+    apiKey_23: "52167bc25aac72582194886b1a883d2e",
+    apiKey_24: "c39693e34fe847095bde68c95414819a",
+    apiKey_25: "24358282d6c10e278e9b3ff82b3a4578",
+    apiKey_26: "f036bc45681619ff4f2c49a123eb5632",
 }
 
-// function to fetch data
-async function fetchAPIData() {
-    // gnews parameter
-    const gnews_params = {
-        apiKey_1: "59933f0e365a71e63e8b2c9e38d08455",
-        apiKey_2: "bd6c2317d02803fb4cf4fa5deaff149c",
-        apiKey_3: "9167dae881545d7d1ebf42ac1186d6ae",
-        apiKey_4: "702589ec14e5977ff3ff15d3eb3a4b50",
-        category : 'nation',
-        country : 'ph',
-        language : 'en',
-        max : 10,
-    }
-
-    const { apiKey_1, apiKey_2, apiKey_3, apiKey_4, category, country, language, max } = gnews_params;
-    
-    const carouselNews = document.querySelector('#carousel-news.grid-item')
-    const boxNews = document.querySelector('#box-news.grid-item .grid-container')
-
-    const response = await fetch(`https://gnews.io/api/v4/top-headlines?category=general&lang=en&country=ph&max=10&apikey=${apiKey_1}`);
-    const {articles} = await response.json();
-    
-    // console.log(articles)
-
-    for (let ii = 0; ii < articles.length; ii++) {
-        const article = articles[ii];
-        
-        if (ii < 1) {
-            const carouselDiv = document.createElement('div');
-            carouselDiv.classList = 'card';
-            // div.setAttribute('id', 'carousel-news');
-            carouselDiv.innerHTML = 
-                `<div class='card-image'>
-                    <img src=${article.image} alt="">
-                </div>
-                <div class="card-content">
-                    <div class="news-title">
-                        <h2><a href=${article.url} target="_blank">${article.title}</a></h2>
-                    </div>
-                    <div class="news-description">
-                        <p>${article.description}</p>
-                    </div>
-                </div>`
-            
-            carouselNews.appendChild(carouselDiv);
-
-        }
-        
-        if (ii >= 6 && ii <= articles.length - 1) {
-            const boxArticle = document.createElement('article');
-            boxArticle.classList = 'grid-item';
-
-            boxArticle.innerHTML =
-                `<div class='card'>
-                    <div class='card-image'>
-                        <img src=${article.image} alt="">
-                    </div>
-                    <div class="card-content">
-                        <div class="news-title">
-                            <h2><a href=${article.url} target="_blank">${article.title}</a></h2>
-                        </div>
-                    <div>
-                </div>`
-
-            boxNews.appendChild(boxArticle);
-        }
-    }
-
+async function carouselNewsCycle() {
     // const carouselNewsItems = document.querySelector('#headline-news > .flex-container').children;
     // console.log(carouselNewsItems);
     // const carouselItems = [...carouselNewsItems];
@@ -146,156 +95,8 @@ async function fetchAPIData() {
     // carouselCycle();
     // setInterval(carouselCycle, 5000)
 
-
-
-
-
-
-
-
-
-
-
-
 }
-// fetchAPIData()
 
-// fetch local news
-async function fetchLocalNews() {
-    // gnews variables
-    const gnews_params = {
-        apiKey_1: "59933f0e365a71e63e8b2c9e38d08455",
-        apiKey_2: "bd6c2317d02803fb4cf4fa5deaff149c",
-        apiKey_3: "9167dae881545d7d1ebf42ac1186d6ae",
-        apiKey_4: "702589ec14e5977ff3ff15d3eb3a4b50",
-        category : 'nation',
-        country : 'ph',
-        language : 'en',
-        max : 10,
-    }
-
-    const { apiKey_1, apiKey_2, apiKey_3, apiKey_4, category, country, language, max } = gnews_params;
-
-    const localNews = document.querySelector('#local-news .grid-container');
-
-    const response = await fetch(`https://gnews.io/api/v4/top-headlines?category=${category}&lang=${language}&country=${country}&max=${max}&apikey=${apiKey_2}`);
-    const { articles } = await response.json();
-    const articlesList = articles.slice(0,8)
-
-    articlesList.forEach( article => {
-
-        const articleElement = document.createElement('article')
-        articleElement.classList = 'grid-item';
-
-        articleElement.innerHTML = 
-            `<div class='card'>
-                <div class='card-image'>
-                    <img src=${article.image} alt="">
-                </div>
-                <div class="card-content">
-                    <div class="news-title">
-                        <h2><a href=${article.url} target="_blank">${article.title}</a></h2>
-                    </div>
-                    <div class="news-description">
-                        <p>${article.description}</p>
-                    </div>
-                <div>
-            </div>`;
-        
-        localNews.appendChild(articleElement)
-    })
-
-}
-// fetchLocalNews()
-
-async function fetchFinanceNews() {
-    // gnews variables
-    const gnews_params = {
-        apiKey_1: "59933f0e365a71e63e8b2c9e38d08455",
-        apiKey_2: "bd6c2317d02803fb4cf4fa5deaff149c",
-        apiKey_3: "9167dae881545d7d1ebf42ac1186d6ae",
-        apiKey_4: "702589ec14e5977ff3ff15d3eb3a4b50",
-        category : 'business',
-        country : 'ph',
-        language : 'en',
-        max : 10,
-    }
-
-    const { apiKey_1, apiKey_2, apiKey_3, apiKey_4, category, country, language, max } = gnews_params;
-
-    const financeNews = document.querySelector('#finance-news .grid-container');
-    console.log(financeNews)
-    const response = await fetch(`https://gnews.io/api/v4/top-headlines?category=${category}&lang=${language}&country=${country}&max=${max}&apikey=${apiKey_3}`)
-
-    const { articles } = await response.json();
-    console.log(articles)
-
-    
-
-    
-    for (let ii = 0; ii < articles.length; ii++) {
-        const article = articles[ii];
-
-        // const imgElement = document.createElement('img');
-        
-        // imgElement.onerror = function() {
-        //     console.error('Image failed to load!')
-        //     imgElement.src = '../src/images/no-image-available.png'
-        // }
-        
-        // imgElement.src = article.image
-        
-
-        if (ii < (articles.length - 1) / 2) {
-            const articleElement = document.createElement('article')
-            articleElement.classList = 'grid-item';
-
-            if (ii !== 0 && ii !== 3) {
-                articleElement.innerHTML = 
-                `<div class='card'>
-                    <div class='card-image'>
-                        <img src=${article.image} alt="">
-                    </div>
-                    <div class="card-content">
-                        <div class="news-title">
-                            <h2><a href=${article.url} target="_blank">${article.title}</a></h2>
-                        </div>
-                    <div>
-                </div>`;
-            
-                financeNews.appendChild(articleElement)
-            } else {
-                articleElement.innerHTML = 
-                `<div class='card'>
-                    <div class='card-image'>
-                        <img src=${article.image} alt="">
-                    </div>
-                    <div class="card-content">
-                        <div class="news-title">
-                            <h2><a href=${article.url} target="_blank">${article.title}</a></h2>
-                        </div>
-                        <div class="news-description">
-                            <p>${article.description}</p>
-                        </div>
-                    <div>
-                </div>`;
-            
-                financeNews.appendChild(articleElement)
-            }
-
-            // imgElement.onerror = function () {
-            //     console.error('Image failed to load!')
-            //     imgElement.src = '../src/images/no-image-available.png'
-            //     console.log(imgElement.src)
-            // }
-           
-            
-        }
-    }
-   
-
-}
-// fetchFinanceNews()
 
 // fetch api data
 async function fetchApiData(endpoint, country, category, language, max, API_KEY) {
@@ -315,7 +116,7 @@ async function fetchApiData(endpoint, country, category, language, max, API_KEY)
 
     } catch (error) {
         console.error('Failed to fetch data from API', error)
-        
+        throw error;
     }
 }
 
@@ -323,12 +124,12 @@ async function fetchApiData(endpoint, country, category, language, max, API_KEY)
 async function headNews(endpoint) {
     // API GNEWS variables/params
     const gnews_params = {
-        API_KEY: globalApiKeys.apiKey_1,
+        API_KEY: gnewsApiKeys.apiKey_1,
         country: 'ph',
         category: 'world',
         language: 'en',
         max : 10,
-    }
+    };
     
     const { 
         API_KEY,
@@ -342,11 +143,56 @@ async function headNews(endpoint) {
         const results = await fetchApiData(endpoint, country, category, language, max, API_KEY);
 
         if (!results.articles) {
-            console.error('Invalid response format. No artilces found.')
+            console.error('Invalid response format. No articles found.')
         };
 
         const { articles } = results;
-        console.log(articles);
+
+        const carouselNews = document.querySelector('#carousel-news.grid-item');
+        const boxNews = document.querySelector('#box-news.grid-item .grid-container');
+        
+        for (let ii = 0; ii < articles.length; ii++) {
+            const article = articles[ii];
+
+            if (ii < 1) {
+                const carouselDiv = document.createElement('div');
+                carouselDiv.classList = 'card';
+                carouselDiv.innerHTML = 
+                    `<div class='card-image'>
+                        <img src=${article.image} alt="">
+                    </div>
+                    <div class="card-content">
+                        <div class="news-title">
+                            <h2><a href=${article.url} target="_blank">${article.title}</a></h2>
+                        </div>
+                        <div class="news-description">
+                            <p>${article.description}</p>
+                        </div>
+                    </div>`
+
+                carouselNews.appendChild(carouselDiv);
+
+            }
+
+            if (ii >= 6 && ii <= articles.length - 1) {
+                const boxArticle = document.createElement('article');
+                boxArticle.classList = 'grid-item';
+
+                boxArticle.innerHTML =
+                    `<div class='card'>
+                        <div class='card-image'>
+                            <img src=${article.image} alt="">
+                        </div>
+                        <div class="card-content">
+                            <div class="news-title">
+                                <h2><a href=${article.url} target="_blank">${article.title}</a></h2>
+                            </div>
+                        <div>
+                    </div>`
+
+                boxNews.appendChild(boxArticle);
+            }
+        }
 
     } catch (error) {
         console.error('Failed to fetch data from API', error)
@@ -354,13 +200,11 @@ async function headNews(endpoint) {
     }
 }
 
-headNews('top-headlines')
-
 // trend news
 async function trendNews(endpoint) {
     // API GNEWS variables/params
     const gnews_params = {
-        API_KEY: globalApiKeys.apiKey_2,
+        API_KEY: gnewsApiKeys.apiKey_2,
         country: 'ph',
         category: 'general',
         language: 'en',
@@ -379,29 +223,27 @@ async function trendNews(endpoint) {
         const results = await fetchApiData(endpoint, country, category, language, max, API_KEY)
 
         if (!results.articles) {
-            console.error('Invalid response format. No artilces found.')
+            console.error('Invalid response format. No articles found.')
         };
 
         const { articles } = results;
-        console.log(articles);
 
     } catch (error) {
         console.error('Failed to fetch data from API', error)
        
     }
 }
-trendNews('top-headlines')
 
 // local news
 async function localNews(endpoint) {
     // API GNEWS variables/params
     const gnews_params = {
-        API_KEY: globalApiKeys.apiKey_3,
+        API_KEY: gnewsApiKeys.apiKey_3,
         country: 'ph',
         category: 'nation',
         language: 'en',
-        max : 10,
-    }
+        max : 8,
+    };
     
     const { 
         API_KEY,
@@ -415,29 +257,127 @@ async function localNews(endpoint) {
         const results = await fetchApiData(endpoint, country, category, language, max, API_KEY)
 
         if (!results.articles) {
-            console.error('Invalid response format. No artilces found.')
+            console.error('Invalid response format. No articles found.')
         };
 
         const { articles } = results;
-        console.log(articles);
+
+        const localNews = document.querySelector('#local-news .grid-container');
+
+        articles.forEach( article => {
+
+            const articleElement = document.createElement('article')
+            articleElement.classList = 'grid-item';
+    
+            articleElement.innerHTML = 
+                `<div class='card'>
+                    <div class='card-image'>
+                        <img src=${article.image} alt="">
+                    </div>
+                    <div class="card-content">
+                        <div class="news-title">
+                            <h2><a href=${article.url} target="_blank">${article.title}</a></h2>
+                        </div>
+                    <div>
+                </div>`;
+            
+            localNews.appendChild(articleElement)
+        })
 
     } catch (error) {
         console.error('Failed to fetch data from API', error)
        
     }
 }
-localNews('top-headlines')
 
 // finance news
 async function financeNews(endpoint) {
 
     // sports GNEWS variables/params
     const gnews_params = {
-        API_KEY: globalApiKeys.apiKey_4,
+        API_KEY: gnewsApiKeys.apiKey_4,
         country: 'ph',
         category: 'business',
         language: 'en',
         max : 10,
+    };
+    
+    const { 
+        API_KEY,
+        country,
+        category,
+        language,
+        max
+    } = gnews_params;
+
+    try {
+        const results = await fetchApiData(endpoint, country, category, language, max, API_KEY)
+
+        if (!results.articles) {
+            console.error('Invalid response format. No articles found.')
+        };
+
+        const { articles } = results;
+
+        const financeNews = document.querySelector('#finance-news .grid-container');
+
+        for (let ii = 0; ii < articles.length; ii++) {
+            const article = articles[ii];
+    
+            if (ii < (articles.length - 1) / 2) {
+                const articleElement = document.createElement('article')
+                articleElement.classList = 'grid-item';
+    
+                if (ii !== 0 && ii !== 3) {
+                    articleElement.innerHTML = 
+                        `<div class='card'>
+                            <div class='card-image'>
+                                <img src=${article.image} alt="">
+                            </div>
+                            <div class="card-content">
+                                <div class="news-title">
+                                    <h2><a href=${article.url} target="_blank">${article.title}</a></h2>
+                                </div>
+                            <div>
+                        </div>`;
+                
+                    financeNews.appendChild(articleElement)
+                } else {
+                    articleElement.innerHTML = 
+                        `<div class='card'>
+                            <div class='card-image'>
+                                <img src=${article.image} alt="">
+                            </div>
+                            <div class="card-content">
+                                <div class="news-title">
+                                    <h2><a href=${article.url} target="_blank">${article.title}</a></h2>
+                                </div>
+                                <div class="news-description">
+                                    <p>${article.description}</p>
+                                </div>
+                            <div>
+                        </div>`;
+                
+                    financeNews.appendChild(articleElement)
+                }            
+            }
+        }
+
+    } catch (error) {
+        console.error('Failed to fetch data from API', error)
+       
+    }
+}
+
+// more finance news
+async function moreFinanceNews(endpoint) {
+    // API GNEWS variables/params
+    const gnews_params = {
+        API_KEY: gnewsApiKeys.apiKey_11,
+        country: 'ph',
+        category: 'health',
+        language: 'en',
+        max : 9,
     }
     
     const { 
@@ -452,29 +392,73 @@ async function financeNews(endpoint) {
         const results = await fetchApiData(endpoint, country, category, language, max, API_KEY)
 
         if (!results.articles) {
-            console.error('Invalid response format. No artilces found.')
+            console.error('Invalid response format. No articles found.')
         };
 
         const { articles } = results;
-        console.log(articles);
+
+        const moreFinanceNews = document.querySelector('#more-finance-news .grid-container');
+
+        const articleElement = document.createElement('article');
+        articleElement.classList = 'grid-item';
+
+        for (let ii = 0; ii < articles.length; ii++) {
+            const article = articles[ii];
+    
+            const articleElement = document.createElement('article')
+            articleElement.classList = 'grid-item';
+
+            if (ii !== 0) {
+                articleElement.innerHTML = 
+                    `<div class='card'>
+                        <div class='card-image'>
+                            <img src=${article.image} alt="">
+                        </div>
+                        <div class="card-content">
+                            <div class="news-title">
+                                <h2><a href=${article.url} target="_blank">${article.title}</a></h2>
+                            </div>
+                        <div>
+                    </div>`;
+            
+                moreFinanceNews.appendChild(articleElement)
+            } else {
+                articleElement.innerHTML = 
+                    `<div class='card'>
+                        <div class='card-image'>
+                            <img src=${article.image} alt="">
+                        </div>
+                        <div class="card-content">
+                            <div class="news-title">
+                                <h2><a href=${article.url} target="_blank">${article.title}</a></h2>
+                            </div>
+                            <div class="news-description">
+                                <p>${article.description}</p>
+                            </div>
+                        <div>
+                    </div>`;
+            
+                moreFinanceNews.appendChild(articleElement)
+            }            
+        }
 
     } catch (error) {
         console.error('Failed to fetch data from API', error)
        
     }
 }
-financeNews('top-headlines')
+
 
 // sports news
 async function sportsNews(endpoint) {
     // API GNEWS variables/params
     const gnews_params = {
-        API_KEY: globalApiKeys.apiKey_5,
+        API_KEY: gnewsApiKeys.apiKey_5,
         country: 'ph',
         category: 'sports',
         language: 'en',
         max : 10,
-    }
+    };
     
     const { 
         API_KEY,
@@ -488,24 +472,22 @@ async function sportsNews(endpoint) {
         const results = await fetchApiData(endpoint, country, category, language, max, API_KEY)
 
         if (!results.articles) {
-            console.error('Invalid response format. No artilces found.')
+            console.error('Invalid response format. No articles found.')
         };
 
         const { articles } = results;
-        console.log(articles);
 
     } catch (error) {
         console.error('Failed to fetch data from API', error)
        
     }
 }
-sportsNews('top-headlines')
 
 // techonology news
 async function techNews(endpoint) {
     // API GNEWS variables/params
     const gnews_params = {
-        API_KEY: globalApiKeys.apiKey_6,
+        API_KEY: gnewsApiKeys.apiKey_6,
         country: 'ph',
         category: 'technology',
         language: 'en',
@@ -524,24 +506,22 @@ async function techNews(endpoint) {
         const results = await fetchApiData(endpoint, country, category, language, max, API_KEY)
 
         if (!results.articles) {
-            console.error('Invalid response format. No artilces found.')
+            console.error('Invalid response format. No articles found.')
         };
 
         const { articles } = results;
-        console.log(articles);
 
     } catch (error) {
         console.error('Failed to fetch data from API', error)
        
     }
 }
-techNews('top-headlines')
 
 // science news
 async function scienceNews(endpoint) {
     // API GNEWS variables/params
     const gnews_params = {
-        API_KEY: globalApiKeys.apiKey_7,
+        API_KEY: gnewsApiKeys.apiKey_7,
         country: 'ph',
         category: 'science',
         language: 'en',
@@ -560,24 +540,22 @@ async function scienceNews(endpoint) {
         const results = await fetchApiData(endpoint, country, category, language, max, API_KEY)
 
         if (!results.articles) {
-            console.error('Invalid response format. No artilces found.')
+            console.error('Invalid response format. No articles found.')
         };
 
         const { articles } = results;
-        console.log(articles);
 
     } catch (error) {
         console.error('Failed to fetch data from API', error)
        
     }
 }
-scienceNews('top-headlines')
 
 // entertainment news
 async function entmentNews(endpoint) {
     // API GNEWS variables/params
     const gnews_params = {
-        API_KEY: globalApiKeys.apiKey_8,
+        API_KEY: gnewsApiKeys.apiKey_8,
         country: 'ph',
         category: 'entertainment',
         language: 'en',
@@ -596,15 +574,26 @@ async function entmentNews(endpoint) {
         const results = await fetchApiData(endpoint, country, category, language, max, API_KEY)
 
         if (!results.articles) {
-            console.error('Invalid response format. No artilces found.')
+            console.error('Invalid response format. No articles found.')
         };
 
         const { articles } = results;
-        console.log(articles);
 
     } catch (error) {
         console.error('Failed to fetch data from API', error)
        
     }
 }
-entmentNews('top-headlines')
+
+
+window.addEventListener('DOMContentLoaded', () => {
+    headNews('top-headlines');
+    // trendNews('top-headlines');
+    localNews('top-headlines');
+    financeNews('top-headlines');
+    moreFinanceNews('top-headlines');
+    // sportsNews('top-headlines');
+    // techNews('top-headlines');
+    // scienceNews('top-headlines');
+    // entmentNews('top-headlines');
+})

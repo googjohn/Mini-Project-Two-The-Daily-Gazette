@@ -33,17 +33,27 @@
     }
 
     #head-news > .grid-container {
+        grid-template-columns: repeat(8, 1fr);
+        grid-template-rows: repeat(8, 90px);
         grid-template-areas: 
-        'A A A A'
-        'A A A A'
-        'B B B B'
-        'B B B B';
+        'A A A A A A A A'
+        'A A A A A A A A'
+        'A A A A A A A A'
+        'A A A A A A A A'
+        'B B B B B B B B'
+        'B B B B B B B B'
+        'B B B B B B B B'
+        'B B B B B B B B';
     }
 
     #box-news.grid-item .grid-container {
+        grid-template-columns: repeat(8, 1fr);
+        grid-template-rows: repeat(4, 90px);
         grid-template-areas: 
-        'A A B B'
-        'C C D D';
+        'A A A A B B B B'
+        'A A A A B B B B'
+        'C C C C D D D D'
+        'C C C C D D D D';
     }
 
     .trend-news > .grid-container {
@@ -73,13 +83,41 @@
         padding-bottom: 50px;
     }
 
+    #local-news .card {
+        flex-direction: row;
+    }
+
+    #local-news .card > div {
+        flex-basis: 50%;
+    }
+
+    #local-news .card .card-image,
+    #local-news .card .card-content {
+        height: 100%;
+    }
+
     #local-news .grid-container {
+        grid-template-rows: repeat(8, 90px);
         grid-template-areas: 
         'A A A A B B B B'
+        'A A A A B B B B'
+        'C C C C D D D D'
         'C C C C D D D D'
         'E E E E F F F F'
+        'E E E E F F F F'
+        'G G G G H H H H'
         'G G G G H H H H';
     }
+    /* #local-news .grid-container {
+        grid-template-columns: repeat(8, 1fr);
+        grid-template-areas: 
+        'A A B B C C D D'
+        'A A B B C C D D'
+        'A A B B C C D D'
+        'E E F F G G H H'
+        'E E F F G G H H'
+        'E E F F G G H H';
+    } */
 }
 
 @media screen and (max-width: 850px) {
@@ -113,17 +151,36 @@
     }
 
     #finance-news .grid-container {
-        grid-template-rows: repeat(4, 180px);
         grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(4, 180px);
         grid-template-areas: 
         'A A A'
         'A A A'
         'B B C'
         'E D D';
     }
+
     #finance-news .card > div {
         height: 100%;
         max-height: 100% ;
+    }
+
+    #more-finance-news  .grid-container {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(12, 90PX);
+        grid-template-areas: 
+        'A A A A'
+        'A A A A'
+        'A A A A'
+        'A A A A'
+        'B B C C'
+        'B B C C'
+        'D D E E'
+        'D D E E'
+        'F F G G'
+        'F F G G'
+        'H H I I'
+        'H H I I';
     }
 }
 
@@ -147,6 +204,58 @@
     .trend-news aside {
        display: none;
     }
+
+    #finance-news .grid-container {
+        grid-template-rows: repeat(6, 180px);
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-areas: 
+        'A A A'
+        'A A A'
+        'B B B'
+        'C C C'
+        'D D D'
+        'E E E';
+    }
+
+    #more-finance-news  .grid-container {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(12, 90PX);
+        grid-template-areas: 
+        'A A A A'
+        'A A A A'
+        'A A A A'
+        'A A A A'
+        'B B C C'
+        'B B C C'
+        'D D E E'
+        'D D E E'
+        'F F G G'
+        'F F G G'
+        'H H I I'
+        'H H I I';
+    }
+
+    #local-news .grid-container {
+        grid-template-columns: repeat(8, 1fr);
+        grid-template-rows: repeat(16, 90px);
+        grid-template-areas: 
+        'A A A A A A A A'
+        'A A A A A A A A'
+        'B B B B B B B B'
+        'B B B B B B B B'
+        'C C C C C C C C'
+        'C C C C C C C C'
+        'D D D D D D D D'
+        'D D D D D D D D'
+        'E E E E E E E E'
+        'E E E E E E E E'
+        'F F F F F F F F'
+        'F F F F F F F F'
+        'G G G G G G G G'
+        'G G G G G G G G'
+        'H H H H H H H H'
+        'H H H H H H H H';
+    }
 }
 
 @media screen and (max-width: 568px) {
@@ -157,6 +266,10 @@
 }
 
 @media screen and (max-width: 490px) {
+    section {
+        padding-top: 70px;
+    }
+
     header {
         height: 60px;
     }
@@ -205,32 +318,71 @@
         font-size: 1em;
     }
 
+    
     #head-news > .grid-container {
+        grid-template-columns: repeat(8, 1fr);
+        grid-template-rows: repeat(12, 75px);
         grid-template-areas: 
-        'A A A A'
-        'A A A A'
-        'B B B B'
-        'B B B B';
+        'A A A A A A A A'
+        'A A A A A A A A'
+        'A A A A A A A A'
+        'A A A A A A A A'
+        'B B B B B B B B'
+        'B B B B B B B B'
+        'B B B B B B B B'
+        'B B B B B B B B'
+        'B B B B B B B B'
+        'B B B B B B B B'
+        'B B B B B B B B'
+        'B B B B B B B B';
     }
 
     #box-news.grid-item .grid-container {
+        grid-template-columns: repeat(8, 1fr);
+        grid-template-rows: repeat(8, 75px);
         grid-template-areas: 
-        'A A A A'
-        'B B B B'
-        'C C C C'
-        'D D D D';
+        'A A A A A A A A'
+        'A A A A A A A A'
+        'B B B B B B B B'
+        'B B B B B B B B'
+        'C C C C C C C C'
+        'C C C C C C C C'
+        'D D D D D D D D'
+        'D D D D D D D D';
     }
 
     #carousel-news.grid-item .card .card-image {
-        height: 300px;
+        /* height: 300px; */
     }
 
     #box-news.grid-item .card .card-image {
-        height: 150px;
+        /* height: 150px; */
     }
 
     .trend-news .card {
-        max-height: 150px;
+        /* max-height: 150px; */
+    }
+
+    #finance-news .grid-container {
+        grid-template-rows: repeat(6, 150px);
+    }
+
+    #more-finance-news  .grid-container {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(12, 75PX);
+        grid-template-areas: 
+        'A A A A'
+        'A A A A'
+        'A A A A'
+        'A A A A'
+        'B B C C'
+        'B B C C'
+        'D D E E'
+        'D D E E'
+        'F F G G'
+        'F F G G'
+        'H H I I'
+        'H H I I';
     }
 
 }
@@ -250,7 +402,7 @@
         padding-bottom: 0;
     }
 
-    #local-news .grid-container {
+    /* #local-news .grid-container {
         grid-template-areas: 
         'A A A A'
         'B B B B'
@@ -270,5 +422,5 @@
     #local-news .card > div {
         flex-basis: 50%;
         height: 100%;
-    }
+    } */
 }

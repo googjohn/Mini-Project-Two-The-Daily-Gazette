@@ -23,6 +23,8 @@ function dateToday() {
     return day_Today.innerHTML = `${currentDay}, ${currentDate} ${currentMonth}`;
 } dateToday();
 
+window.dateToday = dateToday
+
 // set time function
 function timeNow() {
     const time_Now = document.querySelector('.time-now');

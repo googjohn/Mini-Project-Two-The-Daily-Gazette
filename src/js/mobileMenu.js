@@ -8,7 +8,7 @@ const entmentElement = mobileNavigation.children[0].lastElementChild.previousEle
 const scitechElement = mobileNavigation.children[0].lastElementChild.previousElementSibling;
 const firstElement = mobileNavigation.children[0].firstElementChild;
 const lastElement = mobileNavigation.children[0].lastElementChild;
-isMobileActive = false;
+let isMobileActive = false;
 
 function mobileNavHandle() {
     if (isMobileActive) {
@@ -51,7 +51,6 @@ function windowSizeHandle() {
 
     };
 };
-
 window.addEventListener('resize', () => {
     if (!mobileNavigation.classList.contains('mobile-active')) {
 

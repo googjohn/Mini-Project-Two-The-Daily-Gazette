@@ -21,9 +21,8 @@ function dateToday() {
     const currentMonth = date.toLocaleString('default', { month: 'long'});
 
     return day_Today.innerHTML = `${currentDay}, ${currentDate} ${currentMonth}`;
-} dateToday();
-
-window.dateToday = dateToday
+} 
+// dateToday();
 
 // set time function
 function timeNow() {

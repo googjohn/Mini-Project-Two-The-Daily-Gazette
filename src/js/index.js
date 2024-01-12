@@ -501,7 +501,6 @@ async function moreFinanceNews(endpoint) {
     }
 }
 
-
 // sports news
 async function sportsNews(endpoint) {
     // API GNEWS variables/params
@@ -650,7 +649,3 @@ window.addEventListener('DOMContentLoaded', () => {
     // scienceNews('top-headlines');
     // entmentNews('top-headlines');
 })
-
-function itemCount() {
-
-}

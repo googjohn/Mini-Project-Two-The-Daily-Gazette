@@ -122,6 +122,32 @@
     #local-news span.news-source {
         position: relative;
     }
+
+    #entertainment-news .grid-container,
+    #scitech-news .grid-container {
+        grid-template-columns: repeat(6, 1fr) ;
+        grid-template-rows: repeat(10, 90px);
+        grid-template-areas: 
+        'A A A A A A'
+        'A A A A A A'
+        'A A A A A A'
+        'A A A A A A'
+        'B B B C C C'
+        'B B B C C C'
+        'D D D E E E'
+        'D D D E E E'
+        'F F F G G G'
+        'F F F G G G';
+    }
+
+    #entertainment-news .flex-container,
+    #scitech-news .flex-container {
+        flex-direction: column;
+    }
+
+    #more-entertainment-news.flex-item {
+        order: 2;
+    }
 }
 
 @media screen and (max-width: 850px) {
@@ -155,13 +181,17 @@
     }
 
     #finance-news .grid-container {
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(4, 180px);
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-rows: repeat(8, 90px);
         grid-template-areas: 
-        'A A A'
-        'A A A'
-        'B B C'
-        'E D D';
+        'A A A A A A'
+        'A A A A A A'
+        'A A A A A A'
+        'A A A A A A'
+        'B B B B C C'
+        'B B B B C C'
+        'D D E E E E'
+        'D D E E E E';
     }
 
     #finance-news .card > div {
@@ -171,7 +201,7 @@
 
     #more-finance-news  .grid-container {
         grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: repeat(12, 90PX);
+        grid-template-rows: repeat(14, 90PX);
         grid-template-areas: 
         'A A A A'
         'A A A A'
@@ -184,7 +214,26 @@
         'F F G G'
         'F F G G'
         'H H I I'
-        'H H I I';
+        'H H I I'
+        'J J J J'
+        'J J J J';
+    }
+
+    #entertainment-news .grid-container,
+    #scitech-news .grid-container {
+        grid-template-columns: repeat(6, 1fr) ;
+        grid-template-rows: repeat(10, 90px);
+        grid-template-areas: 
+        'A A A A A A'
+        'A A A A A A'
+        'A A A A A A'
+        'A A A A A A'
+        'B B B C C C'
+        'B B B C C C'
+        'D D D E E E'
+        'D D D E E E'
+        'F F F G G G'
+        'F F F G G G';
     }
 }
 
@@ -221,21 +270,27 @@
        display: none;
     }
 
+
     #finance-news .grid-container {
-        grid-template-rows: repeat(6, 180px);
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(12, 90px);
         grid-template-areas: 
-        'A A A'
-        'A A A'
-        'B B B'
-        'C C C'
-        'D D D'
-        'E E E';
+        'A A A A A A'
+        'A A A A A A'
+        'A A A A A A'
+        'A A A A A A'
+        'B B B B B B'
+        'B B B B B B'
+        'C C C C C C'
+        'C C C C C C'
+        'D D D D D D'
+        'D D D D D D'
+        'E E E E E E'
+        'E E E E E E';
     }
 
     #more-finance-news  .grid-container {
         grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: repeat(12, 90PX);
+        grid-template-rows: repeat(14, 90PX);
         grid-template-areas: 
         'A A A A'
         'A A A A'
@@ -248,7 +303,9 @@
         'F F G G'
         'F F G G'
         'H H I I'
-        'H H I I';
+        'H H I I'
+        'J J J J'
+        'J J J J';
     }
 
     #local-news .grid-container {
@@ -382,28 +439,46 @@
     .trend-news .card {
         /* max-height: 150px; */
     }
-    
 
-    #finance-news .grid-container {
-        grid-template-rows: repeat(6, 150px);
+    #local-news .grid-container {
+        grid-template-rows: repeat(16, 75px);
+    }
+    
+    #more-finance-news  .grid-container {
+        grid-template-columns: repeat(8, 1fr);
+        grid-template-rows: repeat(14, 75px);
+        grid-template-areas: 
+        'A A A A A A A A'
+        'A A A A A A A A'
+        'A A A A A A A A'
+        'A A A A A A A A'
+        'B B B B C C C C'
+        'B B B B C C C C'
+        'D D D D E E E E'
+        'D D D D E E E E'
+        'F F F F G G G G'
+        'F F F F G G G G'
+        'H H H H I I I I'
+        'H H H H I I I I'
+        'J J J J J J J J'
+        'J J J J J J J J';
     }
 
-    #more-finance-news  .grid-container {
-        grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: repeat(12, 75PX);
+    #entertainment-news .grid-container,
+    #scitech-news .grid-container {
+        grid-template-columns: repeat(6, 1fr) ;
+        grid-template-rows: repeat(10, 75px);
         grid-template-areas: 
-        'A A A A'
-        'A A A A'
-        'A A A A'
-        'A A A A'
-        'B B C C'
-        'B B C C'
-        'D D E E'
-        'D D E E'
-        'F F G G'
-        'F F G G'
-        'H H I I'
-        'H H I I';
+        'A A A A A A'
+        'A A A A A A'
+        'A A A A A A'
+        'A A A A A A'
+        'B B B C C C'
+        'B B B C C C'
+        'D D D E E E'
+        'D D D E E E'
+        'F F F G G G'
+        'F F F G G G';
     }
 
 }
@@ -444,6 +519,75 @@
         flex-basis: 50%;
         height: 100%;
     } */
+
+    #finance-news .grid-container {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(12, 75px);
+        grid-template-areas: 
+        'A A A'
+        'A A A'
+        'A A A'
+        'A A A'
+        'B B B'
+        'B B B'
+        'C C C'
+        'C C C'
+        'D D D'
+        'D D D'
+        'E E E'
+        'E E E';
+    }
+
+    #more-finance-news  .grid-container {
+        grid-template-columns: repeat(8, 1fr);
+        grid-template-rows: repeat(22, 75px);
+        grid-template-areas: 
+        'A A A A A A A A'
+        'A A A A A A A A'
+        'A A A A A A A A'
+        'A A A A A A A A'
+        'B B B B B B B B'
+        'B B B B B B B B'
+        'C C C C C C C C'
+        'C C C C C C C C'
+        'D D D D D D D D'
+        'D D D D D D D D'
+        'E E E E E E E E'
+        'E E E E E E E E'
+        'F F F F F F F F'
+        'F F F F F F F F'
+        'G G G G G G G G'
+        'G G G G G G G G'
+        'H H H H H H H H'
+        'H H H H H H H H'
+        'I I I I I I I I'
+        'I I I I I I I I'
+        'J J J J J J J J'
+        'J J J J J J J J';
+    }
+
+    #entertainment-news .grid-container,
+    #scitech-news .grid-container {
+        grid-template-columns: repeat(6, 1fr) ;
+        grid-template-rows: repeat(16, 75px);
+        grid-template-areas: 
+        'A A A A A A'
+        'A A A A A A'
+        'A A A A A A'
+        'A A A A A A'
+        'B B B B B B'
+        'B B B B B B'
+        'C C C C C C'
+        'C C C C C C'
+        'D D D D D D'
+        'D D D D D D'
+        'E E E E E E'
+        'E E E E E E'
+        'F F F F F F'
+        'F F F F F F'
+        'G G G G G G'
+        'G G G G G G';
+    }
 
     
 }

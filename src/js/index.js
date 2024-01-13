@@ -189,7 +189,7 @@ async function headNews(endpoint) {
                             <div class="news-title">
                                 <h2><a href=${article.url} target="_blank">${article.title}</a></h2>
                             </div>
-                        <div>
+                        </div>
                     </div>`
 
                 boxNews.appendChild(boxArticle);
@@ -234,29 +234,26 @@ async function trendNews(endpoint) {
 
         const trendNews = document.querySelector('#trend-news .grid-container');
         const moreTrendNews = document.querySelector('#more-trend-news .aside-content ul');
-        moreTrendNews.addEventListener('change', () => {
-
-        })
+       
         for (let ii = 0; ii < articles.length; ii++) {
             const article = articles[ii];
             
+            const articleElement = document.createElement('article');
+            articleElement.classList = 'grid-item';
             
             if (ii < 3) {
                 
-                const articleElement = document.createElement('article');
-                articleElement.classList = 'grid-item';
-
                 articleElement.innerHTML = 
                     `<div class='card'>
                         <div class='card-image'>
-                            <img src=${article.image} alt="">
+                            <img src=${article.image} onerror="this.src='./images/no-image-available.png'" alt="">
                         </div>
                         <div class="card-content">
                             <span class="news-source"><a href=${article.source.url} target="_blank">${article.source.name}</a></span>
                             <div class="news-title">
                                 <h2><a href=${article.url} target="_blank">${article.title}</a></h2>
                             </div>
-                        <div>
+                        </div>
                     </div>`;
             
                 trendNews.appendChild(articleElement)
@@ -315,21 +312,21 @@ async function localNews(endpoint) {
 
             const articleElement = document.createElement('article')
             articleElement.classList = 'grid-item';
-    
+            
             articleElement.innerHTML = 
                 `<div class='card'>
                     <div class='card-image'>
-                        <img src=${article.image} alt="">
+                        <img src="${article.image}" onerror="this.src='./images/no-image-available.png'" alt=""/>
                     </div>
                     <div class="card-content">
-                        <span class="news-source"><a href=${article.source.url} target="_blank">${article.source.name}</a></span>
+                        <span class="news-source"><a href="${article.source.url}" target="_blank">${article.source.name}</a></span>
                         <div class="news-title">
-                            <h2><a href=${article.url} target="_blank">${article.title}</a></h2>
+                            <h2><a href="${article.url}" target="_blank">${article.title}</a></h2>
                         </div>
-                    <div>
+                    </div>
                 </div>`;
             
-            localNews.appendChild(articleElement)
+            localNews.appendChild(articleElement);    
         })
 
     } catch (error) {
@@ -372,22 +369,23 @@ async function financeNews(endpoint) {
         for (let ii = 0; ii < articles.length; ii++) {
             const article = articles[ii];
     
+            const articleElement = document.createElement('article')
+            articleElement.classList = 'grid-item';
+
             if (ii < (articles.length - 1) / 2) {
-                const articleElement = document.createElement('article')
-                articleElement.classList = 'grid-item';
     
                 if (ii !== 0 && ii !== 3) {
                     articleElement.innerHTML = 
                         `<div class='card'>
                             <div class='card-image'>
-                                <img src=${article.image} alt="">
+                                <img src=${article.image} onerror="this.src='./images/no-image-available.png'" alt="">
                             </div>
                             <div class="card-content">
                                 <span class="news-source"><a href=${article.source.url} target="_blank">${article.source.name}</a></span>
                                 <div class="news-title">
                                     <h2><a href=${article.url} target="_blank">${article.title}</a></h2>
                                 </div>
-                            <div>
+                            </div>
                         </div>`;
                 
                     financeNews.appendChild(articleElement)
@@ -395,7 +393,7 @@ async function financeNews(endpoint) {
                     articleElement.innerHTML = 
                         `<div class='card'>
                             <div class='card-image'>
-                                <img src=${article.image} alt="">
+                                <img src=${article.image} onerror="this.src='./images/no-image-available.png'" alt="">
                             </div>
                             <div class="card-content">
                                 <span class="news-source"><a href=${article.source.url} target="_blank">${article.source.name}</a></span>
@@ -405,7 +403,7 @@ async function financeNews(endpoint) {
                                 <div class="news-description">
                                     <p>${article.description}</p>
                                 </div>
-                            <div>
+                            </div>
                         </div>`;
                 
                     financeNews.appendChild(articleElement)
@@ -424,10 +422,10 @@ async function moreFinanceNews(endpoint) {
     // API GNEWS variables/params
     const gnews_params = {
         API_KEY: gnewsApiKeys.apiKey_11,
-        country: 'ph',
-        category: 'health',
+        country: 'us',
+        category: 'business',
         language: 'en',
-        max : 9,
+        max : 10,
     }
     
     const { 
@@ -446,12 +444,8 @@ async function moreFinanceNews(endpoint) {
         };
 
         const { articles } = results;
-        console.log(articles);
 
         const moreFinanceNews = document.querySelector('#more-finance-news .grid-container');
-
-        const articleElement = document.createElement('article');
-        articleElement.classList = 'grid-item';
 
         for (let ii = 0; ii < articles.length; ii++) {
             const article = articles[ii];
@@ -463,14 +457,14 @@ async function moreFinanceNews(endpoint) {
                 articleElement.innerHTML = 
                     `<div class='card'>
                         <div class='card-image'>
-                            <img src=${article.image} alt="">
+                            <img src=${article.image} onerror="this.src='./images/no-image-available.png'" alt="">
                         </div>
                         <div class="card-content">
                             <span class="news-source"><a href=${article.source.url} target="_blank">${article.source.name}</a></span>
                             <div class="news-title">
                                 <h2><a href=${article.url} target="_blank">${article.title}</a></h2>
                             </div>
-                        <div>
+                        </div>
                     </div>`;
             
                 moreFinanceNews.appendChild(articleElement)
@@ -478,7 +472,7 @@ async function moreFinanceNews(endpoint) {
                 articleElement.innerHTML = 
                     `<div class='card'>
                         <div class='card-image'>
-                            <img src=${article.image} alt="">
+                            <img src=${article.image} onerror="this.src='./images/no-image-available.png'" alt="">
                         </div>
                         <div class="card-content">
                             <span class="news-source"><a href=${article.source.url} target="_blank">${article.source.name}</a></span>
@@ -488,7 +482,7 @@ async function moreFinanceNews(endpoint) {
                             <div class="news-description">
                                 <p>${article.description}</p>
                             </div>
-                        <div>
+                        </div>
                     </div>`;
             
                 moreFinanceNews.appendChild(articleElement)
@@ -554,6 +548,8 @@ async function techNews(endpoint) {
         max
     } = gnews_params;
 
+    let itemCount = 0;
+
     try {
         const results = await fetchApiData(endpoint, country, category, language, max, API_KEY)
 
@@ -562,6 +558,70 @@ async function techNews(endpoint) {
         };
 
         const { articles } = results;
+
+        const techNews = document.querySelector('#scitech-news .grid-container');
+        const moreScitechNews = document.querySelector('#more-scitech-news .aside-content ul')
+
+        for (let ii = 0; ii < articles.length; ii++) {
+            const article = articles[ii];
+
+            const articleElement = document.createElement('article');
+            articleElement.classList = 'grid-item';
+
+            if (ii < 7) {
+
+                if (ii === 0) {
+
+                    articleElement.innerHTML = 
+                    `<div class='card'>
+                        <div class='card-image'>
+                            <img src=${article.image} onerror="this.src='./images/no-image-available.png'" alt="">
+                        </div>
+                        <div class="card-content">
+                            <span class="news-source"><a href=${article.source.url} target="_blank">${article.source.name}</a></span>
+                            <div class="news-title">
+                                <h2><a href=${article.url} target="_blank">${article.title}</a></h2>
+                            </div>
+                            <div class="news-description">
+                                <p>${article.description}</p>
+                            </div>
+                        </div>
+                    </div>`;
+
+                    techNews.appendChild(articleElement);
+
+                } else {
+
+                    articleElement.innerHTML = 
+                    `<div class='card'>
+                        <div class='card-image'>
+                            <img src=${article.image} onerror="this.src='./images/no-image-available.png'" alt="">
+                        </div>
+                        <div class="card-content">
+                            <span class="news-source"><a href=${article.source.url} target="_blank">${article.source.name}</a></span>
+                            <div class="news-title">
+                                <h2><a href=${article.url} target="_blank">${article.title}</a></h2>
+                            </div>
+                        </div>
+                    </div>`;
+
+                    techNews.appendChild(articleElement);
+
+                }
+            } else if (ii >= 7 && ii < articles.length) {
+                
+                const liElement = document.createElement('li');
+
+                if (liElement) {
+                    itemCount++;
+                }
+
+                liElement.innerHTML = 
+                    `<span class="item-number">${itemCount}</span><a href=${article.url} target="_blank">${article.title}</a>`;
+
+                moreScitechNews.appendChild(liElement);
+            }      
+        }
 
     } catch (error) {
         console.error('Failed to fetch data from API', error)
@@ -622,6 +682,8 @@ async function entmentNews(endpoint) {
         max
     } = gnews_params;
 
+    let itemCount = 0;
+    
     try {
         const results = await fetchApiData(endpoint, country, category, language, max, API_KEY)
 
@@ -630,6 +692,68 @@ async function entmentNews(endpoint) {
         };
 
         const { articles } = results;
+
+        const entmentNews = document.querySelector('#entertainment-news .grid-container');
+        const moreEntmentNews = document.querySelector('#more-entertainment-news .aside-content ul');
+
+        for (let ii = 0; ii < articles.length; ii++) {
+            const article = articles[ii];
+            
+            const articleElement = document.createElement('article');
+            articleElement.classList = 'grid-item';
+
+            if (ii < 7) {
+
+                if (ii === 0) {
+                    articleElement.innerHTML = 
+                    `<div class='card'>
+                        <div class='card-image'>
+                            <img src=${article.image} onerror="this.src='./images/no-image-available.png'" alt="">
+                        </div>
+                        <div class="card-content">
+                            <span class="news-source"><a href=${article.source.url} target="_blank">${article.source.name}</a></span>
+                            <div class="news-title">
+                                <h2><a href=${article.url} target="_blank">${article.title}</a></h2>
+                            </div>
+                            <div class="news-description">
+                                <p>${article.description}</p>
+                            </div>
+                        </div>
+                    </div>`;
+            
+                    entmentNews.appendChild(articleElement);
+                } else {                    
+
+                    articleElement.innerHTML = 
+                        `<div class='card'>
+                            <div class='card-image'>
+                                <img src=${article.image} onerror="this.src='./images/no-image-available.png'" alt="">
+                            </div>
+                            <div class="card-content">
+                                <span class="news-source"><a href=${article.source.url} target="_blank">${article.source.name}</a></span>
+                                <div class="news-title">
+                                    <h2><a href=${article.url} target="_blank">${article.title}</a></h2>
+                                </div>
+                            </div>
+                        </div>`;
+                    
+                    entmentNews.appendChild(articleElement)
+                }
+                
+            } else if (ii >= 7 && ii < articles.length) {
+                
+                const liElement = document.createElement('li');
+
+                if (liElement) {
+                    itemCount++;
+                }
+
+                liElement.innerHTML = 
+                    `<span class="item-number">${itemCount}</span><a href=${article.url} target="_blank">${article.title}</a>`;
+
+                moreEntmentNews.appendChild(liElement)
+            }
+        }
 
     } catch (error) {
         console.error('Failed to fetch data from API', error)
@@ -645,7 +769,7 @@ window.addEventListener('DOMContentLoaded', () => {
     financeNews('top-headlines');
     moreFinanceNews('top-headlines');
     // sportsNews('top-headlines');
-    // techNews('top-headlines');
+    techNews('top-headlines');
     // scienceNews('top-headlines');
-    // entmentNews('top-headlines');
+    entmentNews('top-headlines');
 })

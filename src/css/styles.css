@@ -898,7 +898,7 @@ footer .flex-item .site-logo {
 }
 
 footer .site-logo img {
-    width: 100%;
+    width: 250px;
 }
 
 .site-links {
@@ -975,18 +975,24 @@ footer .flex-item .grid-container {
 .foot-title h4 {
     color: var(--text-light-clr);
     font-weight: 400;
-    text-align: center;
+    /* text-align: center; */
     font-size: 1.1rem;
     padding: 10px;
 }
 
+.grid-item:last-child .foot-title h4 {
+    text-align: center;
+}
+
 .foot-content ul {
     text-decoration: none;
+    padding: 0 20px;
+    line-height: 2;
 }
 
 .foot-content a {
     color: var(--text-lida-clr);
-    text-align: center;
+    /* text-align: center; */
     font-size: 1rem;
 }
 
@@ -994,7 +1000,8 @@ footer .flex-item .grid-container {
     color: var(--text-lida-clr)
 }
 
-.site-links a:hover {
+.site-links a:hover,
+.foot-content a:hover {
     color: var(--text-light-clr);
 }
 

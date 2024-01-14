@@ -110,7 +110,9 @@ async function fetchApiData(endpoint, country, category, language, max, API_KEY)
         const response = await fetch(apiUrl);
 
         if (!response.ok) {
-            throw new Error(`Failed to fetch data. Status: ${response.status}, ${response.statusText}`);
+            console.error(`Failed to fetch data. Status: ${response.status}, ${response.statusText}`);
+            hideSpinner();
+            return;
         };
 
         const result = await response.json();
@@ -128,7 +130,7 @@ async function fetchApiData(endpoint, country, category, language, max, API_KEY)
 async function headNews(endpoint) {
     // API GNEWS variables/params
     const gnews_params = {
-        API_KEY: gnewsApiKeys.apiKey_1,
+        API_KEY: gnewsApiKeys.apiKey_14,
         country: 'ph',
         category: 'world',
         language: 'en',
@@ -210,7 +212,7 @@ async function headNews(endpoint) {
 async function trendNews(endpoint) {
     // API GNEWS variables/params
     const gnews_params = {
-        API_KEY: gnewsApiKeys.apiKey_2,
+        API_KEY: gnewsApiKeys.apiKey_15,
         country: 'ph',
         category: 'general',
         language: 'en',
@@ -286,7 +288,7 @@ async function trendNews(endpoint) {
 async function localNews(endpoint) {
     // API GNEWS variables/params
     const gnews_params = {
-        API_KEY: gnewsApiKeys.apiKey_3,
+        API_KEY: gnewsApiKeys.apiKey_16,
         country: 'ph',
         category: 'nation',
         language: 'en',
@@ -344,7 +346,7 @@ async function financeNews(endpoint) {
 
     // sports GNEWS variables/params
     const gnews_params = {
-        API_KEY: gnewsApiKeys.apiKey_4,
+        API_KEY: gnewsApiKeys.apiKey_17,
         country: 'ph',
         category: 'business',
         language: 'en',
@@ -425,7 +427,7 @@ async function financeNews(endpoint) {
 async function moreFinanceNews(endpoint) {
     // API GNEWS variables/params
     const gnews_params = {
-        API_KEY: gnewsApiKeys.apiKey_11,
+        API_KEY: gnewsApiKeys.apiKey_18,
         country: 'us',
         category: 'business',
         language: 'en',
@@ -503,7 +505,7 @@ async function moreFinanceNews(endpoint) {
 async function sportsNews(endpoint) {
     // API GNEWS variables/params
     const gnews_params = {
-        API_KEY: gnewsApiKeys.apiKey_5,
+        API_KEY: gnewsApiKeys.apiKey_19,
         country: 'ph',
         category: 'sports',
         language: 'en',
@@ -621,7 +623,7 @@ async function moreSportsNews(endpoint) {
 
 // mlb news
 async function mlbSportsNews(endpoint) {
-    const apiKey = gnewsApiKeys.apiKey_13
+    const apiKey = gnewsApiKeys.apiKey_20;
     const apiUrlMlb = `https://gnews.io/api/v4/${endpoint}?q=mlb&lang=en&country=us&apikey=${apiKey}`;
 
     try {
@@ -656,7 +658,7 @@ async function mlbSportsNews(endpoint) {
 
 // nba news
 async function nbaSportsNews(endpoint) {
-    const apiKey = gnewsApiKeys.apiKey_12
+    const apiKey = gnewsApiKeys.apiKey_21;
     const apiUrlNba = `https://gnews.io/api/v4/${endpoint}?q=nba&lang=en&country=us&apikey=${apiKey}`;
 
     try {
@@ -692,7 +694,7 @@ async function nbaSportsNews(endpoint) {
 async function techNews(endpoint) {
     // API GNEWS variables/params
     const gnews_params = {
-        API_KEY: gnewsApiKeys.apiKey_6,
+        API_KEY: gnewsApiKeys.apiKey_22,
         country: 'ph',
         category: 'technology',
         language: 'en',
@@ -826,7 +828,7 @@ async function scienceNews(endpoint) {
 async function entmentNews(endpoint) {
     // API GNEWS variables/params
     const gnews_params = {
-        API_KEY: gnewsApiKeys.apiKey_8,
+        API_KEY: gnewsApiKeys.apiKey_23,
         country: 'ph',
         category: 'entertainment',
         language: 'en',

@@ -84,7 +84,8 @@ span.news-source a,
 #more-finance-news a,
 #entertainment-news article a,
 #scitech-news article a,
-#sports-news article a {
+#sports-news article a,
+.footer-navigation a {
 	color: var(--text-light-clr);
 }
 
@@ -95,7 +96,8 @@ span.news-source a,
 #more-finance-news a:hover,
 #entertainment-news a:hover,
 #scitech-news a:hover,
-#sports-news a:hover {
+#sports-news a:hover,
+.foot-content a:hover {
 	text-decoration: underline;
 }
 

@@ -542,12 +542,6 @@ span.date-today {
     justify-content: space-between;
 }
 
-#local-news .card .card-content .news-title a,
-#more-entertainment-news a,
-#more-scitech-news a {
-    color: var(--text-dark-clr);
-}
-
 #local-news span.news-source a {
     display: inline-block;
     color: var(--text-dark-clr);
@@ -786,6 +780,89 @@ span.date-today {
 }
 
 #scitech-news .grid-container .card-content {
+    position: absolute;
+    display: flex;
+    top: 0;
+    flex-direction: column;
+    justify-content: end;
+    color: white;
+    background-color: rgba(var(--dark-clr-rgb), .35);
+}
+
+/* sports news */
+#more-sports-news.flex-item {
+	flex: 1 1 400px;
+}
+
+.flex-container .grid-container.flex-item {
+    flex: 1 1 calc(100% - 410px);
+    height: 100%;
+}
+
+#more-sports-news .aside-content {
+    /* height: 100%; */
+    margin-bottom: 50px;
+}
+
+#sports-news .grid-container {
+    grid-template-columns: repeat(6, 1fr) ;
+    grid-template-rows: repeat(12, 90px);
+    grid-template-areas: 
+    'A A A A A A'
+    'A A A A A A'
+    'A A A A A A'
+    'A A A A A A'
+    'B B B B C C'
+    'B B B B C C'
+    'D D E E E E'
+    'D D E E E E'
+    'F F F F G G'
+    'F F F F G G'
+    'H H I I I I'
+    'H H I I I I';
+}
+
+#sports-news .grid-container .grid-item:nth-child(1) {
+    grid-area: A;
+}
+
+#sports-news .grid-container .grid-item:nth-child(2) {
+    grid-area: B;
+}
+
+#sports-news .grid-container .grid-item:nth-child(3) {
+    grid-area: C;
+}
+
+#sports-news .grid-container .grid-item:nth-child(4) {
+    grid-area: D;
+}
+
+#sports-news .grid-container .grid-item:nth-child(5) {
+    grid-area: E;
+}
+
+#sports-news .grid-container .grid-item:nth-child(6) {
+    grid-area: F;
+}
+
+#sports-news .grid-container .grid-item:nth-child(7) {
+    grid-area: G;
+}
+
+#sports-news .grid-container .grid-item:nth-child(8) {
+    grid-area: H;
+}
+
+#sports-news .grid-container .grid-item:nth-child(9) {
+    grid-area: I;
+}
+
+#sports-news .grid-container .card-image {
+    height: 100%;
+}
+
+#sports-news .grid-container .card-content {
     position: absolute;
     display: flex;
     top: 0;

@@ -83,7 +83,8 @@ span.news-source a,
 #finance-news a,
 #more-finance-news a,
 #entertainment-news article a,
-#scitech-news article a {
+#scitech-news article a,
+#sports-news article a {
 	color: var(--text-light-clr);
 }
 
@@ -93,8 +94,16 @@ span.news-source a,
 #finance-news a:hover,
 #more-finance-news a:hover,
 #entertainment-news a:hover,
-#scitech-news a:hover {
+#scitech-news a:hover,
+#sports-news a:hover {
 	text-decoration: underline;
+}
+
+#local-news .card .card-content .news-title a,
+#more-entertainment-news a,
+#more-scitech-news a,
+#more-sports-news a {
+    color: var(--text-dark-clr);
 }
 
 .news-source a:hover {

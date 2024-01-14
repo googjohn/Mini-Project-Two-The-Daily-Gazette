@@ -141,12 +141,31 @@
     }
 
     #entertainment-news .flex-container,
-    #scitech-news .flex-container {
+    #scitech-news .flex-container,
+    #sports-news .flex-container {
         flex-direction: column;
     }
 
     #more-entertainment-news.flex-item {
         order: 2;
+    }
+
+    #sports-news .grid-container {
+        grid-template-columns: repeat(6, 1fr) ;
+        grid-template-rows: repeat(12, 90px);
+        grid-template-areas: 
+        'A A A A A A'
+        'A A A A A A'
+        'A A A A A A'
+        'A A A A A A'
+        'B B B C C C'
+        'B B B C C C'
+        'D D D E E E'
+        'D D D E E E'
+        'F F F G G G'
+        'F F F G G G'
+        'H H H I I I'
+        'H H H I I I';
     }
 }
 
@@ -235,6 +254,7 @@
         'F F F G G G'
         'F F F G G G';
     }
+    
 }
 
 @media screen and (max-width: 660px) {
@@ -468,17 +488,11 @@
     #scitech-news .grid-container {
         grid-template-columns: repeat(6, 1fr) ;
         grid-template-rows: repeat(10, 75px);
-        grid-template-areas: 
-        'A A A A A A'
-        'A A A A A A'
-        'A A A A A A'
-        'A A A A A A'
-        'B B B C C C'
-        'B B B C C C'
-        'D D D E E E'
-        'D D D E E E'
-        'F F F G G G'
-        'F F F G G G';
+    }
+
+    #sports-news .grid-container {
+        grid-template-columns: repeat(6, 1fr) ;
+        grid-template-rows: repeat(12, 75px);
     }
 
 }
@@ -589,5 +603,29 @@
         'G G G G G G';
     }
 
+    #sports-news .grid-container {
+        grid-template-rows: repeat(20, 90px);
+        grid-template-areas: 
+        'A A A A A A'
+        'A A A A A A'
+        'A A A A A A'
+        'A A A A A A'
+        'B B B B B B'
+        'B B B B B B'
+        'C C C C C C'
+        'C C C C C C'
+        'D D D D D D'
+        'D D D D D D'
+        'E E E E E E'
+        'E E E E E E'
+        'F F F F F F'
+        'F F F F F F'
+        'G G G G G G'
+        'G G G G G G'
+        'H H H H H H'
+        'H H H H H H'
+        'I I I I I I'
+        'I I I I I I';
+    }
     
 }

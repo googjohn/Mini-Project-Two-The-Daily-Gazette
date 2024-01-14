@@ -1,34 +1,34 @@
-const sections = document.getElementsByTagName('section');
-const moreTrendNews = document.querySelector('.more-trend-news');
+// const sections = document.getElementsByTagName('section');
+// const moreTrendNews = document.querySelector('.more-trend-news');
 // const mTn = moreTrendNews.children
 // const mtn = [...mTn];
 
-const moreEntertainmentNews = document.querySelector('.more-entertainment-news')
+// const moreEntertainmentNews = document.querySelector('.more-entertainment-news')
 // const mEn = moreEntertainmentNews.children
 // const men = [...mEn];
 
-const moreScitechNews = document.querySelector('.more-scitech-news')
+// const moreScitechNews = document.querySelector('.more-scitech-news')
 // const mSn = moreScitechNews.children
 // const msn = [...mSn];
 
-const moreSportsNews = document.querySelectorAll('.more-sports-news')
-const mSportn = moreSportsNews.forEach( ol => {
-    ol.style.paddingBottom = '20px';
-    listItemStyle(ol.children)
-});
+// const moreSportsNews = document.querySelectorAll('.more-sports-news')
+// const mSportn = moreSportsNews.forEach( ol => {
+//     ol.style.paddingBottom = '20px';
+//     listItemStyle(ol.children)
+// });
 
-for (let ii = 0; ii < sections.length; ii++) ii % 2 === 0 ? sections[ii].style.backgroundColor = '#ffffff' : sections[ii].style.backgroundColor = '#eaeaea';
+// for (let ii = 0; ii < sections.length; ii++) ii % 2 === 0 ? sections[ii].style.backgroundColor = '#ffffff' : sections[ii].style.backgroundColor = '#eaeaea';
 
-function listItemStyle(arr) {
-    for (let ii = 0; ii < arr.length; ii++) {
-        const listItem = arr[ii];
-        if (ii % 2 === 0) {
-            listItem.style.backgroundColor = '#eaeaea';
-        } else {
-            listItem.style.backgroundColor = '#a6a6a6'
-        }
-    }
-}
+// function listItemStyle(arr) {
+//     for (let ii = 0; ii < arr.length; ii++) {
+//         const listItem = arr[ii];
+//         if (ii % 2 === 0) {
+//             listItem.style.backgroundColor = '#eaeaea';
+//         } else {
+//             listItem.style.backgroundColor = '#a6a6a6'
+//         }
+//     }
+// }
 
 // listItemStyle(mtn)
 // listItemStyle(men)
@@ -503,7 +503,7 @@ async function sportsNews(endpoint) {
         country: 'ph',
         category: 'sports',
         language: 'en',
-        max : 10,
+        max : 9,
     };
     
     const { 
@@ -523,9 +523,175 @@ async function sportsNews(endpoint) {
 
         const { articles } = results;
 
+        const sportsNews = document.querySelector('#sports-news .grid-container');
+        const nbaNews = document.querySelector('#more-sports-news .aside-content #nba-news')
+        const mlbNews = document.querySelector('#more-sports-news .aside-content #mlb-news')
+
+        for (let ii = 0; ii < articles.length; ii++) {
+            const article = articles[ii];
+
+            const articleElement = document.createElement('article');
+            articleElement.classList = 'grid-item';
+
+            
+
+            if (ii === 0) {
+                articleElement.innerHTML = 
+                `<div class='card'>
+                    <div class='card-image'>
+                        <img src=${article.image} onerror="this.src='./images/no-image-available.png'" alt="">
+                    </div>
+                    <div class="card-content">
+                        <span class="news-source"><a href=${article.source.url} target="_blank">${article.source.name}</a></span>
+                        <div class="news-title">
+                            <h2><a href=${article.url} target="_blank">${article.title}</a></h2>
+                        </div>
+                        <div class="news-description">
+                            <p>${article.description}</p>
+                        </div>
+                    </div>
+                </div>`;
+
+                sportsNews.appendChild(articleElement);
+
+            } else {
+                articleElement.innerHTML = 
+                `<div class='card'>
+                    <div class='card-image'>
+                        <img src=${article.image} onerror="this.src='./images/no-image-available.png'" alt="">
+                    </div>
+                    <div class="card-content">
+                        <span class="news-source"><a href=${article.source.url} target="_blank">${article.source.name}</a></span>
+                        <div class="news-title">
+                            <h2><a href=${article.url} target="_blank">${article.title}</a></h2>
+                        </div>
+                    </div>
+                </div>`;
+
+                sportsNews.appendChild(articleElement);
+            }
+        }
+
     } catch (error) {
         console.error('Failed to fetch data from API', error)
        
+    }
+}
+
+// more sports news
+async function moreSportsNews(endpoint) {
+    const apiKey = 'ecbfd1725be34758b06c79adaf8a85ef'
+    const apiUrl = `https://newsapi.org/v2/${endpoint}?country=us&category=sports&pageSize=9&apiKey=${apiKey}`;
+    const apiUrlNba = `https://newsapi.org/v2/${endpoint}?q=nba&pageSize=9&apiKey=${apiKey}`;
+    const apiUrlMlb = `https://newsapi.org/v2/${endpoint}?q=mlb&pageSize=9&apiKey=${apiKey}`;
+    let itemCount = 0;
+
+    try {
+        const response = await fetch(apiUrlNba);
+        const res = await fetch(apiUrlMlb);
+
+        if (!response.ok) {
+            console.error('Invalid response format. No articles found.', response.statusText)
+        }
+
+        const result = await response.json();
+
+        const { articles } = result;
+
+        const nbaSportsNews = document.querySelector('#more-sports-news .aside-content ul#nba-news')
+
+        articles.forEach( article => {
+                
+            const liElement = document.createElement('li');
+
+            if (liElement) {
+                itemCount++;
+            }
+
+            liElement.innerHTML = 
+                `<span class="item-number">${itemCount}</span><a href=${article.url} target="_blank">${article.title}</a>`;
+            nbaSportsNews.appendChild(liElement);
+        })   
+
+    } catch (error) {
+        console.error('Failed to fetch data from API', error)
+    }
+}
+
+// mlb news
+async function mlbSportsNews(endpoint) {
+    const apiKey = 'ecbfd1725be34758b06c79adaf8a85ef'
+    const apiUrlMlb = `https://newsapi.org/v2/${endpoint}?q=mlb&pageSize=10&apiKey=${apiKey}`;
+
+    let itemCount = 0;
+
+    try {
+        const response = await fetch(apiUrlMlb);
+
+        if (!response.ok) {
+            console.error('Invalid response format. No articles found.', response.statusText)
+        }
+
+        const result = await response.json();
+
+        const { articles } = result;
+
+        const mlbSportsNews = document.querySelector('#more-sports-news .aside-content ul#mlb-news')
+
+        articles.forEach( article => {
+                
+            const liElement = document.createElement('li');
+
+            if (liElement) {
+                itemCount++;
+            }
+
+            liElement.innerHTML = 
+                `<span class="item-number">${itemCount}</span><a href=${article.url} target="_blank">${article.title}</a>`;
+                
+            mlbSportsNews.appendChild(liElement);
+        })   
+        
+    } catch (error) {
+        console.error('Failed to fetch data from API', error)
+    }
+}
+
+// nba news
+async function nbaSportsNews(endpoint) {
+    const apiKey = 'ecbfd1725be34758b06c79adaf8a85ef'
+    const apiUrlNba = `https://newsapi.org/v2/${endpoint}?q=nba&pageSize=10&apiKey=${apiKey}`;
+
+    let itemCount = 0;
+
+    try {
+        const response = await fetch(apiUrlNba);
+
+        if (!response.ok) {
+            console.error('Invalid response format. No articles found.', response.statusText)
+        }
+
+        const result = await response.json();
+
+        const { articles } = result;
+
+        const nbaSportsNews = document.querySelector('#more-sports-news .aside-content ul#nba-news')
+
+        articles.forEach( article => {
+                
+            const liElement = document.createElement('li');
+
+            if (liElement) {
+                itemCount++;
+            }
+
+            liElement.innerHTML = 
+                `<span class="item-number">${itemCount}</span><a href=${article.url} target="_blank">${article.title}</a>`;
+            nbaSportsNews.appendChild(liElement);
+        })   
+        
+    } catch (error) {
+        console.error('Failed to fetch data from API', error)
     }
 }
 
@@ -768,7 +934,10 @@ window.addEventListener('DOMContentLoaded', () => {
     localNews('top-headlines');
     financeNews('top-headlines');
     moreFinanceNews('top-headlines');
-    // sportsNews('top-headlines');
+    sportsNews('top-headlines');
+    // moreSportsNews('top-headlines');
+    nbaSportsNews('everything');
+    mlbSportsNews('everything');
     techNews('top-headlines');
     // scienceNews('top-headlines');
     entmentNews('top-headlines');

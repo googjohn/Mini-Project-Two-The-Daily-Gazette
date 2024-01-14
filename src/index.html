@@ -275,120 +275,54 @@
                 </div>
             </div>
         </section>
-        <!-- <section id="sports-news">
+        <section id="sports-news">
             <div class="container">
                 <div class="section-title">
                     <h2 class="">Sports</h2>
                 </div>
-                <article>
-                    <div class="grid-container">
-                        <div class="grid-item card">
-                            <div class="card-image">
-                                <img src="./images/dummy/img1.jpg" alt="">image
+                <div class="flex-container">
+                    <div class="grid-container flex-item">
+                        <!-- <article class="grid-item">
+                            <div class='card'>
+                                <div class='card-image'>
+                                    <img src=${article.image} onerror="this.src='./images/no-image-available.png'" alt="">
+                                </div>
+                                <div class="card-content">
+                                    <span class="news-source"><a href=${article.source.url} target="_blank">${article.source.name}</a></span>
+                                    <div class="news-title">
+                                        <h2><a href=${article.url} target="_blank">${article.title}</a></h2>
+                                    </div>
+                                    <div class="news-description">
+                                        <p>${article.description}</p>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="card-content">
-                                <h3 class="news-title">Lorem ipsum dolor sit amet.</h3>
-                                <p class="news-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae, totam.</p>
-                            </div>
-                        </div>
-                        <div class="grid-item card">
-                            <div class="card-image">
-                                <img src="./images/dummy/img2.jpg" alt="">image
-                            </div>
-                            <div class="card-content">
-                                <h3 class="news-title">Lorem ipsum dolor sit amet.</h3>
-                                <p class="news-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae, totam.</p>
-                            </div>
-                        </div>
-                        <div class="grid-item card">
-                            <div class="card-image">
-                                <img src="./images/dummy/img3.jpg" alt="">image
-                            </div>
-                            <div class="card-content">
-                                <h3 class="news-title">Lorem ipsum dolor sit amet.</h3>
-                                <p class="news-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae, totam.</p>
-                            </div>
-                        </div>
-                        <div class="grid-item card">
-                            <div class="card-image">
-                                <img src="./images/dummy/img4.jpg" alt="">image
-                            </div>
-                            <div class="card-content">
-                                <h3 class="news-title">Lorem ipsum dolor sit amet.</h3>
-                                <p class="news-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae, totam.</p>
-                            </div>
-                        </div>
-                        <div class="grid-item card">
-                            <div class="card-image">
-                                <img src="./images/dummy/img5.jpg" alt="">image
-                            </div>
-                            <div class="card-content">
-                                <h3 class="news-title">Lorem ipsum dolor sit amet.</h3>
-                                <p class="news-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae, totam.</p>
-                            </div>
-                        </div>
-                        <div class="grid-item card">
-                            <div class="card-image">
-                                <img src="./images/dummy/img6.jpg" alt="">image
-                            </div>
-                            <div class="card-content">
-                                <h3 class="news-title">Lorem ipsum dolor sit amet.</h3>
-                                <p class="news-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae, totam.</p>
-                            </div>
-                        </div>
-                        <div class="grid-item card">
-                            <div class="card-image">
-                                <img src="./images/dummy/img7.jpg" alt="">image
-                            </div>
-                            <div class="card-content">
-                                <h3 class="news-title">Lorem ipsum dolor sit amet.</h3>
-                                <p class="news-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae, totam.</p>
-                            </div>
-                        </div>
-                        <div class="grid-item card">
-                            <div class="card-image">
-                                <img src="./images/dummy/img8.jpg" alt="">image
-                            </div>
-                            <div class="card-content">
-                                <h3 class="news-title">Lorem ipsum dolor sit amet.</h3>
-                                <p class="news-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae, totam.</p>
-                            </div>
-                        </div>
-                        <div class="grid-item card">
-                            <div class="card-image">
-                                <img src="./images/dummy/img9.jpg" alt="">image
-                            </div>
-                            <div class="card-content">
-                                <h3 class="news-title">Lorem ipsum dolor sit amet.</h3>
-                                <p class="news-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae, totam.</p>
-                            </div>
-                        </div>
+                       </article> -->
                     </div>
-                    <aside class="more-news">
+                    <aside id="more-sports-news" class="flex-item">
                         <div class="aside-title">
-                            <h2>NBA Game Updates</h2>
+                            <h3>NBA News Updates</h3>
                         </div>
-                        <ol class="more-sports-news">
-                            <li><span class="item-number">1</span><a href="">Lorem ipsum dolor sit amet consectetur adipisicing</a></li>
-                            <li><span class="item-number">2</span><a href="">Lorem ipsum dolor sit amet consectetur adipisicing</a></li>
-                            <li><span class="item-number">3</span><a href="">Lorem ipsum dolor sit amet consectetur adipisicing</a></li>
-                            <li><span class="item-number">4</span><a href="">Lorem ipsum dolor sit amet consectetur adipisicing</a></li>
-                            <li><span class="item-number">5</span><a href="">Lorem ipsum dolor sit amet consectetur adipisicing</a></li>
-                        </ol>
+                        <div class="aside-content">
+                            <ul id="nba-news">
+                                <!-- <li><span class="item-number">${itemCount}</span><a href=${article.url} target="_blank">${article.title}</a></li> -->
+                            </ul>  
+                        </div>
                         <div class="aside-title">
-                            <h2>MLB Game Updates</h2>
+                            <h3>MLB News Updates</h3>
                         </div>
-                        <ol class="more-sports-news">
-                            <li><span class="item-number">1</span><a href="">Lorem ipsum dolor sit amet consectetur adipisicing</a></li>
-                            <li><span class="item-number">2</span><a href="">Lorem ipsum dolor sit amet consectetur adipisicing</a></li>
-                            <li><span class="item-number">3</span><a href="">Lorem ipsum dolor sit amet consectetur adipisicing</a></li>
-                            <li><span class="item-number">4</span><a href="">Lorem ipsum dolor sit amet consectetur adipisicing</a></li>
-                            <li><span class="item-number">5</span><a href="">Lorem ipsum dolor sit amet consectetur adipisicing</a></li>
-                        </ol>
+                        <div class="aside-content">
+                            <ul id="mlb-news">
+                                <!-- <li><span class="item-number">${itemCount}</span><a href=${article.url} target="_blank">${article.title}</a></li> -->
+                            </ul>
+                        </div>
                     </aside>
-                </article>
+                </div>
+                <div class="games-stats">
+
+                </div>
             </div>
-        </section> -->
+        </section>
     </main>
 
     <!-- footer -->

@@ -105,6 +105,8 @@ async function fetchApiData(endpoint, country, category, language, max, API_KEY)
 
     try {
 
+        showSpinner();
+
         const response = await fetch(apiUrl);
 
         if (!response.ok) {
@@ -112,8 +114,10 @@ async function fetchApiData(endpoint, country, category, language, max, API_KEY)
         };
 
         const result = await response.json();
-        return result;
 
+        hideSpinner();
+
+        return result;
     } catch (error) {
         console.error('Failed to fetch data from API', error)
         throw error;
@@ -584,7 +588,6 @@ async function moreSportsNews(endpoint) {
     const apiUrl = `https://newsapi.org/v2/${endpoint}?country=us&category=sports&pageSize=9&apiKey=${apiKey}`;
     const apiUrlNba = `https://newsapi.org/v2/${endpoint}?q=nba&pageSize=9&apiKey=${apiKey}`;
     const apiUrlMlb = `https://newsapi.org/v2/${endpoint}?q=mlb&pageSize=9&apiKey=${apiKey}`;
-    let itemCount = 0;
 
     try {
         const response = await fetch(apiUrlNba);
@@ -604,12 +607,10 @@ async function moreSportsNews(endpoint) {
                 
             const liElement = document.createElement('li');
 
-            if (liElement) {
-                itemCount++;
-            }
-
             liElement.innerHTML = 
-                `<span class="item-number">${itemCount}</span><a href=${article.url} target="_blank">${article.title}</a>`;
+                `<span class="item-number">
+                    <img src=${article.image} onerror="this.src='./images/no-image-available.png'" alt="">
+                </span><a href=${article.url} target="_blank">${article.title}</a>`;
             nbaSportsNews.appendChild(liElement);
         })   
 
@@ -620,11 +621,8 @@ async function moreSportsNews(endpoint) {
 
 // mlb news
 async function mlbSportsNews(endpoint) {
-    const apiKey = 'f036bc45681619ff4f2c49a123eb5632'
+    const apiKey = gnewsApiKeys.apiKey_13
     const apiUrlMlb = `https://gnews.io/api/v4/${endpoint}?q=mlb&lang=en&country=us&apikey=${apiKey}`;
-
-
-    let itemCount = 0;
 
     try {
         const response = await fetch(apiUrlMlb);
@@ -643,12 +641,10 @@ async function mlbSportsNews(endpoint) {
                 
             const liElement = document.createElement('li');
 
-            if (liElement) {
-                itemCount++;
-            }
-
             liElement.innerHTML = 
-                `<span class="item-number">${itemCount}</span><a href=${article.url} target="_blank">${article.title}</a>`;
+                `<span class="item-number">
+                    <img src=${article.image} onerror="this.src='./images/no-image-available.png'" alt="">
+                </span><a href=${article.url} target="_blank">${article.title}</a>`;
                 
             mlbSportsNews.appendChild(liElement);
         })   
@@ -660,10 +656,8 @@ async function mlbSportsNews(endpoint) {
 
 // nba news
 async function nbaSportsNews(endpoint) {
-    const apiKey = 'f036bc45681619ff4f2c49a123eb5632'
+    const apiKey = gnewsApiKeys.apiKey_12
     const apiUrlNba = `https://gnews.io/api/v4/${endpoint}?q=nba&lang=en&country=us&apikey=${apiKey}`;
-
-    let itemCount = 0;
 
     try {
         const response = await fetch(apiUrlNba);
@@ -682,12 +676,10 @@ async function nbaSportsNews(endpoint) {
                 
             const liElement = document.createElement('li');
 
-            if (liElement) {
-                itemCount++;
-            }
-
             liElement.innerHTML = 
-                `<span class="item-number">${itemCount}</span><a href=${article.url} target="_blank">${article.title}</a>`;
+                `<span class="item-number">
+                    <img src=${article.image} onerror="this.src='./images/no-image-available.png'" alt="">
+                </span><a href=${article.url} target="_blank">${article.title}</a>`;
             nbaSportsNews.appendChild(liElement);
         })   
         
@@ -943,3 +935,13 @@ window.addEventListener('DOMContentLoaded', () => {
     // scienceNews('top-headlines');
     entmentNews('top-headlines');
 })
+
+function showSpinner() {
+    const spin = document.querySelector('#loader-container');
+    spin.style.display = 'block'
+}
+
+function hideSpinner() {
+    const hide = document.querySelector('#loader-container')
+    hide.style.display = 'none'
+}

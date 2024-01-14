@@ -620,8 +620,9 @@ async function moreSportsNews(endpoint) {
 
 // mlb news
 async function mlbSportsNews(endpoint) {
-    const apiKey = 'ecbfd1725be34758b06c79adaf8a85ef'
-    const apiUrlMlb = `https://newsapi.org/v2/${endpoint}?q=mlb&pageSize=10&apiKey=${apiKey}`;
+    const apiKey = 'f036bc45681619ff4f2c49a123eb5632'
+    const apiUrlMlb = `https://gnews.io/api/v4/${endpoint}?q=mlb&lang=en&country=us&apikey=${apiKey}`;
+
 
     let itemCount = 0;
 
@@ -659,8 +660,8 @@ async function mlbSportsNews(endpoint) {
 
 // nba news
 async function nbaSportsNews(endpoint) {
-    const apiKey = 'ecbfd1725be34758b06c79adaf8a85ef'
-    const apiUrlNba = `https://newsapi.org/v2/${endpoint}?q=nba&pageSize=10&apiKey=${apiKey}`;
+    const apiKey = 'f036bc45681619ff4f2c49a123eb5632'
+    const apiUrlNba = `https://gnews.io/api/v4/${endpoint}?q=nba&lang=en&country=us&apikey=${apiKey}`;
 
     let itemCount = 0;
 
@@ -936,8 +937,8 @@ window.addEventListener('DOMContentLoaded', () => {
     moreFinanceNews('top-headlines');
     sportsNews('top-headlines');
     // moreSportsNews('top-headlines');
-    nbaSportsNews('everything');
-    mlbSportsNews('everything');
+    nbaSportsNews('search');
+    mlbSportsNews('search');
     techNews('top-headlines');
     // scienceNews('top-headlines');
     entmentNews('top-headlines');

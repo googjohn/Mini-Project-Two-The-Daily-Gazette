@@ -130,7 +130,7 @@ async function fetchApiData(endpoint, country, category, language, max, API_KEY)
 async function headNews(endpoint) {
     // API GNEWS variables/params
     const gnews_params = {
-        API_KEY: gnewsApiKeys.apiKey_14,
+        API_KEY: gnewsApiKeys.apiKey_1,
         country: 'ph',
         category: 'world',
         language: 'en',
@@ -212,7 +212,7 @@ async function headNews(endpoint) {
 async function trendNews(endpoint) {
     // API GNEWS variables/params
     const gnews_params = {
-        API_KEY: gnewsApiKeys.apiKey_15,
+        API_KEY: gnewsApiKeys.apiKey_2,
         country: 'ph',
         category: 'general',
         language: 'en',
@@ -288,7 +288,7 @@ async function trendNews(endpoint) {
 async function localNews(endpoint) {
     // API GNEWS variables/params
     const gnews_params = {
-        API_KEY: gnewsApiKeys.apiKey_16,
+        API_KEY: gnewsApiKeys.apiKey_3,
         country: 'ph',
         category: 'nation',
         language: 'en',
@@ -346,7 +346,7 @@ async function financeNews(endpoint) {
 
     // sports GNEWS variables/params
     const gnews_params = {
-        API_KEY: gnewsApiKeys.apiKey_17,
+        API_KEY: gnewsApiKeys.apiKey_4,
         country: 'ph',
         category: 'business',
         language: 'en',
@@ -427,7 +427,7 @@ async function financeNews(endpoint) {
 async function moreFinanceNews(endpoint) {
     // API GNEWS variables/params
     const gnews_params = {
-        API_KEY: gnewsApiKeys.apiKey_18,
+        API_KEY: gnewsApiKeys.apiKey_5,
         country: 'us',
         category: 'business',
         language: 'en',
@@ -505,7 +505,7 @@ async function moreFinanceNews(endpoint) {
 async function sportsNews(endpoint) {
     // API GNEWS variables/params
     const gnews_params = {
-        API_KEY: gnewsApiKeys.apiKey_19,
+        API_KEY: gnewsApiKeys.apiKey_6,
         country: 'ph',
         category: 'sports',
         language: 'en',
@@ -623,7 +623,7 @@ async function moreSportsNews(endpoint) {
 
 // mlb news
 async function mlbSportsNews(endpoint) {
-    const apiKey = gnewsApiKeys.apiKey_20;
+    const apiKey = gnewsApiKeys.apiKey_7;
     const apiUrlMlb = `https://gnews.io/api/v4/${endpoint}?q=mlb&lang=en&country=us&apikey=${apiKey}`;
 
     try {
@@ -658,7 +658,7 @@ async function mlbSportsNews(endpoint) {
 
 // nba news
 async function nbaSportsNews(endpoint) {
-    const apiKey = gnewsApiKeys.apiKey_21;
+    const apiKey = gnewsApiKeys.apiKey_8;
     const apiUrlNba = `https://gnews.io/api/v4/${endpoint}?q=nba&lang=en&country=us&apikey=${apiKey}`;
 
     try {
@@ -694,7 +694,7 @@ async function nbaSportsNews(endpoint) {
 async function techNews(endpoint) {
     // API GNEWS variables/params
     const gnews_params = {
-        API_KEY: gnewsApiKeys.apiKey_22,
+        API_KEY: gnewsApiKeys.apiKey_9,
         country: 'ph',
         category: 'technology',
         language: 'en',
@@ -828,7 +828,7 @@ async function scienceNews(endpoint) {
 async function entmentNews(endpoint) {
     // API GNEWS variables/params
     const gnews_params = {
-        API_KEY: gnewsApiKeys.apiKey_23,
+        API_KEY: gnewsApiKeys.apiKey_10,
         country: 'ph',
         category: 'entertainment',
         language: 'en',
@@ -924,17 +924,17 @@ async function entmentNews(endpoint) {
 
 
 window.addEventListener('DOMContentLoaded', () => {
-    // headNews('top-headlines');
-    // trendNews('top-headlines');
-    // localNews('top-headlines');
-    // financeNews('top-headlines');
-    // moreFinanceNews('top-headlines');
-    // sportsNews('top-headlines');
+    headNews('top-headlines');
+    trendNews('top-headlines');
+    localNews('top-headlines');
+    financeNews('top-headlines');
+    moreFinanceNews('top-headlines');
+    sportsNews('top-headlines');
     // moreSportsNews('top-headlines');
-    // nbaSportsNews('search');
-    // mlbSportsNews('search');
-    // techNews('top-headlines');
-    // entmentNews('top-headlines');
+    nbaSportsNews('search');
+    mlbSportsNews('search');
+    techNews('top-headlines');
+    entmentNews('top-headlines');
     // scienceNews('top-headlines');
 })
 

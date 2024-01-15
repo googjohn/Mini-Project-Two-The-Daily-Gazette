@@ -62,21 +62,23 @@ function backgroundHandle() {
 
         if (timeNow().toString().toLowerCase().includes('pm')) {
             weatherLocContainer.style.backgroundImage = 'linear-gradient(-20deg, #2b5876 0%, #4e4376 100%)'
-            dropdownUl.style.background = 'rgba(36, 57, 73, .7)'
+            dropdownUl.style.backgroundImage = 'linear-gradient(-20deg, #2b5876 0%, #4e4376 100%)'
+            // dropdownUl.style.background = 'rgba(36, 57, 73, .7)'
         } else {
             weatherLocContainer.style.backgroundImage = 'linear-gradient(to right, #0acffe 0%, #495aff 100%)'
-            dropdownUl.style.background = 'rgba(9, 85, 226, 0.5)'
+            dropdownUl.style.backgroundImage = 'linear-gradient(to right, #0acffe 0%, #495aff 100%)'
+            // dropdownUl.style.background = 'rgba(9, 85, 226, 0.5)'
         }
         
     } else if (parseInt(timeNow().toString().valueOf().slice(0,8)) < 5)  {
         
         if (timeNow().toString().toLowerCase().includes('am')) {
             weatherLocContainer.style.backgroundImage = 'linear-gradient(-20deg, #2b5876 0%, #4e4376 100%)'
-            dropdownUl.style.background = 'rgba(36, 57, 73, .7)'
+            dropdownUl.style.backgroundImage = 'linear-gradient(-20deg, #2b5876 0%, #4e4376 100%)'
 
         } else {
             weatherLocContainer.style.backgroundImage = 'linear-gradient(to right, #0acffe 0%, #495aff 100%)'
-            dropdownUl.style.background = 'rgba(9, 85, 226, 0.5)'
+            dropdownUl.style.backgroundImage = 'linear-gradient(to right, #0acffe 0%, #495aff 100%)'
         }
     }
 }

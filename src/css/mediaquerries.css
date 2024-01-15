@@ -21,6 +21,34 @@
         display: block;
     }
 
+    #footer .flex-container {
+        gap: 0;
+        flex-direction: column;
+    }
+
+    #footer .flex-container .flex-item:first-child {
+        order: 2;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding-top: 30px;
+    }
+
+    .site-description {
+        padding: 0;
+    }
+    
+    .site-logo img {
+        /* margin: auto; */
+        /* display: block; */
+    }
+    
+    .site-about  {
+        width: 400px;
+        /* text-align: center; */
+    }
 }
 
 @media screen and (max-width: 950px) {
@@ -121,6 +149,10 @@
 
     #local-news span.news-source {
         position: relative;
+    }
+
+    #local-news .news-source a {
+        color: var(--text-dark-clr);
     }
 
     #entertainment-news .grid-container,
@@ -350,6 +382,23 @@
         'H H H H H H H H'
         'H H H H H H H H';
     }
+
+    footer .flex-item .grid-container {
+    grid-template-areas: 
+    'A A A A B B B B'
+    'A A A A B B B B'
+    'A A A A B B B B'
+    'A A A A B B B B'
+    'A A A A B B B B'
+    'A A A A B B B B'
+    'C C C C D D D D'
+    'C C C C D D D D'
+    'C C C C D D D D'
+    'C C C C D D D D'
+    'E E E E E E E E'
+    'E E E E E E E E'
+    'E E E E E E E E';
+}
 }
 
 @media screen and (max-width: 568px) {
@@ -496,6 +545,14 @@
         grid-template-rows: repeat(12, 75px);
     }
 
+    .footer-navigation a {
+        font-size: .9rem;
+    }
+
+    .site-about {
+        width: 100%;
+    }
+
 }
 
 @media screen and (max-width: 412px) {
@@ -629,4 +686,42 @@
         'I I I I I I';
     }
     
+    .foot-content ul,
+    .foot-title  {
+        padding: 0 10px;
+    }
+
+    .foot-content input {
+        width: 60%;
+    }
+
+    .footer-navigation {
+        display: none;
+    }
+
+    .site-description {
+        padding: 0 10px;
+    }
+
+    .copyrights h3 {
+        font-size: .85rem;
+    }
+
+    .site-links {
+        gap: 15px;
+        font-size: .85rem;
+    }
+
+    .foot-title h4 {
+        font-size: 1rem;
+    }
+
+    .foot-content a,
+    .site-description p {
+        font-size: .85rem;
+    }
+
+    .section-title {
+        margin-top: 0;
+    }
 }

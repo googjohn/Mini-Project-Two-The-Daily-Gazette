@@ -35,7 +35,7 @@ async function getWeatherData() {
     const location = document.querySelector('.location');
     location.textContent = city;
 
-    const iconUrl = `http://openweathermap.org/img/w/${result.weather[0].icon}.png`
+    const iconUrl = `https://openweathermap.org/img/w/${result.weather[0].icon}.png`
     const weatherIcon = document.querySelector('.weather-icon');
     weatherIcon.innerHTML = `<img src=${iconUrl} alt="weather icon">`
 

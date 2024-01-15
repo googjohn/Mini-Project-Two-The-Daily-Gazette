@@ -924,18 +924,18 @@ async function entmentNews(endpoint) {
 
 
 window.addEventListener('DOMContentLoaded', () => {
-    headNews('top-headlines');
-    trendNews('top-headlines');
-    localNews('top-headlines');
-    financeNews('top-headlines');
-    moreFinanceNews('top-headlines');
-    sportsNews('top-headlines');
+    // headNews('top-headlines');
+    // trendNews('top-headlines');
+    // localNews('top-headlines');
+    // financeNews('top-headlines');
+    // moreFinanceNews('top-headlines');
+    // sportsNews('top-headlines');
     // moreSportsNews('top-headlines');
-    nbaSportsNews('search');
-    mlbSportsNews('search');
-    techNews('top-headlines');
+    // nbaSportsNews('search');
+    // mlbSportsNews('search');
+    // techNews('top-headlines');
+    // entmentNews('top-headlines');
     // scienceNews('top-headlines');
-    entmentNews('top-headlines');
 })
 
 function showSpinner() {

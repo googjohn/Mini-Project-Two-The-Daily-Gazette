@@ -25,7 +25,7 @@ function dateToday() {
 dateToday();
 
 // set time function
-function timeNow() {
+export function timeNow() {
     const time_Now = document.querySelector('.time-now');
     const date = new Date();
 

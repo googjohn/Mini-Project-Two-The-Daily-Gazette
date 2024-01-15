@@ -323,6 +323,34 @@ nav > div {
     box-shadow: var(--box-shadow-blight);
 }
 
+/* weather and location */
+.weather-location-track {
+    display: flex;
+    /* flex-direction: row-reverse; */
+    justify-content: end;
+    margin: 5px 0;
+    height: 40px;
+}
+
+.weather-location-track span {
+}
+
+.weather-loc-container {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    /* padding: 10px; */
+    border-radius: 10px;
+    width: 200px;
+    background-color: rgba(var(--dark-clr-rgb), .1);
+    backdrop-filter: blur(10px);
+}
+
+.weather-icon img {
+    vertical-align: middle;
+}
+
 /* salutation */
 .salutation-date {
     display: flex;

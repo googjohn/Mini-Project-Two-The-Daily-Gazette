@@ -22,7 +22,7 @@ function dateToday() {
 
     return day_Today.innerHTML = `${currentDay}, ${currentDate} ${currentMonth}`;
 } 
-// dateToday();
+dateToday();
 
 // set time function
 function timeNow() {

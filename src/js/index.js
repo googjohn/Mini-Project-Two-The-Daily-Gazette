@@ -33,6 +33,7 @@
 // listItemStyle(mtn)
 // listItemStyle(men)
 // listItemStyle(msn)
+import { getIpInfo } from "./weather.js";
 
 // apikeys global variable
 const gnewsApiKeys = {
@@ -127,11 +128,11 @@ async function fetchApiData(endpoint, country, category, language, max, API_KEY)
 }
 
 // headline news
-async function headNews(endpoint) {
+async function headNews(endpoint, countryCode) {
     // API GNEWS variables/params
     const gnews_params = {
         API_KEY: gnewsApiKeys.apiKey_1,
-        country: 'ph',
+        country: countryCode,
         category: 'world',
         language: 'en',
         max : 10,
@@ -209,11 +210,11 @@ async function headNews(endpoint) {
 }
 
 // trend news
-async function trendNews(endpoint) {
+async function trendNews(endpoint, countryCode) {
     // API GNEWS variables/params
     const gnews_params = {
         API_KEY: gnewsApiKeys.apiKey_2,
-        country: 'ph',
+        country: countryCode,
         category: 'general',
         language: 'en',
         max : 10,
@@ -285,11 +286,11 @@ async function trendNews(endpoint) {
 }
 
 // local news
-async function localNews(endpoint) {
+async function localNews(endpoint, countryCode) {
     // API GNEWS variables/params
     const gnews_params = {
         API_KEY: gnewsApiKeys.apiKey_3,
-        country: 'ph',
+        country: countryCode,
         category: 'nation',
         language: 'en',
         max : 8,
@@ -342,12 +343,12 @@ async function localNews(endpoint) {
 }
 
 // finance news
-async function financeNews(endpoint) {
+async function financeNews(endpoint, countryCode) {
 
     // sports GNEWS variables/params
     const gnews_params = {
         API_KEY: gnewsApiKeys.apiKey_4,
-        country: 'ph',
+        country: countryCode,
         category: 'business',
         language: 'en',
         max : 10,
@@ -424,7 +425,7 @@ async function financeNews(endpoint) {
 }
 
 // more finance news
-async function moreFinanceNews(endpoint) {
+async function moreFinanceNews(endpoint, countryCode) {
     // API GNEWS variables/params
     const gnews_params = {
         API_KEY: gnewsApiKeys.apiKey_5,
@@ -502,11 +503,11 @@ async function moreFinanceNews(endpoint) {
 }
 
 // sports news
-async function sportsNews(endpoint) {
+async function sportsNews(endpoint, countryCode) {
     // API GNEWS variables/params
     const gnews_params = {
         API_KEY: gnewsApiKeys.apiKey_6,
-        country: 'ph',
+        country: countryCode,
         category: 'sports',
         language: 'en',
         max : 9,
@@ -585,7 +586,7 @@ async function sportsNews(endpoint) {
 }
 
 // more sports news
-async function moreSportsNews(endpoint) {
+async function moreSportsNews(endpoint, countryCode) {
     const apiKey = 'ecbfd1725be34758b06c79adaf8a85ef'
     const apiUrl = `https://newsapi.org/v2/${endpoint}?country=us&category=sports&pageSize=9&apiKey=${apiKey}`;
     const apiUrlNba = `https://newsapi.org/v2/${endpoint}?q=nba&pageSize=9&apiKey=${apiKey}`;
@@ -622,7 +623,7 @@ async function moreSportsNews(endpoint) {
 }
 
 // mlb news
-async function mlbSportsNews(endpoint) {
+async function mlbSportsNews(endpoint, countryCode) {
     const apiKey = gnewsApiKeys.apiKey_7;
     const apiUrlMlb = `https://gnews.io/api/v4/${endpoint}?q=mlb&lang=en&country=us&apikey=${apiKey}`;
 
@@ -657,7 +658,7 @@ async function mlbSportsNews(endpoint) {
 }
 
 // nba news
-async function nbaSportsNews(endpoint) {
+async function nbaSportsNews(endpoint, countryCode) {
     const apiKey = gnewsApiKeys.apiKey_8;
     const apiUrlNba = `https://gnews.io/api/v4/${endpoint}?q=nba&lang=en&country=us&apikey=${apiKey}`;
 
@@ -691,11 +692,11 @@ async function nbaSportsNews(endpoint) {
 }
 
 // techonology news
-async function techNews(endpoint) {
+async function techNews(endpoint, countryCode) {
     // API GNEWS variables/params
     const gnews_params = {
         API_KEY: gnewsApiKeys.apiKey_9,
-        country: 'ph',
+        country: countryCode,
         category: 'technology',
         language: 'en',
         max : 10,
@@ -791,11 +792,11 @@ async function techNews(endpoint) {
 }
 
 // science news
-async function scienceNews(endpoint) {
+async function scienceNews(endpoint, countryCode) {
     // API GNEWS variables/params
     const gnews_params = {
         API_KEY: gnewsApiKeys.apiKey_7,
-        country: 'ph',
+        country: countryCode,
         category: 'science',
         language: 'en',
         max : 10,
@@ -825,11 +826,11 @@ async function scienceNews(endpoint) {
 }
 
 // entertainment news
-async function entmentNews(endpoint) {
+async function entmentNews(endpoint, countryCode) {
     // API GNEWS variables/params
     const gnews_params = {
         API_KEY: gnewsApiKeys.apiKey_10,
-        country: 'ph',
+        country: countryCode,
         category: 'entertainment',
         language: 'en',
         max : 10,
@@ -923,20 +924,25 @@ async function entmentNews(endpoint) {
 }
 
 
-window.addEventListener('DOMContentLoaded', () => {
-    headNews('top-headlines');
-    trendNews('top-headlines');
-    localNews('top-headlines');
-    financeNews('top-headlines');
-    moreFinanceNews('top-headlines');
-    sportsNews('top-headlines');
-    // moreSportsNews('top-headlines');
-    nbaSportsNews('search');
-    mlbSportsNews('search');
-    techNews('top-headlines');
-    entmentNews('top-headlines');
-    // scienceNews('top-headlines');
-})
+
+async function init() {
+    const ipInfo = await getIpInfo();
+    const countryCode = ipInfo.countryCode.toLowerCase();
+
+    headNews('top-headlines', countryCode);
+    trendNews('top-headlines', countryCode);
+    localNews('top-headlines', countryCode);
+    financeNews('top-headlines', countryCode);
+    moreFinanceNews('top-headlines', countryCode);
+    sportsNews('top-headlines', countryCode);
+    // moreSportsNews('top-headlines', countryCode);
+    nbaSportsNews('search', countryCode);
+    mlbSportsNews('search', countryCode);
+    techNews('top-headlines', countryCode);
+    entmentNews('top-headlines', countryCode);
+    // scienceNews('top-headlines', countryCode);
+}
+document.addEventListener('DOMContentLoaded', init)
 
 function showSpinner() {
     const spin = document.querySelector('#loader-container');

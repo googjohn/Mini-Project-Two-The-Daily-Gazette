@@ -1,7 +1,7 @@
 import { timeNow } from "./date.js";
 
 // fetch ip info of user using apiip.net
-async function getIpInfo() {
+export async function getIpInfo() {
     const apiKey = '71dfe1b9-37c2-4046-9a8b-3a79951cd795'
     const apiUrl = `https://apiip.net/api/check?&accessKey=${apiKey}`
 
@@ -20,8 +20,7 @@ async function getWeatherData() {
     const city = locationData.city;
 
     const apiKey = '5c2780f0e27163175249dc2144f8ca64';
-    const openWeatherUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`
-
+    const openWeatherUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`;
 
     const response = await fetch(openWeatherUrl);
 
@@ -34,7 +33,7 @@ async function getWeatherData() {
 
     const weatherIcon = document.querySelector('.weather-icon');
 
-    weatherIcon.innerHTML = `<img src=${iconUrl} alt="weather icon">`
+    weatherIcon.innerHTML = `<img src="${iconUrl}" title="${result.weather[0].description}" alt="${result.weather[0].main}">`
 
     const temperature = document.querySelector('.temp');
 
@@ -95,7 +94,7 @@ function celciusHandle(temp) {
 function fahrenheitHandle(temp) {
     const kelvinBase = 274.15;
     const kelvinValue = temp
-    const celcius = (kelvinValue - kelvinBase);
+    const celcius = (kelvinValue - kelvinBase).toFixed(2);
     const fahrenheit = ((celcius * (1.8)) + 32).toFixed(2);
     return fahrenheit;
 }

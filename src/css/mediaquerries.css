@@ -229,7 +229,11 @@
     }
 
     .time-now {
-        width: 95px;
+        width: 100px;
+    }
+
+    .salutation h1 {
+        font-size: 1.1em;
     }
 
     #finance-news .grid-container {
@@ -723,5 +727,10 @@
 
     .section-title {
         margin-top: 0;
+    }
+
+    .weather-loc-container {
+        justify-content: space-between;
+        width: 100%;
     }
 }

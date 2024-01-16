@@ -51,8 +51,47 @@
     }
 }
 
-@media screen and (max-width: 950px) {
+@media screen and (max-width: 1000px) {
+    .trend-news > .grid-container {
+        width: calc(100% - 385px);
+        grid-template-columns: repeat(6, 1fr);
+        grid-auto-flow: row;
+        grid-auto-rows: 90px;
+        grid-template-areas: 
+        'A A A A A A'
+        'A A A A A A'
+        'B B B B B B'
+        'B B B B B B'
+        'C C C C C C'
+        'C C C C C C';
+    }
 
+    #trend-news span.news-source a {
+        color: var(--text-dark-clr);
+    }
+
+    .trend-news .card {
+        flex-direction: row;
+    }
+
+    .trend-news .card > div {
+        width: 50%;
+        height: 100%;
+    }
+
+    #more-trend-news .aside-content {
+        max-height: 100%;
+    }
+
+    #trend-news .card .card-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    #trend-news span.news-source {
+        position: relative;
+    }
 }
 
 @media screen and (max-width: 900px) {
@@ -84,31 +123,42 @@
         'C C C C D D D D';
     }
 
+   
     .trend-news > .grid-container {
-        flex: 1 1 calc(100% - 350px);
+        grid-template-columns: repeat(6, 1fr);
+        grid-auto-rows: 90px;
         grid-template-areas: 
-        'A A'
-        'B B'
-        'C C';
+        'A A A A A A'
+        'A A A A A A'
+        'B B B B B B'
+        'B B B B B B'
+        'C C C C C C'
+        'C C C C C C';
     }
 
     .trend-news aside {
-        flex: 1 1 350px;
-        max-height: 100%;
+        /* flex: 1 1 350px; */
+        height: 100%;
         box-shadow: 0 0 2px 0 rgba(0,0,0,.5);
         border-radius: 5px;
-        overflow: hidden;
-    }
-
-    .trend-news .card {
-        flex-direction: row;
-        max-height: 180px;
+        /* overflow: hidden; */
     }
 
     #trend-news .aside-content {
         overflow: auto;
         height: 100%;
         padding-bottom: 50px;
+    }
+
+    #trend-news .card .card-content {
+        display: flex;
+
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    #trend-news span.news-source {
+        position: relative;
     }
 
     #local-news .card {
@@ -135,16 +185,6 @@
         'E E E E F F F F'
         'G G G G H H H H'
         'G G G G H H H H';
-    }
-    
-    #trend-news .card .card-content {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-    }
-
-    #trend-news span.news-source {
-        position: relative;
     }
 
     #local-news span.news-source {
@@ -180,6 +220,11 @@
 
     #more-entertainment-news.flex-item {
         order: 2;
+        flex-basis: 100%;
+    }
+
+    #more-scitech-news.flex-item {
+        flex-basis: 100%;
     }
 
     #sports-news .grid-container {
@@ -202,7 +247,14 @@
 
 }
 
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 830px) {
+    .trend-news aside#more-trend-news {
+        /* flex: 1 1 350px; */
+        width: 50%;
+    }
+    #trend-news .grid-container {
+        width: 50%;
+    }
 }
 
 @media screen and (max-width: 768px) {
@@ -297,20 +349,29 @@
 @media screen and (max-width: 660px) {
     .trend-news .card .card-content {
         position: absolute;
+        width: 100%;
         bottom: 0;
         left: 0;
         display: flex;
         flex-direction: column;
         justify-content: end;
-        max-height: 180px;
     }
 
-    #trend-news a {
+    #trend-news .news-title a,
+    #trend-news span.news-source a {
         color: var(--text-light-clr);
     }
 
     #trend-news .card .card-content {
+        position: absolute;
+        bottom: 0;
+        top: 0;
+        right: 0;
+        left: 0;
+        display: flex;
+        flex-direction: column;
         justify-content: end;
+	    background-color:rgba(var(--dark-clr-rgb), .35);
     }
 
     #trend-news span.news-source {
@@ -322,11 +383,6 @@
     .salutation-date {
         display: none;
     }
-
-    .trend-news aside {
-       display: none;
-    }
-
 
     #finance-news .grid-container {
         grid-template-rows: repeat(12, 90px);
@@ -502,16 +558,17 @@
         'D D D D D D D D';
     }
 
-    #carousel-news.grid-item .card .card-image {
-        /* height: 300px; */
+    .trend-news {
+        flex-direction: column;
+    }
+    
+    #trend-news .grid-container {
+        grid-auto-rows: 75px;
+        width: 100%;
     }
 
-    #box-news.grid-item .card .card-image {
-        /* height: 150px; */
-    }
-
-    .trend-news .card {
-        /* max-height: 150px; */
+    .trend-news aside#more-trend-news {
+        width: 100%;
     }
 
     #local-news .grid-container {

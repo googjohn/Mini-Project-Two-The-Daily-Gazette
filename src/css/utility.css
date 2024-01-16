@@ -348,7 +348,7 @@ section:nth-of-type(even) {
 	bottom: 0;
 	left: 0;
 	background:rgba(var(--dark-clr-rgb), .9);
-	z-index: 1001;
+	z-index: 1000;
 }
 
 #loader-container img {
@@ -388,6 +388,7 @@ section:nth-of-type(even) {
 	right: 0;
 	margin: auto;
 	animation: 1.2s load infinite linear;
+	z-index: 1001;
 }
 
 @keyframes load {

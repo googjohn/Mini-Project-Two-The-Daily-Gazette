@@ -57,7 +57,7 @@ function backgroundHandle() {
     const weatherLocContainer = document.querySelector('.weather-loc-container');
     const dropdownUl = document.querySelector('.weather-loc-container .dropdown ul');
 
-    if (parseInt(timeNow().toString().valueOf().slice(0,8)) > 5) {
+    if (parseInt(timeNow().toString().valueOf().slice(0,8)) > 5 && parseInt(timeNow().toString().valueOf().slice(0,8)) !== 12) {
 
         if (timeNow().toString().toLowerCase().includes('pm')) {
             weatherLocContainer.style.backgroundImage = 'linear-gradient(-20deg, #2b5876 0%, #4e4376 100%)'
@@ -69,7 +69,7 @@ function backgroundHandle() {
             // dropdownUl.style.background = 'rgba(9, 85, 226, 0.5)'
         }
         
-    } else if (parseInt(timeNow().toString().valueOf().slice(0,8)) < 5)  {
+    } else if (parseInt(timeNow().toString().valueOf().slice(0,8)) < 5 || parseInt(timeNow().toString().valueOf().slice(0,8)) === 12)  {
         
         if (timeNow().toString().toLowerCase().includes('am')) {
             weatherLocContainer.style.backgroundImage = 'linear-gradient(-20deg, #2b5876 0%, #4e4376 100%)'

@@ -612,6 +612,11 @@
         width: 100%;
     }
 
+    .weather-loc-container .dropdown .weather-loc-box {
+        width: 370px;
+        height: 420px;
+    }
+
 }
 
 @media screen and (max-width: 412px) {
@@ -803,7 +808,22 @@
         'E E E E E E E E';
     }
     .weather-loc-container {
+        display: none;
         justify-content: space-between;
         width: 100%;
     }
+
+    .weather-loc-container .dropdown .weather-loc-box {
+        display: none;
+        width: 350px;
+        padding: 5px;
+        height: content;
+        justify-content: start;
+    }
+    /* .hourly-forecast {
+        flex-wrap: wrap;
+    }
+    .hourly-forecast > div {
+        flex-basis: 30%;
+    } */
 }

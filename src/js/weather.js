@@ -153,22 +153,8 @@ function backgroundHandle() {
     const timeDigits = parseInt(timeNow().toString().valueOf().slice(0,8))
     const timePm = timeNow().toString().toLowerCase().includes('pm')
 
-    const hourlyItem = document.querySelectorAll('.hourly-forecast > div')
-    const moreForecast = document.querySelector('.more-forecast')
-
     if (timePm) {
-        if (timeDigits > 5) {
-
-            hourlyItem.forEach(item => {
-                item.style.boxShadow = 
-                    '4px -3px 10px 0 rgba(0, 0, 0, 0.25)',
-                    '-4px 4px 10px 0 rgba(255, 255, 255, 0.3)';
-            })
-
-            moreForecast.style.boxShadow = 
-                '4px -3px 10px 0 rgba(0, 0, 0, 0.25)',
-                '-4px 4px 10px 0 rgba(255, 255, 255, 0.3)';
-                
+        if (timeDigits > 5) {             
             weatherLocContainer.style.background = weatherContainerBackgroundNight;
             dropdownUl.style.background = dropdownUlBackgroundNight;
         }
@@ -187,15 +173,10 @@ function backgroundHandle() {
 
         if (timeDigits === 12) {
             
-            hourlyItem.forEach(item => {
-                item.style.boxShadow = 
-                    '4px -3px 10px 0 rgba(0, 0, 0, 0.25)',
-                    '-4px 4px 10px 0 rgba(255, 255, 255, 0.3)';
-            })
-
-            moreForecast.style.boxShadow =
-                '4px -3px 10px 0 rgba(0, 0, 0, 0.25)',
-                '-4px 4px 10px 0 rgba(255, 255, 255, 0.3)';
+            // hourlyItem.forEach(item => {
+            //     item.style.boxShadow = 
+            //         '4px -3px 10px 0 rgba(0, 0, 0, 0.25), -4px 4px 10px 0 rgba(255, 255, 255, 0.3)';
+            // })
 
             weatherLocContainer.style.background = weatherContainerBackgroundNight;
             dropdownUl.style.background = dropdownUlBackgroundNight;
@@ -206,15 +187,14 @@ function backgroundHandle() {
 function weatherForecastHandle(weatherData) {
 
     const hourlyForecastContainer = document.querySelector('.hourly-forecast')
+    const moreForecast = document.querySelector('.more-forecast')
 
     const timeDigits = parseInt(timeNow().toString().valueOf().slice(0,8))
     const timePm = timeNow().toString().toLowerCase().includes('pm')
-    const timeAm = timeNow().toString().toLowerCase().includes('am')
 
     const hourlyForecast = weatherData.days[1].hours.slice(0, 5)
     // .length < 6 ? 
     //     (weatherData.days[1].hours.slice((timeDigits + 10), (weatherData.days[1].hours.length + 12))) : weatherData.days[1].hours.slice((timeDigits + 12), weatherData.days[1].hours.length)
-    console.log(hourlyForecast)
 
     for (let ii = 0; ii < hourlyForecast.length; ii++) {
         const hourForecast = hourlyForecast[ii];
@@ -238,18 +218,50 @@ function weatherForecastHandle(weatherData) {
             if (timeDigits > 5) {
                 
                 hourlyItemContainer.style.boxShadow = 
-                    '4px -3px 10px 0 rgba(0, 0, 0, 0.25)',
-                    '-4px 4px 10px 0 rgba(255, 255, 255, 0.3)';
-                }
-
+                    '4px -3px 10px 0 rgba(0, 0, 0, 0.25), -4px 4px 10px 0 rgba(255, 255, 255, 0.3)';
+                    
+                moreForecast.style.boxShadow = 
+                    '4px -3px 10px 0 rgba(0, 0, 0, 0.25), -4px 4px 10px 0 rgba(255, 255, 255, 0.3)';
+            } else {
+                hourlyItemContainer.style.boxShadow = 
+                    '4px -3px 10px 0 rgba(255, 255, 255, 0.3), -4px 4px 10px 0 rgba(0, 0, 0, 0.25)';
+                    
+                moreForecast.style.boxShadow = 
+                    '4px -3px 10px 0 rgba(255, 255, 255, 0.3), -4px 4px 10px 0 rgba(0, 0, 0, 0.25)';
+            }
+                    
         } else {
             if (timeDigits === 12) {
                 
                 hourlyItemContainer.style.boxShadow =
-                    '4px -3px 10px 0 rgba(0, 0, 0, 0.25)',
-                    '-4px 4px 10px 0 rgba(255, 255, 255, 0.3)';
+                    '-4px 4px 10px 0 rgba(255, 255, 255, 0.3), 4px -4px 10px 0 rgba(0, 0, 0, 0.25)';
+                
+                moreForecast.style.boxShadow =
+                    '4px -3px 10px 0 rgba(255, 255, 255, 0.3), -4px 4px 10px 0 rgba(0, 0, 0, 0.25)';
+            } 
+            
+            if (timeDigits < 5) {
+                hourlyItemContainer.style.boxShadow = 
+                    '-4px 4px 10px 0 rgba(255, 255, 255, 0.3), 4px -4px 10px 0 rgba(0, 0, 0, 0.25)';
+                
+                moreForecast.style.boxShadow = 
+                    '4px -3px 10px 0 rgba(0, 0, 0, 0.25), -4px 4px 10px 0 rgba(255, 255, 255, 0.3)';
+            } else {
+                hourlyItemContainer.style.boxShadow = 
+                    '4px -3px 10px 0 rgba(255, 255, 255, 0.3), -4px 4px 10px 0 rgba(0, 0, 0, 0.25)';
+                    
+                moreForecast.style.boxShadow = 
+                    '4px -3px 10px 0 rgba(255, 255, 255, 0.3), -4px 4px 10px 0 rgba(0, 0, 0, 0.25)';
             }
         }
+        // hourlyItemContainer.addEventListener('mouseover', ()=> {
+            // hourlyItemContainer.style.boxShadow =
+            //     '4px -3px 10px 0 rgba(255, 255, 255, 0.3), -4px 4px 10px 0 rgba(0, 0, 0, 0.25)'
+        // })
+        // hourlyItemContainer.addEventListener('mouseout', ()=> {
+            // hourlyItemContainer.style.boxShadow =
+                // '4px -3px 10px 0 rgba(0, 0, 0, 0.25), -4px 4px 10px 0 rgba(255, 255, 255, 0.3)'
+        // })
     }
 
 }
@@ -293,24 +305,30 @@ function hourDayTabHandle(target) {
     }
 }
 
-function dropButtonHandle() {
-    const dropdownInner = document.querySelector('.dropdown-inner')
-    dropdownInner.addEventListener('click', (event)=> {
-        const target = event.target;
+const dropdownInner = document.querySelector('.dropdown-inner')
+dropdownInner.addEventListener('click', event => {
+    dropdownButtonHandle(event);
+})
 
-        const dropdownUl = document.querySelector('.dropdown-inner ul');
+function dropdownButtonHandle(event) {
+    const dropdownUl = document.querySelector('.dropdown-inner ul');
+    const dropdownI = document.querySelector('.dropdown-inner i');
+    const weatherLocBox = document.querySelector('.weather-loc-box')
 
-        const dropdownI = document.querySelector('.dropdown-inner i');
-
-        if (target === dropdownI) {
-            if (dropdownUl.style.display === 'block') {
-                dropdownUl.style.display = 'none';
-            } else {
-                dropdownUl.style.display = 'block';
-            }
+    const target = event.target;
         
+    if (target === dropdownI) {
+        dropdownI.classList.add('active')
+        if (dropdownUl.style.display === 'block') {
+            dropdownUl.style.display = 'none';
+            dropdownI.classList.remove('active')
+        } else {
+            dropdownUl.style.display = 'block';
         }
-    })
+    } else {
+        dropdownUl.style.display = 'none';
+        dropdownI.classList.remove('active')
+    }
 }
 
 function init() {
@@ -318,11 +336,8 @@ function init() {
     getWeatherData('timeline');
 }
 
-// const dropdownUl = document.querySelector('.dropdown-inner ul');
-//         dropdownUl.style.display = 'none';
 
 document.addEventListener('DOMContentLoaded', ()=> {
     init();
-    dropButtonHandle();
 })
 

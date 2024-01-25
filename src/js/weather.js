@@ -1,4 +1,6 @@
 import { timeNow } from "./date.js";
+document.addEventListener('DOMContentLoaded', init)
+
 
 // fetch ip info of user using apiip.net
 export async function getIpInfo() {
@@ -13,7 +15,6 @@ export async function getIpInfo() {
     
     // const result = await response.json();
     const res = await req.json();
-    console.log(res);
     return res;
 }
 
@@ -27,7 +28,6 @@ async function getIpGeoLocation() {
     const response = await fetch(ipgeoUrl)
 
     const result = await response.json();
-    console.log(result);
     
     return result;
 }
@@ -48,12 +48,10 @@ async function getWeatherData(endpoint) {
 
     const req = await fetch(openWeatherUrl);
     const res = await req.json();
-    console.log(res);
 
     const response = await fetch(visualCrossingUrl);
 
     const result = await response.json();
-    console.log(result);
     
     const icon = result.currentConditions.icon
     const condition = result.currentConditions.conditions
@@ -288,6 +286,7 @@ hourDayTab.addEventListener('click', event => {
 
 function hourDayTabHandle(target) {
     const hourTab = document.querySelector('.hour-tab')
+    hourTab.style.borderBottom = '2px solid var(--aqua-clr)' 
     const dayTab = document.querySelector('.day-tab')
     if (target === hourTab) {
         hourTab.style.borderBottom = '2px solid var(--aqua-clr)' 
@@ -302,5 +301,3 @@ function init() {
     backgroundHandle();
     getWeatherData('timeline');
 }
-
-document.addEventListener('DOMContentLoaded', init)

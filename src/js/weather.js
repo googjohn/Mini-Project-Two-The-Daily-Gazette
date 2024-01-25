@@ -1,6 +1,4 @@
 import { timeNow } from "./date.js";
-document.addEventListener('DOMContentLoaded', init)
-
 
 // fetch ip info of user using apiip.net
 export async function getIpInfo() {
@@ -68,27 +66,9 @@ async function getWeatherData(endpoint) {
 
     weatherIcon.innerHTML = `<img src="${conditionHandle(icon)}" title="${condition}" alt="">`
 
-    const temperature = document.querySelector('.temp');
-
+    const temperature = document.querySelector('.weather-loc-container .temp');
     temperature.innerHTML = celciusHandle(currentTemp) + '&deg;C';
-
-    const unitContainer = document.querySelector('.unit.dropdown ul');
-    unitContainer.addEventListener('click', (event) => {
-        const target = event.target;
-        const iconTempContainer = document.querySelector('.icon-temp-container');
-
-        if (target.classList.contains('celcius')) {
-            temperature.innerHTML = celciusHandle(currentTemp) + '&deg;C';
-            iconTempContainer.lastElementChild.innerHTML = celciusHandle(currentTemp) + '&deg;C';
-        } else if (target.classList.contains('fahrenheit')) {
-            temperature.innerHTML = Math.floor(currentTemp) + '&deg;F';
-            iconTempContainer.lastElementChild.innerHTML = Math.floor(currentTemp) + '&deg;F';
-        } else if (target.classList.contains('kelvin')) {
-            temperature.innerHTML = kelvinHandle(currentTemp) + '&deg;K';
-            iconTempContainer.lastElementChild.innerHTML = kelvinHandle(currentTemp) + '&deg;K';
-        }
-    })
-
+    
     const locationInner = document.querySelector('.location-inner');
     locationInner.textContent = city;
 
@@ -107,8 +87,39 @@ async function getWeatherData(endpoint) {
 
     // weatherLocContainer.title = `title="${result.weather[0].description}"`
 
-    weatherForecastHandle(result)
+    weatherForecastHandle(result);
+    tempChangeHandle(currentTemp);
+}
 
+function tempChangeHandle(currentTemp){
+    const temperature = document.querySelector('.weather-loc-container .temp');
+    const iconTempContainer = document.querySelector('.icon-temp-container');
+    const hourlyForecast = document.querySelectorAll('.hourly-forecast .hourly-item .temp');
+
+    const unitContainer = document.querySelector('.unit.dropdown ul');
+    unitContainer.addEventListener('click', (event) => {
+        const target = event.target;
+        
+        if (target.classList.contains('celcius')) {
+            temperature.innerHTML = celciusHandle(currentTemp) + '&deg;C';
+            iconTempContainer.lastElementChild.innerHTML = celciusHandle(currentTemp) + '&deg;C';
+            hourlyForecast.forEach(item => {
+                item.innerHTML = celciusHandle(currentTemp) + '&deg;C'
+            })
+        } else if (target.classList.contains('fahrenheit')) {
+            temperature.innerHTML = Math.floor(currentTemp) + '&deg;F';
+            iconTempContainer.lastElementChild.innerHTML = Math.floor(currentTemp) + '&deg;F';
+            hourlyForecast.forEach(item => {
+                item.innerHTML = Math.floor(currentTemp) + '&deg;F'
+            })
+        } else if (target.classList.contains('kelvin')) {
+            temperature.innerHTML = kelvinHandle(currentTemp) + '&deg;K';
+            iconTempContainer.lastElementChild.innerHTML = kelvinHandle(currentTemp) + '&deg;K';
+            hourlyForecast.forEach(item => {
+                item.innerHTML = kelvinHandle(currentTemp) + '&deg;K'
+            })
+        }
+    })
 }
 
 function conditionHandle(condition) {
@@ -196,16 +207,13 @@ function weatherForecastHandle(weatherData) {
 
     const hourlyForecastContainer = document.querySelector('.hourly-forecast')
 
-    // const timeContainer = document.querySelectorAll('hourly-item .time')
-    // const tempContainer = document.querySelectorAll('.hourly-item .temp')
-    // const iconContainer = document.querySelectorAll('.hourly-item .icon')
-
     const timeDigits = parseInt(timeNow().toString().valueOf().slice(0,8))
     const timePm = timeNow().toString().toLowerCase().includes('pm')
     const timeAm = timeNow().toString().toLowerCase().includes('am')
 
-    const hourlyForecast = weatherData.days[0].hours.slice((timeDigits + 12), weatherData.days[0].hours.length).length < 6 ? 
-        (weatherData.days[0].hours.slice((timeDigits + 10), (weatherData.days[0].hours.length + 12))) : weatherData.days[0].hours.slice((timeDigits + 12), weatherData.days[0].hours.length)
+    const hourlyForecast = weatherData.days[1].hours.slice(0, 5)
+    // .length < 6 ? 
+    //     (weatherData.days[1].hours.slice((timeDigits + 10), (weatherData.days[1].hours.length + 12))) : weatherData.days[1].hours.slice((timeDigits + 12), weatherData.days[1].hours.length)
     console.log(hourlyForecast)
 
     for (let ii = 0; ii < hourlyForecast.length; ii++) {
@@ -215,12 +223,17 @@ function weatherForecastHandle(weatherData) {
         console.log(hourForecast);
 
         hourlyItemContainer.innerHTML = 
-            `<span class="time">${hourForecast.datetime.slice(0,2)}${timePm ? "PM" : "AM"}</span>
+            `<span class="time">
+                ${
+                    hourForecast.datetime.slice(0,2) == 0 ?
+                    12 :
+                    hourForecast.datetime.slice(0,2)
+                }${timePm ? "PM" : "AM"}</span>
             <span class="icon"><img src="${conditionHandle(hourForecast.icon)}" title="${hourForecast.conditions}"></span>
             <span class="temp">${celciusHandle(hourForecast.temp)}&deg;C</span>`
         
         hourlyForecastContainer.appendChild(hourlyItemContainer)
-        
+  
         if (timePm) {
             if (timeDigits > 5) {
                 
@@ -260,23 +273,6 @@ function kelvinHandle(temp) {
     return kelvin;
 }
 
-const dropdownInner = document.querySelector('.dropdown-inner')
-dropdownInner.addEventListener('click', (event)=> {
-    const target = event.target;
-    console.log(target);
-    const dropdownUl = document.querySelector('.dropdown-inner ul');
-
-    if (target.classList.contains('fa-ellipsis')) {
-
-        if (dropdownUl.style.display === 'none') {
-            dropdownUl.style.display = 'block';
-        } else {
-            dropdownUl.style.display = 'none';
-        }
-        
-    }
-})
-
 const hourDayTab = document.querySelector('.hour-day-tab');
 
 hourDayTab.addEventListener('click', event => {
@@ -286,8 +282,8 @@ hourDayTab.addEventListener('click', event => {
 
 function hourDayTabHandle(target) {
     const hourTab = document.querySelector('.hour-tab')
-    hourTab.style.borderBottom = '2px solid var(--aqua-clr)' 
     const dayTab = document.querySelector('.day-tab')
+    
     if (target === hourTab) {
         hourTab.style.borderBottom = '2px solid var(--aqua-clr)' 
         dayTab.style.borderBottom = 'none'
@@ -297,7 +293,36 @@ function hourDayTabHandle(target) {
     }
 }
 
+function dropButtonHandle() {
+    const dropdownInner = document.querySelector('.dropdown-inner')
+    dropdownInner.addEventListener('click', (event)=> {
+        const target = event.target;
+
+        const dropdownUl = document.querySelector('.dropdown-inner ul');
+
+        const dropdownI = document.querySelector('.dropdown-inner i');
+
+        if (target === dropdownI) {
+            if (dropdownUl.style.display === 'block') {
+                dropdownUl.style.display = 'none';
+            } else {
+                dropdownUl.style.display = 'block';
+            }
+        
+        }
+    })
+}
+
 function init() {
     backgroundHandle();
     getWeatherData('timeline');
 }
+
+// const dropdownUl = document.querySelector('.dropdown-inner ul');
+//         dropdownUl.style.display = 'none';
+
+document.addEventListener('DOMContentLoaded', ()=> {
+    init();
+    dropButtonHandle();
+})
+

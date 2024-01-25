@@ -376,6 +376,7 @@ nav > div {
     /* backdrop-filter: blur(10px); */
     border-radius: 10px;
     padding: 15px;
+    padding-bottom: 10px;
     transform: translateY(-20px);
     transition: all 350ms ease-out;
     display: flex;
@@ -430,7 +431,7 @@ nav > div {
     padding: 10px;
     border-radius: 10px;
     transform: translateY(10px);
-    transition: opacity 500ms ease;
+    /* transition: opacity 500ms ease; */
     box-shadow: var(--box-shadow-blight);
 }
 
@@ -526,8 +527,9 @@ nav > div {
     font-weight: 300;
     position: relative;
 }
-.hour-day-tab > div:hover {
-    /* border-bottom: 2px solid var(--aqua-clr); */
+
+h3.hour-tab {
+    border-bottom: 2px solid var(--aqua-clr);
 }
 
 .hourly-forecast {

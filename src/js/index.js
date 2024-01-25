@@ -166,7 +166,7 @@ async function headNews(endpoint, countryCode) {
                 carouselDiv.classList = 'card';
                 carouselDiv.innerHTML = 
                     `<div class='card-image'>
-                        <img src=${article.image} alt="">
+                        <img src=${article.image} onerror="this.src='./images/no-image-available.png'" alt="">
                     </div>
                     <div class="card-content">
                         <span class="news-source"><a href=${article.source.url} target="_blank">${article.source.name}</a></span>
@@ -189,7 +189,7 @@ async function headNews(endpoint, countryCode) {
                 boxArticle.innerHTML =
                     `<div class='card'>
                         <div class='card-image'>
-                            <img src=${article.image} alt="">
+                            <img src=${article.image} onerror="this.src='./images/no-image-available.png'" alt="">
                         </div>
                         <div class="card-content">
                             <span class="news-source"><a href=${article.source.url} target="_blank">${article.source.name}</a></span>
@@ -927,7 +927,7 @@ async function entmentNews(endpoint, countryCode) {
 
 async function init() {
     const ipInfo = await getIpInfo();
-    const countryCode = ipInfo.countryCode.toLowerCase();
+    const countryCode = ipInfo.country.toLowerCase();
 
     headNews('top-headlines', countryCode);
     trendNews('top-headlines', countryCode);
@@ -935,14 +935,15 @@ async function init() {
     financeNews('top-headlines', countryCode);
     moreFinanceNews('top-headlines', countryCode);
     sportsNews('top-headlines', countryCode);
-    // moreSportsNews('top-headlines', countryCode);
     nbaSportsNews('search', countryCode);
     mlbSportsNews('search', countryCode);
     techNews('top-headlines', countryCode);
     entmentNews('top-headlines', countryCode);
+    // moreSportsNews('top-headlines', countryCode);
     // scienceNews('top-headlines', countryCode);
 }
-document.addEventListener('DOMContentLoaded', init)
+
+// document.addEventListener('DOMContentLoaded', init)
 
 function showSpinner() {
     const spin = document.querySelector('#loader-container');

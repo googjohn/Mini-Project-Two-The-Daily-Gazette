@@ -70,11 +70,49 @@
                         <span class="temp"></span>
                         <span class="unit dropdown">
                             <i class="fa-solid fa-chevron-down"></i>
-                            <ul>
-                                <li class="celcius">Celcius</li>
-                                <li class="fahrenheit">Fahrenheit</li>
-                                <li class="kelvin">Kelvin</li>
-                            </ul>
+                            <div class="weather-loc-box">
+                                <div class="loc">
+                                    <span class="location-inner"></span>
+                                    <span class="dropdown-inner">
+                                        <i class="fa-solid fa-ellipsis"></i>
+                                        <ul>
+                                            <li class="celcius">&deg;C Celcius</li>
+                                            <li class="fahrenheit">&deg;F Fahrenheit</li>
+                                            <li class="kelvin">&deg;K Kelvin</li>
+                                        </ul>
+                                    </span>
+                                </div>
+                                <div class="icon-description">
+                                    <div class="icon-temp-container">
+                                        <span class="icon"></span>
+                                        <span class="temp"></span>
+                                    </div>
+                                    <div class="weather-desc">
+                                        <span class="weather-description"></span>
+                                    </div>
+                                </div>
+                                <div class="hour-day-tab">
+                                    <div>
+                                        <h3 class="hour-tab">Hourly</h3>
+                                    </div>
+                                    <div>
+                                        <h3 class="day-tab">Daily</h3>
+                                    </div>
+                                </div>
+                                <div class="hour-daily-forecast">
+                                    <div class="hourly-forecast">
+                                        <!-- <div class="hourly-item">
+                                            <span class="time">1PM</span>
+                                            <span class="icon"></span>
+                                            <span class="temp">24</span>
+                                        </div> -->
+                                    </div>
+                                    <div class="daily-forecast"></div>
+                                </div>
+                                <div class="more-forecast">
+                                    <h3>See full forecast</h3>
+                                </div>
+                            </div>
                         </span>
                     </div>
                 </div>
@@ -341,6 +379,9 @@
         <div class="loader"></div>
         <img src="./images/spinner.png" alt="logo" />
     </div>
+    <div class="back-to-top">
+        <button><i class="fa-solid fa-angles-up"></i></button>
+    </div>
     <!-- footer -->
     <footer id="footer">
         <div class="container">
@@ -395,6 +436,9 @@
                                 </a>
                             </li>
                         </ul>
+                    </div>
+                    <div class="copyrights">
+                        <h3>Copyright &copy; COGY&trade; | All Rights Reserved.</h3>       
                     </div>
                 </div>
                 <div class="flex-item">
@@ -452,8 +496,7 @@
                                     <li><a href=""><i class="fa-solid fa-chevron-right"></i>Terms of Use</a></li>
                                     <li><a href=""><i class="fa-solid fa-chevron-right"></i>License</a></li>
                                 </ul>
-                            </div>
-                            
+                            </div>                       
                         </div>
                         <div class="grid-item">
                             <div class="foot-title">
@@ -463,13 +506,14 @@
                                 <form action="">
                                     <input type="text" name="fullname" id="fullname" autocomplete="off" placeholder="Your name...">
                                     <input type="email" name="email" id="email" autocomplete="off" placeholder="Your email...">
+                                    <input type="submit" value="Subscribe" class="sub-btn">
                                 </form>
                             </div>
                             
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>           
             <div class="footer-navigation">
                 <ul>
                     <li><a href="/">Home</a></li>
@@ -479,16 +523,13 @@
                     <li><a href="#sports-news">Sports</a></li>
                 </ul>
             </div>
-            <div class="copyrights">
-                <h3>Copyright &copy; COGY&trade; | All Rights Reserved.</h3>
-            </div>
         </div>
     </footer>
 
     <!-- scripts -->
     <script type="module" src="./js/index.js"></script>
     <script type="module" src="./js/date.js"></script>
-    <script type="module" src="./js/mobileMenu.js"></script>
+    <script type="module" src="./js/mobileMenuAndButtons.js"></script>
     <script type="module" src="./js/weather.js"></script>
 </body>
 

@@ -450,8 +450,6 @@
     'A A A A B B B B'
     'A A A A B B B B'
     'A A A A B B B B'
-    'A A A A B B B B'
-    'C C C C D D D D'
     'C C C C D D D D'
     'C C C C D D D D'
     'C C C C D D D D'
@@ -723,7 +721,7 @@
     }
 
     #sports-news .grid-container {
-        grid-template-rows: repeat(20, 90px);
+        grid-template-rows: repeat(20, 75px);
         grid-template-areas: 
         'A A A A A A'
         'A A A A A A'
@@ -764,6 +762,12 @@
         padding: 0 10px;
     }
 
+    #footer .copyrights {
+        display: block;
+        padding: 30px 0;
+        border-top: 1px solid var(--tertiary-clr);
+    }
+
     .copyrights h3 {
         font-size: .85rem;
     }
@@ -786,6 +790,18 @@
         margin-top: 0;
     }
 
+    footer .flex-item .grid-container {
+        grid-template-areas: 
+        'A A A A B B B B'
+        'A A A A B B B B'
+        'A A A A B B B B'
+        'A A A A B B B B'
+        'C C C C D D D D'
+        'C C C C D D D D'
+        'E E E E E E E E'
+        'E E E E E E E E'
+        'E E E E E E E E';
+    }
     .weather-loc-container {
         justify-content: space-between;
         width: 100%;

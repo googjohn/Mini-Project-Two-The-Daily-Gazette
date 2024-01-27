@@ -230,9 +230,7 @@ function weatherForecastHandle(weatherData) {
         
         const boxShadowLightUp = '-4px 4px 10px 0 rgba(255, 255, 255, 0.3), 4px -4px 10px 0 rgba(0, 0, 0, 0.25)';
         const boxShadowLightDown = '4px -4px 10px 0 rgba(255, 255, 255, 0.3), -4px 4px 10px 0 rgba(0, 0, 0, 0.25)';
-                console.log(timeNow());
-                console.log(timePm);
-                console.log(timeDigits);
+        
         if (timePm) {
             if (timeDigits > 5) {           
                 hourlyItemContainer.style.boxShadow = boxShadowLightUp
@@ -245,7 +243,7 @@ function weatherForecastHandle(weatherData) {
                 hourlyItemContainer.style.boxShadow = boxShadowLightDown
                 moreForecast.style.boxShadow = boxShadowLightDown
             } 
-        } else if (timeAm) {
+        } else {
             if (timeDigits === 12) {
                 hourlyItemContainer.style.boxShadow = boxShadowLightUp
                 moreForecast.style.boxShadow = boxShadowLightUp

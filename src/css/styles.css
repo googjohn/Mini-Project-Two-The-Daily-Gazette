@@ -583,13 +583,12 @@ h3.hour-tab {
 .more-forecast h3 {
     font-size: .9rem;
     font-weight: 300;
-    color: rgba(var(--text-light-clr-rgb), .5);
+    color: var(--text-light-clr);
     cursor: pointer;
 }
 
 .more-forecast h3:hover {
-    color: rgba(var(--text-light-clr-rgb), .9);
-    text-decoration: underline;
+    color: var(--text-lida-clr);
 }
 
 /* salutation */

@@ -57,7 +57,7 @@ async function getWeatherData(endpoint) {
     const icon = result.currentConditions.icon
     const condition = result.currentConditions.conditions
     const currentTemp = result.currentConditions.temp
-    const description = result.description
+    const description = result.days[0].description
 
     const location = document.querySelector('.location');
     location.textContent = city;
@@ -129,25 +129,18 @@ function conditionHandle(condition) {
     switch (condition) {
         case 'partly-cloudy-day':         
             return 'https://googjohn.github.io/hosted-assets/weather-icons/svg/PartlyCloudyDay.svg'   
-            // return 'https://i.ibb.co/PZQXH8V/27.png';   
         case 'partly-cloudy-night':           
             return 'https://googjohn.github.io/hosted-assets/weather-icons/svg/PartlyCloudyNight.svg'   
-            // return 'https://i.ibb.co/Kzkk59k/15.png';   
         case 'rain':           
             return 'https://googjohn.github.io/hosted-assets/weather-icons/svg/ModerateRain.svg'   
-            // return 'https://i.ibb.co/kBd2NTS/39.png';    
         case 'clear-day':           
             return 'https://googjohn.github.io/hosted-assets/weather-icons/svg/MostlySunnyDay.svg'   
-            // return 'https://i.ibb.co/rb4rrJL/26.png';    
         case 'clear-night':            
             return 'https://googjohn.github.io/hosted-assets/weather-icons/svg/MostlyClearNight.svg'   
-            // return 'https://i.ibb.co/1nxNGHL/10.png';
         case 'cloudy':
             return 'https://googjohn.github.io/hosted-assets/weather-icons/svg/MostlyCloudyDay.svg'   
-            // return 'https://openweathermap.org/img/w/04n.png'
         default:
             return 'https://googjohn.github.io/hosted-assets/weather-icons/svg/PartlySunnyDay.svg'   
-            // return 'https://i.ibb.co/rb4rrJL/26.png';
     }
 }
 
@@ -185,18 +178,13 @@ function backgroundHandle() {
         }
 
         if (timeDigits === 12) {
-            
-            // hourlyItem.forEach(item => {
-            //     item.style.boxShadow = 
-            //         '4px -3px 10px 0 rgba(0, 0, 0, 0.25), -4px 4px 10px 0 rgba(255, 255, 255, 0.3)';
-            // })
-
             weatherLocContainer.style.background = weatherContainerBackgroundNight;
             dropdownUl.style.background = dropdownUlBackgroundNight;
         }
     }
 }
 
+// go back later for proper timing logic
 function weatherForecastHandle(weatherData) {
 
     const hourlyForecastContainer = document.querySelector('.hourly-forecast')
@@ -229,6 +217,7 @@ function weatherForecastHandle(weatherData) {
         
         hourlyForecastContainer.appendChild(hourlyItemContainer)
         
+        const dropdownUl = document.querySelector('.dropdown-inner ul');
         const boxShadowLightUp = '-4px 4px 10px 0 rgba(255, 255, 255, 0.3), 4px -4px 10px 0 rgba(0, 0, 0, 0.25)';
         const boxShadowLightDown = '4px -4px 10px 0 rgba(255, 255, 255, 0.3), -4px 4px 10px 0 rgba(0, 0, 0, 0.25)';
         
@@ -236,35 +225,49 @@ function weatherForecastHandle(weatherData) {
             if (timeDigits > 5) {           
                 hourlyItemContainer.style.boxShadow = boxShadowLightUp
                 moreForecast.style.boxShadow = boxShadowLightUp
+                dropdownUl.style.boxShadow = boxShadowLightUp
             } else if (timeDigits <= 5 ) {
                 hourlyItemContainer.style.boxShadow = boxShadowLightDown
                 moreForecast.style.boxShadow = boxShadowLightDown
+                dropdownUl.style.boxShadow = boxShadowLightDown
             }
             if (timeDigits === 12) {
                 hourlyItemContainer.style.boxShadow = boxShadowLightDown
                 moreForecast.style.boxShadow = boxShadowLightDown
+                dropdownUl.style.boxShadow = boxShadowLightDown
             } 
         } else {
             if (timeDigits === 12) {
                 hourlyItemContainer.style.boxShadow = boxShadowLightUp
                 moreForecast.style.boxShadow = boxShadowLightUp
+                dropdownUl.style.boxShadow = boxShadowLightUp
             } 
             if (timeDigits < 5) {
                 hourlyItemContainer.style.boxShadow = boxShadowLightDown
                 moreForecast.style.boxShadow = boxShadowLightDown
+                dropdownUl.style.boxShadow = boxShadowLightDown
             } else {
                 hourlyItemContainer.style.boxShadow = boxShadowLightUp
                 moreForecast.style.boxShadow = boxShadowLightUp
+                dropdownUl.style.boxShadow = boxShadowLightUp
             }
         }
-        // hourlyItemContainer.addEventListener('mouseover', ()=> {
-            // hourlyItemContainer.style.boxShadow =
-            //     '4px -3px 10px 0 rgba(255, 255, 255, 0.3), -4px 4px 10px 0 rgba(0, 0, 0, 0.25)'
-        // })
-        // hourlyItemContainer.addEventListener('mouseout', ()=> {
-            // hourlyItemContainer.style.boxShadow =
-                // '4px -3px 10px 0 rgba(0, 0, 0, 0.25), -4px 4px 10px 0 rgba(255, 255, 255, 0.3)'
-        // })
+
+        hourlyItemContainer.addEventListener('mouseover', ()=> {
+            hourlyItemContainer.style.boxShadow =
+                '-4px 4px 10px 0 rgba(255, 255, 255, 0.3) inset, 4px -4px 10px 0 rgba(0, 0, 0, 0.25) inset'
+        })
+        hourlyItemContainer.addEventListener('mouseout', ()=> {
+            hourlyItemContainer.style.boxShadow = boxShadowLightUp
+        })
+
+        moreForecast.addEventListener('mouseover', () => {
+            moreForecast.style.boxShadow = 
+                '-4px 4px 10px 0 rgba(255, 255, 255, 0.3) inset, 4px -4px 10px 0 rgba(0, 0, 0, 0.25) inset'
+        })
+        moreForecast.addEventListener('mouseout', () => {
+            moreForecast.style.boxShadow = boxShadowLightUp
+        })
     }
 
 }
@@ -332,6 +335,7 @@ function dropdownButtonHandle(event) {
         dropdownUl.style.display = 'none';
         dropdownI.classList.remove('active')
     }
+
 }
 
 function init() {

@@ -206,7 +206,8 @@ function weatherForecastHandle(weatherData) {
     const timePm = timeNow().toString().toLowerCase().includes('pm')
     const timeAm = timeNow().toString().toLowerCase().includes('am')
 
-    const hourlyForecast = weatherData.days[1].hours.slice(0, 5)
+    const hourlyForecast = weatherData.days[0].hours.slice(12, 17)
+    console.log(weatherData);
     // .length < 6 ? 
     //     (weatherData.days[1].hours.slice((timeDigits + 10), (weatherData.days[1].hours.length + 12))) : weatherData.days[1].hours.slice((timeDigits + 12), weatherData.days[1].hours.length)
 

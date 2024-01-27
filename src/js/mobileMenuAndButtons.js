@@ -73,6 +73,10 @@ backToTopButton.addEventListener('click', backToTop)
 function backToTop() {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0; 
+    document.documentElement.animate(
+        { scrollTop: 0 },
+        { duration: 1000,  easing: 'ease-in-out' }
+    )
 }
 
 window.addEventListener('scroll', scrollHandle)
@@ -129,4 +133,6 @@ function scrollHandle() {
     // } 
 }
 
+function scrollAnimation() {
 
+}

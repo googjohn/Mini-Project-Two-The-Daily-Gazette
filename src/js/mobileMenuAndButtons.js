@@ -75,58 +75,58 @@ function backToTop() {
     document.documentElement.scrollTop = 0; 
 }
 
-// window.addEventListener('scroll', scrollHandle)
+window.addEventListener('scroll', scrollHandle)
 
-// let isScrolling = false;
+let isScrolling = false;
 
-// function scrollHandle() {
+function scrollHandle() {
    
-//     if (window.scrollY > 1000) {
-//         backToTopButton.style.display = 'block'
-//     } else {
-//         backToTopButton.style.display = 'none'
-//     }
+    if (window.scrollY > 1000) {
+        backToTopButton.style.display = 'block'
+    } else {
+        backToTopButton.style.display = 'none'
+    }
     
     
-//     // let currentScrollPosition = initialSCroll + window.scrollY;
-//     // console.log(currentScrollPosition);
+    // let currentScrollPosition = initialSCroll + window.scrollY;
+    // console.log(currentScrollPosition);
     
     
     
-//     setTimeout(
-//         scrollPosition,
-//         3000
-//     )
+    // setTimeout(
+    //     scrollPosition,
+    //     3000
+    // )
 
-//     function scrollPosition() {
-//             const initialSCroll = window.scrollY;
-//             // console.log(initialSCroll);
-//         // const currentPosition = initialSCroll + window.scrollY;
-//         // console.log(currentPosition);
+    // function scrollPosition() {
+    //         const initialSCroll = window.scrollY;
+    //         // console.log(initialSCroll);
+    //     // const currentPosition = initialSCroll + window.scrollY;
+    //     // console.log(currentPosition);
 
-//         if (initialSCroll > 0) {
-//             isScrolling = true;
-//             // console.log(isScrolling);
-//         }
-//     }
-//     scrollPosition();
-
-
+    //     if (initialSCroll > 0) {
+    //         isScrolling = true;
+    //         // console.log(isScrolling);
+    //     }
+    // }
+    // scrollPosition();
 
 
 
 
-//     const header = document.querySelector('header');
-//     if (window.scrollY > 1000) {
-//         header.style.position = 'relative';
-//         header.style.transition = 'all 1s ease'
-//         header.style.backgroundColor = 'rgba(0,0,0, .5)'
-//         header.style.backdropFilter = 'blur(10px)'
-//     } else {
-//         header.style.position = 'fixed';
-//         header.style.backgroundColor = '#000000fe'
-//         header.style.backdropFilter = 'none'
-//     } 
-// }
+
+
+    // const header = document.querySelector('header');
+    // if (window.scrollY > 1000) {
+    //     header.style.position = 'relative';
+    //     header.style.transition = 'all 1s ease'
+    //     header.style.backgroundColor = 'rgba(0,0,0, .5)'
+    //     header.style.backdropFilter = 'blur(10px)'
+    // } else {
+    //     header.style.position = 'fixed';
+    //     header.style.backgroundColor = '#000000fe'
+    //     header.style.backdropFilter = 'none'
+    // } 
+}
 
 

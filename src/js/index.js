@@ -943,7 +943,7 @@ async function init() {
     // scienceNews('top-headlines', countryCode);
 }
 
-document.addEventListener('DOMContentLoaded', init)
+// document.addEventListener('DOMContentLoaded', init)
 
 function showSpinner() {
     const spin = document.querySelector('#loader-container');

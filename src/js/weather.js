@@ -167,6 +167,9 @@ function backgroundHandle() {
         if (timeDigits > 5) {             
             weatherLocContainer.style.background = weatherContainerBackgroundNight;
             dropdownUl.style.background = dropdownUlBackgroundNight;
+        } else {
+            weatherLocContainer.style.background = weatherContainerBackgroundDay;
+            dropdownUl.style.background = dropdownUlBackgroundDay;
         }
         if (timeDigits === 12) {
             weatherLocContainer.style.background = weatherContainerBackgroundDay;
@@ -201,6 +204,7 @@ function weatherForecastHandle(weatherData) {
 
     const timeDigits = parseInt(timeNow().toString().valueOf().slice(0,8))
     const timePm = timeNow().toString().toLowerCase().includes('pm')
+    const timeAm = timeNow().toString().toLowerCase().includes('am')
 
     const hourlyForecast = weatherData.days[1].hours.slice(0, 5)
     // .length < 6 ? 
@@ -226,12 +230,14 @@ function weatherForecastHandle(weatherData) {
         
         const boxShadowLightUp = '-4px 4px 10px 0 rgba(255, 255, 255, 0.3), 4px -4px 10px 0 rgba(0, 0, 0, 0.25)';
         const boxShadowLightDown = '4px -4px 10px 0 rgba(255, 255, 255, 0.3), -4px 4px 10px 0 rgba(0, 0, 0, 0.25)';
-
+                console.log(timeNow());
+                console.log(timePm);
+                console.log(timeDigits);
         if (timePm) {
             if (timeDigits > 5) {           
                 hourlyItemContainer.style.boxShadow = boxShadowLightUp
                 moreForecast.style.boxShadow = boxShadowLightUp
-            } else {
+            } else if (timeDigits <= 5 ) {
                 hourlyItemContainer.style.boxShadow = boxShadowLightDown
                 moreForecast.style.boxShadow = boxShadowLightDown
             }
@@ -239,7 +245,7 @@ function weatherForecastHandle(weatherData) {
                 hourlyItemContainer.style.boxShadow = boxShadowLightDown
                 moreForecast.style.boxShadow = boxShadowLightDown
             } 
-        } else {
+        } else if (timeAm) {
             if (timeDigits === 12) {
                 hourlyItemContainer.style.boxShadow = boxShadowLightUp
                 moreForecast.style.boxShadow = boxShadowLightUp

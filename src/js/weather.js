@@ -2,18 +2,21 @@ import { timeNow } from "./date.js";
 
 // fetch ip info of user using apiip.net
 export async function getIpInfo() {
-    // const apiKey = '71dfe1b9-37c2-4046-9a8b-3a79951cd795'
-    // const apiUrl = `https://apiip.net/api/check?&accessKey=${apiKey}`
+    const apiKey = '71dfe1b9-37c2-4046-9a8b-3a79951cd795'
+    const apiUrl = `https://apiip.net/api/check?&accessKey=${apiKey}`
 
-    const ipInfoKey = '6fb133d2b718e1'
-    const ipInfoUrl = `https://ipinfo.io/json?token=${ipInfoKey}`
+    // const ipInfoKey = '6fb133d2b718e1'
+    // const ipInfoUrl = `https://ipinfo.io/json?token=${ipInfoKey}`
 
-    // const response = await fetch(apiUrl);
-    const req = await fetch(ipInfoUrl);
+    const response = await fetch(apiUrl);
+    // const req = await fetch(ipInfoUrl);
     
-    // const result = await response.json();
-    const res = await req.json();
-    return res;
+    const result = await response.json();
+    // const res = await req.json();
+    // console.log(res);
+    // return res;
+    console.log(result);
+    return result;
 }
 
 async function getIpGeoLocation() {
@@ -124,20 +127,27 @@ function tempChangeHandle(currentTemp){
 
 function conditionHandle(condition) {
     switch (condition) {
-        case 'partly-cloudy-day':            
-            return 'https://i.ibb.co/PZQXH8V/27.png';   
+        case 'partly-cloudy-day':         
+            return 'https://googjohn.github.io/hosted-assets/weather-icons/svg/PartlyCloudyDay.svg'   
+            // return 'https://i.ibb.co/PZQXH8V/27.png';   
         case 'partly-cloudy-night':           
-            return 'https://i.ibb.co/Kzkk59k/15.png';   
+            return 'https://googjohn.github.io/hosted-assets/weather-icons/svg/PartlyCloudyNight.svg'   
+            // return 'https://i.ibb.co/Kzkk59k/15.png';   
         case 'rain':           
-            return 'https://i.ibb.co/kBd2NTS/39.png';    
+            return 'https://googjohn.github.io/hosted-assets/weather-icons/svg/ModerateRain.svg'   
+            // return 'https://i.ibb.co/kBd2NTS/39.png';    
         case 'clear-day':           
-            return 'https://i.ibb.co/rb4rrJL/26.png';    
+            return 'https://googjohn.github.io/hosted-assets/weather-icons/svg/MostlySunnyDay.svg'   
+            // return 'https://i.ibb.co/rb4rrJL/26.png';    
         case 'clear-night':            
-            return 'https://i.ibb.co/1nxNGHL/10.png';
+            return 'https://googjohn.github.io/hosted-assets/weather-icons/svg/MostlyClearNight.svg'   
+            // return 'https://i.ibb.co/1nxNGHL/10.png';
         case 'cloudy':
-            return 'https://openweathermap.org/img/w/04n.png'
+            return 'https://googjohn.github.io/hosted-assets/weather-icons/svg/MostlyCloudyDay.svg'   
+            // return 'https://openweathermap.org/img/w/04n.png'
         default:
-            return 'https://i.ibb.co/rb4rrJL/26.png';
+            return 'https://googjohn.github.io/hosted-assets/weather-icons/svg/PartlySunnyDay.svg'   
+            // return 'https://i.ibb.co/rb4rrJL/26.png';
     }
 }
 
@@ -213,45 +223,33 @@ function weatherForecastHandle(weatherData) {
             <span class="temp">${celciusHandle(hourForecast.temp)}&deg;C</span>`
         
         hourlyForecastContainer.appendChild(hourlyItemContainer)
-  
+        
+        const boxShadowLightUp = '-4px 4px 10px 0 rgba(255, 255, 255, 0.3), 4px -4px 10px 0 rgba(0, 0, 0, 0.25)';
+        const boxShadowLightDown = '4px -4px 10px 0 rgba(255, 255, 255, 0.3), -4px 4px 10px 0 rgba(0, 0, 0, 0.25)';
+
         if (timePm) {
-            if (timeDigits > 5) {
-                
-                hourlyItemContainer.style.boxShadow = 
-                    '4px -3px 10px 0 rgba(0, 0, 0, 0.25), -4px 4px 10px 0 rgba(255, 255, 255, 0.3)';
-                    
-                moreForecast.style.boxShadow = 
-                    '4px -3px 10px 0 rgba(0, 0, 0, 0.25), -4px 4px 10px 0 rgba(255, 255, 255, 0.3)';
+            if (timeDigits > 5) {           
+                hourlyItemContainer.style.boxShadow = boxShadowLightUp
+                moreForecast.style.boxShadow = boxShadowLightUp
             } else {
-                hourlyItemContainer.style.boxShadow = 
-                    '4px -3px 10px 0 rgba(255, 255, 255, 0.3), -4px 4px 10px 0 rgba(0, 0, 0, 0.25)';
-                    
-                moreForecast.style.boxShadow = 
-                    '4px -3px 10px 0 rgba(255, 255, 255, 0.3), -4px 4px 10px 0 rgba(0, 0, 0, 0.25)';
+                hourlyItemContainer.style.boxShadow = boxShadowLightDown
+                moreForecast.style.boxShadow = boxShadowLightDown
             }
-                    
+            if (timeDigits === 12) {
+                hourlyItemContainer.style.boxShadow = boxShadowLightDown
+                moreForecast.style.boxShadow = boxShadowLightDown
+            } 
         } else {
             if (timeDigits === 12) {
-                
-                hourlyItemContainer.style.boxShadow =
-                    '-4px 4px 10px 0 rgba(255, 255, 255, 0.3), 4px -4px 10px 0 rgba(0, 0, 0, 0.25)';
-                
-                moreForecast.style.boxShadow =
-                    '4px -3px 10px 0 rgba(255, 255, 255, 0.3), -4px 4px 10px 0 rgba(0, 0, 0, 0.25)';
+                hourlyItemContainer.style.boxShadow = boxShadowLightUp
+                moreForecast.style.boxShadow = boxShadowLightUp
             } 
-            
             if (timeDigits < 5) {
-                hourlyItemContainer.style.boxShadow = 
-                    '-4px 4px 10px 0 rgba(255, 255, 255, 0.3), 4px -4px 10px 0 rgba(0, 0, 0, 0.25)';
-                
-                moreForecast.style.boxShadow = 
-                    '4px -3px 10px 0 rgba(0, 0, 0, 0.25), -4px 4px 10px 0 rgba(255, 255, 255, 0.3)';
+                hourlyItemContainer.style.boxShadow = boxShadowLightDown
+                moreForecast.style.boxShadow = boxShadowLightDown
             } else {
-                hourlyItemContainer.style.boxShadow = 
-                    '4px -3px 10px 0 rgba(255, 255, 255, 0.3), -4px 4px 10px 0 rgba(0, 0, 0, 0.25)';
-                    
-                moreForecast.style.boxShadow = 
-                    '4px -3px 10px 0 rgba(255, 255, 255, 0.3), -4px 4px 10px 0 rgba(0, 0, 0, 0.25)';
+                hourlyItemContainer.style.boxShadow = boxShadowLightUp
+                moreForecast.style.boxShadow = boxShadowLightUp
             }
         }
         // hourlyItemContainer.addEventListener('mouseover', ()=> {

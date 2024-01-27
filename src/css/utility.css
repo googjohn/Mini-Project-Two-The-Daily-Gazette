@@ -38,6 +38,13 @@
 	--graylight-background:linear-gradient(135deg, #616c77 0%,#5d6874 100%);
 
 	--gap: 5px;
+
+	--bs-lupright-ddownleft: 
+		4px -4px 10px 0 rgba(255, 255, 255, 0.3),
+    	-4px 4px 10px 0 rgba(0, 0, 0, 0.25);
+	--bs-ldownleft-dupright: 
+		-4px 4px 10px 0 rgba(255, 255, 255, 0.3),
+    	4px -4px 10px 0 rgba(0, 0, 0, 0.25);
 }
 
 body,

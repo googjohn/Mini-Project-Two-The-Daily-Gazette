@@ -927,7 +927,7 @@ async function entmentNews(endpoint, countryCode) {
 
 async function init() {
     const ipInfo = await getIpInfo();
-    const countryCode = ipInfo.country.toLowerCase();
+    const countryCode = ipInfo.countryCode.toLowerCase();
 
     headNews('top-headlines', countryCode);
     trendNews('top-headlines', countryCode);

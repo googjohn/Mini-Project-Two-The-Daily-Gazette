@@ -56,13 +56,13 @@
     --padding: 10px;
 
     /* border radius */
-    --br: 10px;
+    --bradius: 10px;
 
     /* gap */
     --gap: 10px;
 
     /* backdrop filter */
-    --bd-filter-default: blur(10px);
+    --filter: blur(10px);
 
     /* box shadow */
     --bs-lightUpRight-darkDownLeft: 4px -4px 10px 0 rgba(var(--white-clr-rgb), 0.3),
@@ -71,6 +71,9 @@
     4px -4px 10px 0 rgba(var(--black-clr-rgb), 0.25);
     --bs-lightBlue: 0 0 4px 2px var(--aqua-clr);
     --bs-darkRed: 0 0 4px 2px rgba(160,6,6,1);
+
+    /* transition */
+    --transition: all 350ms ease-in-out;
 }
 
 body,

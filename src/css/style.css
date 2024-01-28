@@ -72,6 +72,20 @@ header {
             margin-right: auto;
             margin-left: auto;
 
+            /* check proper nesting with element with multiple class */
+            &.mobile-active {
+                display: flex;
+                gap: calc(var(--gap)*4);
+                position: fixed;
+                inset: 0 0 70% 0;
+                padding: 5em 2em min(20vh, 5em) 2em;
+                background-color: rgba((var(--black-rgb), 0.7));
+                backdrop-filter: calc(var(--filter)*10);
+                transform: translateX(0);
+                transition: all 350ms ease-in-out;
+                justify-content: center;
+                font-size: 1.1em;
+            }
             ul {
                 display: flex;
                 gap: calc(var(--gap)*4);
@@ -90,14 +104,12 @@ header {
             display: flex;
             justify-content: end;
             align-items: center;
-            vertical-align: middle;
             gap: var(--gap);
 
             .search {
                 width: 100%;
 
                 form {
-                    vertical-align: midddle;
                     .form-group {
                         position: relative;
                         display: flex;
@@ -154,6 +166,53 @@ header {
                 background-color: var(--primary-clr);
                 box-shadow: var(--bs-lightBlue);
             }
+
+            /* mobile navigation menu */
+            .mobile-menu {
+                display: none;
+                border-radius: calc(var(--bradius)/2);
+
+                .nav-toggle {
+                    position: relative;
+                    vertical-align: middle;
+                    padding: var(--padding);
+                    width: 100%;
+                    height: 100%;
+                    background: none;
+                    border: none;
+                    cursor: pointer;
+                    z-index: 10;
+
+                    .mobile-btn {
+                        display: block;
+                        width: 30px;
+                        height: 4px;
+                        margin: 5px 0;
+                        z-index: 10;
+                        background-color: var(--primary-clr);
+                        transition: all 350ms ease-in-out;
+                        box-shadow: var(--bs-lightBlue);
+
+                        &.close-btn.mobile-btn {
+                            &:nth-of-type(2) {
+                                opacity: 0;
+                                transform: translateX(20px);
+                                transition: all 350ms ease-in-out;
+                            }
+                            &:first-of-type {
+                                transform: rotate(225deg) translate(-6px, -6px);
+                                transition: all 350ms ease-in-out;
+                                box-shadow: var(--bs-lightBlue);
+                            }
+                            &:last-of-type {
+                                transform: rotate(225deg) translate(-6px, 7px);
+                                transition: all 350ms ease-in-out;
+                                box-shadow: var(--bs-lightBlue);
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
-} 
+}

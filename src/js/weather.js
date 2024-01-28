@@ -213,7 +213,7 @@ function weatherForecastHandle(weatherData) {
                     hourForecast.datetime.slice(0,2)
                 }${timePm ? "PM" : "AM"}</span>
             <span class="icon"><img src="${conditionHandle(hourForecast.icon)}" title="${hourForecast.conditions}"></span>
-            <span class="temp">${celciusHandle(hourForecast.temp)}&deg;C</span>`
+            <span class="temp">${celciusHandle(hourForecast.temp)}&deg;<span class="temp-unit">C</span></span>`
         
         hourlyForecastContainer.appendChild(hourlyItemContainer)
         
@@ -345,6 +345,6 @@ function init() {
 
 
 document.addEventListener('DOMContentLoaded', ()=> {
-    init();
+    // init();
 })
 

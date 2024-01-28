@@ -25,7 +25,7 @@
 //         if (ii % 2 === 0) {
 //             listItem.style.backgroundColor = '#eaeaea';
 //         } else {
-//             listItem.style.backgroundColor = '#a6a6a6'
+            // listItem.style.backgroundColor = '#a6a6a6'
 //         }
 //     }
 // }
@@ -943,7 +943,7 @@ async function init() {
     // scienceNews('top-headlines', countryCode);
 }
 
-document.addEventListener('DOMContentLoaded', init)
+// document.addEventListener('DOMContentLoaded', init)
 
 function showSpinner() {
     const spin = document.querySelector('#loader-container');

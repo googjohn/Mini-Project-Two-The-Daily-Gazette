@@ -1,0 +1,159 @@
+@import url('uti.css');
+
+/* header navigation */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 80px;
+    width: 100%;
+    background-image: var(--bg-carbon-clr);
+    background-blend-mode: var(--bg-blend-mode);
+    /* background-color: rgba(var(--black-clr-rgb, .996)); */
+    z-index: 100;
+    
+    .container {
+        display: flex;
+        /* justify-content: space-between; */
+        align-items: center;
+        gap: calc(var(--gap) * 2);
+        height: 100%;
+        width: 100%;
+        background-image: none;
+
+        .container & > div {
+            flex: 1 1;
+        }
+        .logo {
+            position: relative;
+            z-index: 10;
+
+            &::after {
+                content: '';
+                position: absolute;
+                width: 60px;
+                aspect-ratio: 1;
+                border-radius: 50%;
+                top: 10px;
+                left: 10px;
+                background-color: var(--aqua-clr);
+                box-shadow: var(--bs-lightBlue);
+                z-index: -1;
+            }
+            .spin-overlay {
+                .spinner {
+                    border-radius: 100%;
+                    width: 120px;
+                    height: 50px;
+                    position: absolute;
+                    top: 10px;
+                    left: -20px;
+                    animation: 1.2s spin infinite linear;
+                    z-index: 10;
+                }
+                a {
+                    &:hover::before,
+                    &:hover::after {
+                        width: 0;
+                        box-shadow: none;
+                    }
+                    img {
+                        height: 70px;
+                        vertical-align: middle;
+                        z-index: -1;
+                    }            
+                }
+                &:hover .spinner {
+                    z-index: -1;
+                }
+            }
+        }
+        .main-navigation {
+            margin-right: auto;
+            margin-left: auto;
+
+            ul {
+                display: flex;
+                gap: calc(var(--gap)*4);
+
+                a {
+                    color: var(--text-lightDark-clr);
+                    padding: 5px 0;
+                    &:hover {
+                        color: var(--text-light-clr);
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+        .user-search {
+            display: flex;
+            justify-content: end;
+            align-items: center;
+            vertical-align: middle;
+            gap: var(--gap);
+
+            .search {
+                width: 100%;
+
+                form {
+                    vertical-align: midddle;
+                    .form-group {
+                        position: relative;
+                        display: flex;
+                        flex-wrap: nowrap;
+                        align-items: center;
+                        justify-content: end;
+                        
+                        input {
+                            width: 38px;
+                            aspect-ratio: 1;
+                            background-color: var(--gray-clr);
+                            padding: var(--padding);
+                            padding-left: 15px;
+                            outline: none;
+                            border: none;
+                            border-radius: calc(var(--br)*2);
+                            color: var(--text-light-clr);
+                            transition: all 350ms ease-in-out;
+                            box-shadow: var(--bs-lightBlue);
+                            &:focus,
+                            &:hover {
+                                width: 200px;
+                                transition: all 350ms ease-in-out;
+                            }
+                        }
+                        label {
+                            position: absolute;
+                            background-color: var(--gray-clr);
+                            right: 1px;
+                            border-radius: 50%;
+                            z-index: 10;
+                            i {
+                                font-size: var(--fs);
+                                width: 36px;
+                                aspect-ratio: 1;
+                                padding: var(--padding);
+                                color: var(--text-light-clr);
+                                cursor: pointer;
+                            }
+                        }
+                    }
+                }
+                &::placeholder {
+                    color: var(--text-light-clr);
+                }
+            }
+            .user i {
+                width: 38px;
+                aspect-ratio: 1;
+                padding: var(--padding);
+                border-radius: 50%;
+                color: var(--aqua-clr);
+                cursor: pointer;
+                background-color: var(--primary-clr);
+                box-shadow: var(--bs-lightBlue);
+            }
+        }
+    }
+} 

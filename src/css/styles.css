@@ -9,7 +9,7 @@ header {
     left: 0;
     height: 80px;
     width: 100%;
-    background-color: #000000fe;
+    background-color: rgba(0, 0, 0, 0.996);
     /* background-image: linear-gradient(to right, #434343 0%, black 100%); */
     /* background: linear-gradient(to bottom, #323232 0%, #3F3F3F 40%, #1C1C1C 150%), linear-gradient(to top, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.25) 200%);
     background-blend-mode: multiply; */
@@ -111,6 +111,7 @@ nav > div {
     z-index: 10;
 }
 
+/* check back if needed or just completely let the spinner be at the back */
 .spin-overlay:hover .spinner {
     z-index: -1;
 }
@@ -408,7 +409,10 @@ nav > div {
     transition: all 350ms ease-out;
 }
 
-.dropdown-inner {
+.dropdown-inner,
+.celcius,
+.fahrenheit,
+.kelvin {
     position: relative;
 }
 
@@ -468,6 +472,7 @@ nav > div {
 }
 
 .icon-temp-container {
+    position: relative;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -489,7 +494,7 @@ nav > div {
 }
 
 .icon-temp-container .temp {
-    font-size: 2.5rem;
+    font-size: 3rem
 }
 
 .weather-desc span.weather-description {
@@ -567,8 +572,12 @@ h3.hour-tab {
     align-items: center;
     justify-content: space-evenly;
     padding: 5px;
-    /* box-shadow: var(--bs-lupright-ddownleft) */
 }
+
+.hourly-item .temp {
+    position: relative;
+}
+
 
 .more-forecast {
     align-self: center;
@@ -577,7 +586,7 @@ h3.hour-tab {
     backdrop-filter: blur(4px);
     border: 1px solid rgba(var(--text-light-clr-rgb), .1);
     /* box-shadow: 4px -3px 10px 0 rgba(255, 255, 255, 0.3),
-    -4px 4px 10px 0 rgba(0, 0, 0, 0.25); */
+    /* -4px 4px 10px 0 rgba(0, 0, 0, 0.25); */
 }
 
 .more-forecast h3 {
@@ -590,6 +599,7 @@ h3.hour-tab {
 .more-forecast h3:hover {
     color: var(--text-lida-clr);
 }
+
 
 /* salutation */
 .salutation-date {

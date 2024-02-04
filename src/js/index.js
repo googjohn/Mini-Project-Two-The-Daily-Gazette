@@ -25,7 +25,7 @@
 //         if (ii % 2 === 0) {
 //             listItem.style.backgroundColor = '#eaeaea';
 //         } else {
-            // listItem.style.backgroundColor = '#a6a6a6'
+// listItem.style.backgroundColor = '#a6a6a6'
 //         }
 //     }
 // }
@@ -37,64 +37,64 @@ import { getIpInfo } from "./weather.js";
 
 // apikeys global variable
 const gnewsApiKeys = {
-    apiKey_1: "59933f0e365a71e63e8b2c9e38d08455",
-    apiKey_2: "bd6c2317d02803fb4cf4fa5deaff149c",
-    apiKey_3: "9167dae881545d7d1ebf42ac1186d6ae",
-    apiKey_4: "702589ec14e5977ff3ff15d3eb3a4b50",
-    apiKey_5: "0654717037bb66a37e42b59e8ade6a64",
-    apiKey_6: "2d27b969040914f83bf30e7959ad9349",
-    apiKey_7: "e701311bc9b2249184c539cd496d8466",
-    apiKey_8: "26fd80a7289d79b300b99af28392c8c7",
-    apiKey_9: "d7dfd99147ac538715d80f39a0277163",
-    apiKey_10: "1321923f82f3680d72f02d2147d154b6",
-    apiKey_11: "36b7d60e3aa710516f138835973345e5",
-    apiKey_12: "1382e204787b970f3b304a0a0e7a3cd1",
-    apiKey_13: "00699591f08ddb241b7952693e0a09e4",
-    apiKey_14: "eef7eda04c20226e8230017f41d9bd0b",
-    apiKey_15: "0bc2dbb5459b76180ca5ce9eda5c06d6",
-    apiKey_16: "60d69a4c8da5a75c4e5f61a40b689562",
-    apiKey_17: "36637b64a142c041f31b44f7d6ed948a",
-    apiKey_18: "938eb01487792b76892a22a07cb25b4b",
-    apiKey_19: "1a6bba83f9ccf329e711dd1c0de6ff0a",
-    apiKey_20: "053a3fcc1281cccf0c88f55d60373e34",
-    apiKey_21: "bab393516f488acf9c3fedf5325c1ec2",
-    apiKey_22: "835798eefbde7435fa1b95029eeb73ee",
-    apiKey_23: "52167bc25aac72582194886b1a883d2e",
-    apiKey_24: "c39693e34fe847095bde68c95414819a",
-    apiKey_25: "24358282d6c10e278e9b3ff82b3a4578",
-    apiKey_26: "f036bc45681619ff4f2c49a123eb5632",
+  apiKey_1: "59933f0e365a71e63e8b2c9e38d08455",
+  apiKey_2: "bd6c2317d02803fb4cf4fa5deaff149c",
+  apiKey_3: "9167dae881545d7d1ebf42ac1186d6ae",
+  apiKey_4: "702589ec14e5977ff3ff15d3eb3a4b50",
+  apiKey_5: "0654717037bb66a37e42b59e8ade6a64",
+  apiKey_6: "2d27b969040914f83bf30e7959ad9349",
+  apiKey_7: "e701311bc9b2249184c539cd496d8466",
+  apiKey_8: "26fd80a7289d79b300b99af28392c8c7",
+  apiKey_9: "d7dfd99147ac538715d80f39a0277163",
+  apiKey_10: "1321923f82f3680d72f02d2147d154b6",
+  apiKey_11: "36b7d60e3aa710516f138835973345e5",
+  apiKey_12: "1382e204787b970f3b304a0a0e7a3cd1",
+  apiKey_13: "00699591f08ddb241b7952693e0a09e4",
+  apiKey_14: "eef7eda04c20226e8230017f41d9bd0b",
+  apiKey_15: "0bc2dbb5459b76180ca5ce9eda5c06d6",
+  apiKey_16: "60d69a4c8da5a75c4e5f61a40b689562",
+  apiKey_17: "36637b64a142c041f31b44f7d6ed948a",
+  apiKey_18: "938eb01487792b76892a22a07cb25b4b",
+  apiKey_19: "1a6bba83f9ccf329e711dd1c0de6ff0a",
+  apiKey_20: "053a3fcc1281cccf0c88f55d60373e34",
+  apiKey_21: "bab393516f488acf9c3fedf5325c1ec2",
+  apiKey_22: "835798eefbde7435fa1b95029eeb73ee",
+  apiKey_23: "52167bc25aac72582194886b1a883d2e",
+  apiKey_24: "c39693e34fe847095bde68c95414819a",
+  apiKey_25: "24358282d6c10e278e9b3ff82b3a4578",
+  apiKey_26: "f036bc45681619ff4f2c49a123eb5632",
 }
 
 async function carouselNewsCycle() {
-    // const carouselNewsItems = document.querySelector('#headline-news > .flex-container').children;
-    // console.log(carouselNewsItems);
-    // const carouselItems = [...carouselNewsItems];
-    // console.log(carouselItems);
-    // let index = 0;
-    
-    
-    // function carouselCycle() {
-    //     const currentSlide = carouselItems[index];
-        
-    //     if (!currentSlide.classList.contains('hidden')) {
-    //         currentSlide.classList.add('hidden')
-    //     } else {
-    //         currentSlide.classList.remove('hidden')
-    //     }
-        
-    //     index++;
-    //     index = index % carouselItems.length;
-    
-    //     const prevIndex = (index - 2 + carouselItems.length) % carouselItems.length;
-    //     const prevSlide = carouselItems[prevIndex];
-    //     if (prevSlide) {
-    //         prevSlide.classList.add('hidden')
-    //     } 
-        
-        
-    // } 
-    // carouselCycle();
-    // setInterval(carouselCycle, 5000)
+  // const carouselNewsItems = document.querySelector('#headline-news > .flex-container').children;
+  // console.log(carouselNewsItems);
+  // const carouselItems = [...carouselNewsItems];
+  // console.log(carouselItems);
+  // let index = 0;
+
+
+  // function carouselCycle() {
+  //     const currentSlide = carouselItems[index];
+
+  //     if (!currentSlide.classList.contains('hidden')) {
+  //         currentSlide.classList.add('hidden')
+  //     } else {
+  //         currentSlide.classList.remove('hidden')
+  //     }
+
+  //     index++;
+  //     index = index % carouselItems.length;
+
+  //     const prevIndex = (index - 2 + carouselItems.length) % carouselItems.length;
+  //     const prevSlide = carouselItems[prevIndex];
+  //     if (prevSlide) {
+  //         prevSlide.classList.add('hidden')
+  //     } 
+
+
+  // } 
+  // carouselCycle();
+  // setInterval(carouselCycle, 5000)
 
 }
 
@@ -102,855 +102,855 @@ async function carouselNewsCycle() {
 // fetch api data
 async function fetchApiData(endpoint, country, category, language, max, API_KEY) {
 
-    const apiUrl = `https://gnews.io/api/v4/${endpoint}?category=${category}&lang=${language}&country=${country}&max=${max}&apikey=${API_KEY}`
+  const apiUrl = `https://gnews.io/api/v4/${endpoint}?category=${category}&lang=${language}&country=${country}&max=${max}&apikey=${API_KEY}`
 
-    try {
+  try {
 
-        showSpinner();
+    showSpinner();
 
-        const response = await fetch(apiUrl);
+    const response = await fetch(apiUrl);
 
-        if (!response.ok) {
-            console.error(`Failed to fetch data. Status: ${response.status}, ${response.statusText}`);
-            hideSpinner();
-            return;
-        };
+    if (!response.ok) {
+      console.error(`Failed to fetch data. Status: ${response.status}, ${response.statusText}`);
+      hideSpinner();
+      return;
+    };
 
-        const result = await response.json();
+    const result = await response.json();
 
-        hideSpinner();
+    hideSpinner();
 
-        return result;
-    } catch (error) {
-        console.error('Failed to fetch data from API', error)
-        throw error;
-    }
+    return result;
+  } catch (error) {
+    console.error('Failed to fetch data from API', error)
+    throw error;
+  }
 }
 
 // headline news
 async function headNews(endpoint, countryCode) {
-    // API GNEWS variables/params
-    const gnews_params = {
-        API_KEY: gnewsApiKeys.apiKey_1,
-        country: countryCode,
-        category: 'world',
-        language: 'en',
-        max : 10,
+  // API GNEWS variables/params
+  const gnews_params = {
+    API_KEY: gnewsApiKeys.apiKey_1,
+    country: countryCode,
+    category: 'world',
+    language: 'en',
+    max: 10,
+  };
+
+  const {
+    API_KEY,
+    country,
+    category,
+    language,
+    max
+  } = gnews_params;
+
+  try {
+    const results = await fetchApiData(endpoint, country, category, language, max, API_KEY);
+
+    if (!results.articles) {
+      console.error('Invalid response format. No articles found.')
     };
-    
-    const { 
-        API_KEY,
-        country,
-        category,
-        language,
-        max
-    } = gnews_params;
 
-    try {
-        const results = await fetchApiData(endpoint, country, category, language, max, API_KEY);
+    const { articles } = results;
 
-        if (!results.articles) {
-            console.error('Invalid response format. No articles found.')
-        };
+    const carouselNews = document.querySelector('#carousel-news.grid-item');
+    const boxNews = document.querySelector('#box-news.grid-item .grid-container');
 
-        const { articles } = results;
+    for (let ii = 0; ii < articles.length; ii++) {
+      const article = articles[ii];
 
-        const carouselNews = document.querySelector('#carousel-news.grid-item');
-        const boxNews = document.querySelector('#box-news.grid-item .grid-container');
-        
-        for (let ii = 0; ii < articles.length; ii++) {
-            const article = articles[ii];
+      if (ii < 1) {
+        const carouselDiv = document.createElement('div');
+        carouselDiv.classList = 'card';
+        carouselDiv.innerHTML =
+          `<div class='card-image'>
+            <img src=${article.image} onerror="this.src='./images/no-image-available.png'" alt="">
+          </div>
+          <div class="card-content">
+            <span class="news-source"><a href=${article.source.url} target="_blank">${article.source.name}</a></span>
+            <div class="news-title">
+              <h2><a href=${article.url} target="_blank">${article.title}</a></h2>
+            </div>
+            <div class="news-description">
+              <p>${article.description}</p>
+            </div>
+          </div>`
 
-            if (ii < 1) {
-                const carouselDiv = document.createElement('div');
-                carouselDiv.classList = 'card';
-                carouselDiv.innerHTML = 
-                    `<div class='card-image'>
-                        <img src=${article.image} onerror="this.src='./images/no-image-available.png'" alt="">
-                    </div>
-                    <div class="card-content">
-                        <span class="news-source"><a href=${article.source.url} target="_blank">${article.source.name}</a></span>
-                        <div class="news-title">
-                            <h2><a href=${article.url} target="_blank">${article.title}</a></h2>
-                        </div>
-                        <div class="news-description">
-                            <p>${article.description}</p>
-                        </div>
-                    </div>`
+        carouselNews.appendChild(carouselDiv);
 
-                carouselNews.appendChild(carouselDiv);
+      }
 
-            }
+      if (ii >= 6 && ii <= articles.length - 1) {
+        const boxArticle = document.createElement('article');
+        boxArticle.classList = 'grid-item';
 
-            if (ii >= 6 && ii <= articles.length - 1) {
-                const boxArticle = document.createElement('article');
-                boxArticle.classList = 'grid-item';
+        boxArticle.innerHTML =
+          `<div class='card'>
+            <div class='card-image'>
+              <img src=${article.image} onerror="this.src='./images/no-image-available.png'" alt="">
+            </div>
+            <div class="card-content">
+              <span class="news-source"><a href=${article.source.url} target="_blank">${article.source.name}</a></span>
+              <div class="news-title">
+                <h2><a href=${article.url} target="_blank">${article.title}</a></h2>
+              </div>
+            </div>
+          </div>`
 
-                boxArticle.innerHTML =
-                    `<div class='card'>
-                        <div class='card-image'>
-                            <img src=${article.image} onerror="this.src='./images/no-image-available.png'" alt="">
-                        </div>
-                        <div class="card-content">
-                            <span class="news-source"><a href=${article.source.url} target="_blank">${article.source.name}</a></span>
-                            <div class="news-title">
-                                <h2><a href=${article.url} target="_blank">${article.title}</a></h2>
-                            </div>
-                        </div>
-                    </div>`
-
-                boxNews.appendChild(boxArticle);
-            }
-        }
-
-    } catch (error) {
-        console.error('Failed to fetch data from API', error)
-        
+        boxNews.appendChild(boxArticle);
+      }
     }
+
+  } catch (error) {
+    console.error('Failed to fetch data from API', error)
+
+  }
 }
 
 // trend news
 async function trendNews(endpoint, countryCode) {
-    // API GNEWS variables/params
-    const gnews_params = {
-        API_KEY: gnewsApiKeys.apiKey_2,
-        country: countryCode,
-        category: 'general',
-        language: 'en',
-        max : 10,
+  // API GNEWS variables/params
+  const gnews_params = {
+    API_KEY: gnewsApiKeys.apiKey_2,
+    country: countryCode,
+    category: 'general',
+    language: 'en',
+    max: 10,
+  };
+
+  const {
+    API_KEY,
+    country,
+    category,
+    language,
+    max
+  } = gnews_params;
+
+  let itemCount = 0;
+
+  try {
+    const results = await fetchApiData(endpoint, country, category, language, max, API_KEY)
+
+    if (!results.articles) {
+      console.error('Invalid response format. No articles found.')
     };
-    
-    const { 
-        API_KEY,
-        country,
-        category,
-        language,
-        max
-    } = gnews_params;
 
-    let itemCount = 0;
+    const { articles } = results;
 
-    try {
-        const results = await fetchApiData(endpoint, country, category, language, max, API_KEY)
+    const trendNews = document.querySelector('#trend-news .grid-container');
+    const moreTrendNews = document.querySelector('#more-trend-news .aside-content ul');
 
-        if (!results.articles) {
-            console.error('Invalid response format. No articles found.')
-        };
+    for (let ii = 0; ii < articles.length; ii++) {
+      const article = articles[ii];
 
-        const { articles } = results;
+      const articleElement = document.createElement('article');
+      articleElement.classList = 'grid-item';
 
-        const trendNews = document.querySelector('#trend-news .grid-container');
-        const moreTrendNews = document.querySelector('#more-trend-news .aside-content ul');
-       
-        for (let ii = 0; ii < articles.length; ii++) {
-            const article = articles[ii];
-            
-            const articleElement = document.createElement('article');
-            articleElement.classList = 'grid-item';
-            
-            if (ii < 3) {
-                
-                articleElement.innerHTML = 
-                    `<div class='card'>
-                        <div class='card-image'>
-                            <img src=${article.image} onerror="this.src='./images/no-image-available.png'" alt="">
-                        </div>
-                        <div class="card-content">
-                            <span class="news-source"><a href=${article.source.url} target="_blank">${article.source.name}</a></span>
-                            <div class="news-title">
-                                <h2><a href=${article.url} target="_blank">${article.title}</a></h2>
-                            </div>
-                        </div>
-                    </div>`;
-            
-                trendNews.appendChild(articleElement)
-            } else if (ii >= 3 && ii < articles.length) {
-                
-                const liElement = document.createElement('li');
+      if (ii < 3) {
 
-                if (liElement) {
-                    itemCount++;
-                }
+        articleElement.innerHTML =
+          `<div class='card'>
+            <div class='card-image'>
+              <img src=${article.image} onerror="this.src='./images/no-image-available.png'" alt="">
+            </div>
+            <div class="card-content">
+              <span class="news-source"><a href=${article.source.url} target="_blank">${article.source.name}</a></span>
+              <div class="news-title">
+                <h2><a href=${article.url} target="_blank">${article.title}</a></h2>
+              </div>
+            </div>
+          </div>`;
 
-                liElement.innerHTML = 
-                    `<span class="item-number">${itemCount}</span><a href=${article.url} target="_blank">${article.title}</a>`;
+        trendNews.appendChild(articleElement)
+      } else if (ii >= 3 && ii < articles.length) {
 
-                moreTrendNews.appendChild(liElement)
-            }
+        const liElement = document.createElement('li');
+
+        if (liElement) {
+          itemCount++;
         }
 
-    } catch (error) {
-        console.error('Failed to fetch data from API', error)
-       
+        liElement.innerHTML =
+          `<span class="item-number">${itemCount}</span><a href=${article.url} target="_blank">${article.title}</a>`;
+
+        moreTrendNews.appendChild(liElement)
+      }
     }
+
+  } catch (error) {
+    console.error('Failed to fetch data from API', error)
+
+  }
 }
 
 // local news
 async function localNews(endpoint, countryCode) {
-    // API GNEWS variables/params
-    const gnews_params = {
-        API_KEY: gnewsApiKeys.apiKey_3,
-        country: countryCode,
-        category: 'nation',
-        language: 'en',
-        max : 8,
+  // API GNEWS variables/params
+  const gnews_params = {
+    API_KEY: gnewsApiKeys.apiKey_3,
+    country: countryCode,
+    category: 'nation',
+    language: 'en',
+    max: 8,
+  };
+
+  const {
+    API_KEY,
+    country,
+    category,
+    language,
+    max
+  } = gnews_params;
+
+  try {
+    const results = await fetchApiData(endpoint, country, category, language, max, API_KEY)
+
+    if (!results.articles) {
+      console.error('Invalid response format. No articles found.')
     };
-    
-    const { 
-        API_KEY,
-        country,
-        category,
-        language,
-        max
-    } = gnews_params;
 
-    try {
-        const results = await fetchApiData(endpoint, country, category, language, max, API_KEY)
+    const { articles } = results;
 
-        if (!results.articles) {
-            console.error('Invalid response format. No articles found.')
-        };
+    const localNews = document.querySelector('#local-news .grid-container');
 
-        const { articles } = results;
+    articles.forEach(article => {
 
-        const localNews = document.querySelector('#local-news .grid-container');
+      const articleElement = document.createElement('article')
+      articleElement.classList = 'grid-item';
 
-        articles.forEach( article => {
+      articleElement.innerHTML =
+        `<div class='card'>
+          <div class='card-image'>
+            <img src="${article.image}" onerror="this.src='./images/no-image-available.png'" alt=""/>
+          </div>
+          <div class="card-content">
+            <span class="news-source"><a href="${article.source.url}" target="_blank">${article.source.name}</a></span>
+            <div class="news-title">
+              <h2><a href="${article.url}" target="_blank">${article.title}</a></h2>
+            </div>
+          </div>
+        </div>`;
 
-            const articleElement = document.createElement('article')
-            articleElement.classList = 'grid-item';
-            
-            articleElement.innerHTML = 
-                `<div class='card'>
-                    <div class='card-image'>
-                        <img src="${article.image}" onerror="this.src='./images/no-image-available.png'" alt=""/>
-                    </div>
-                    <div class="card-content">
-                        <span class="news-source"><a href="${article.source.url}" target="_blank">${article.source.name}</a></span>
-                        <div class="news-title">
-                            <h2><a href="${article.url}" target="_blank">${article.title}</a></h2>
-                        </div>
-                    </div>
-                </div>`;
-            
-            localNews.appendChild(articleElement);    
-        })
+      localNews.appendChild(articleElement);
+    })
 
-    } catch (error) {
-        console.error('Failed to fetch data from API', error)
-       
-    }
+  } catch (error) {
+    console.error('Failed to fetch data from API', error)
+
+  }
 }
 
 // finance news
 async function financeNews(endpoint, countryCode) {
 
-    // sports GNEWS variables/params
-    const gnews_params = {
-        API_KEY: gnewsApiKeys.apiKey_4,
-        country: countryCode,
-        category: 'business',
-        language: 'en',
-        max : 10,
+  // sports GNEWS variables/params
+  const gnews_params = {
+    API_KEY: gnewsApiKeys.apiKey_4,
+    country: countryCode,
+    category: 'business',
+    language: 'en',
+    max: 10,
+  };
+
+  const {
+    API_KEY,
+    country,
+    category,
+    language,
+    max
+  } = gnews_params;
+
+  try {
+    const results = await fetchApiData(endpoint, country, category, language, max, API_KEY)
+
+    if (!results.articles) {
+      console.error('Invalid response format. No articles found.')
     };
-    
-    const { 
-        API_KEY,
-        country,
-        category,
-        language,
-        max
-    } = gnews_params;
 
-    try {
-        const results = await fetchApiData(endpoint, country, category, language, max, API_KEY)
+    const { articles } = results;
 
-        if (!results.articles) {
-            console.error('Invalid response format. No articles found.')
-        };
+    const financeNews = document.querySelector('#finance-news .grid-container');
 
-        const { articles } = results;
+    for (let ii = 0; ii < articles.length; ii++) {
+      const article = articles[ii];
 
-        const financeNews = document.querySelector('#finance-news .grid-container');
+      const articleElement = document.createElement('article')
+      articleElement.classList = 'grid-item';
 
-        for (let ii = 0; ii < articles.length; ii++) {
-            const article = articles[ii];
-    
-            const articleElement = document.createElement('article')
-            articleElement.classList = 'grid-item';
+      if (ii < (articles.length - 1) / 2) {
 
-            if (ii < (articles.length - 1) / 2) {
-    
-                if (ii !== 0 && ii !== 3) {
-                    articleElement.innerHTML = 
-                        `<div class='card'>
-                            <div class='card-image'>
-                                <img src=${article.image} onerror="this.src='./images/no-image-available.png'" alt="">
-                            </div>
-                            <div class="card-content">
-                                <span class="news-source"><a href=${article.source.url} target="_blank">${article.source.name}</a></span>
-                                <div class="news-title">
-                                    <h2><a href=${article.url} target="_blank">${article.title}</a></h2>
-                                </div>
-                            </div>
-                        </div>`;
-                
-                    financeNews.appendChild(articleElement)
-                } else {
-                    articleElement.innerHTML = 
-                        `<div class='card'>
-                            <div class='card-image'>
-                                <img src=${article.image} onerror="this.src='./images/no-image-available.png'" alt="">
-                            </div>
-                            <div class="card-content">
-                                <span class="news-source"><a href=${article.source.url} target="_blank">${article.source.name}</a></span>
-                                <div class="news-title">
-                                    <h2><a href=${article.url} target="_blank">${article.title}</a></h2>
-                                </div>
-                                <div class="news-description">
-                                    <p>${article.description}</p>
-                                </div>
-                            </div>
-                        </div>`;
-                
-                    financeNews.appendChild(articleElement)
-                }            
-            }
+        if (ii !== 0 && ii !== 3) {
+          articleElement.innerHTML =
+            `<div class='card'>
+              <div class='card-image'>
+                <img src=${article.image} onerror="this.src='./images/no-image-available.png'" alt="">
+              </div>
+              <div class="card-content">
+                <span class="news-source"><a href=${article.source.url} target="_blank">${article.source.name}</a></span>
+                <div class="news-title">
+                  <h2><a href=${article.url} target="_blank">${article.title}</a></h2>
+                </div>
+              </div>
+            </div>`;
+
+          financeNews.appendChild(articleElement)
+        } else {
+          articleElement.innerHTML =
+            `<div class='card'>
+              <div class='card-image'>
+                <img src=${article.image} onerror="this.src='./images/no-image-available.png'" alt="">
+              </div>
+              <div class="card-content">
+                <span class="news-source"><a href=${article.source.url} target="_blank">${article.source.name}</a></span>
+                <div class="news-title">
+                  <h2><a href=${article.url} target="_blank">${article.title}</a></h2>
+                </div>
+                <div class="news-description">
+                  <p>${article.description}</p>
+                </div>
+              </div>
+            </div>`;
+
+          financeNews.appendChild(articleElement)
         }
-
-    } catch (error) {
-        console.error('Failed to fetch data from API', error)
-       
+      }
     }
+
+  } catch (error) {
+    console.error('Failed to fetch data from API', error)
+
+  }
 }
 
 // more finance news
 async function moreFinanceNews(endpoint, countryCode) {
-    // API GNEWS variables/params
-    const gnews_params = {
-        API_KEY: gnewsApiKeys.apiKey_5,
-        country: 'us',
-        category: 'business',
-        language: 'en',
-        max : 10,
+  // API GNEWS variables/params
+  const gnews_params = {
+    API_KEY: gnewsApiKeys.apiKey_5,
+    country: 'us',
+    category: 'business',
+    language: 'en',
+    max: 10,
+  }
+
+  const {
+    API_KEY,
+    country,
+    category,
+    language,
+    max
+  } = gnews_params;
+
+  try {
+    const results = await fetchApiData(endpoint, country, category, language, max, API_KEY)
+
+    if (!results.articles) {
+      console.error('Invalid response format. No articles found.')
+    };
+
+    const { articles } = results;
+
+    const moreFinanceNews = document.querySelector('#more-finance-news .grid-container');
+
+    for (let ii = 0; ii < articles.length; ii++) {
+      const article = articles[ii];
+
+      const articleElement = document.createElement('article')
+      articleElement.classList = 'grid-item';
+
+      if (ii !== 0) {
+        articleElement.innerHTML =
+          `<div class='card'>
+            <div class='card-image'>
+              <img src=${article.image} onerror="this.src='./images/no-image-available.png'" alt="">
+            </div>
+            <div class="card-content">
+              <span class="news-source"><a href=${article.source.url} target="_blank">${article.source.name}</a></span>
+              <div class="news-title">
+                <h2><a href=${article.url} target="_blank">${article.title}</a></h2>
+              </div>
+            </div>
+          </div>`;
+
+        moreFinanceNews.appendChild(articleElement)
+      } else {
+        articleElement.innerHTML =
+          `<div class='card'>
+            <div class='card-image'>
+              <img src=${article.image} onerror="this.src='./images/no-image-available.png'" alt="">
+            </div>
+            <div class="card-content">
+              <span class="news-source"><a href=${article.source.url} target="_blank">${article.source.name}</a></span>
+              <div class="news-title">
+                <h2><a href=${article.url} target="_blank">${article.title}</a></h2>
+              </div>
+              <div class="news-description">
+                <p>${article.description}</p>
+              </div>
+            </div>
+          </div>`;
+
+        moreFinanceNews.appendChild(articleElement)
+      }
     }
-    
-    const { 
-        API_KEY,
-        country,
-        category,
-        language,
-        max
-    } = gnews_params;
 
-    try {
-        const results = await fetchApiData(endpoint, country, category, language, max, API_KEY)
+  } catch (error) {
+    console.error('Failed to fetch data from API', error)
 
-        if (!results.articles) {
-            console.error('Invalid response format. No articles found.')
-        };
-
-        const { articles } = results;
-
-        const moreFinanceNews = document.querySelector('#more-finance-news .grid-container');
-
-        for (let ii = 0; ii < articles.length; ii++) {
-            const article = articles[ii];
-    
-            const articleElement = document.createElement('article')
-            articleElement.classList = 'grid-item';
-
-            if (ii !== 0) {
-                articleElement.innerHTML = 
-                    `<div class='card'>
-                        <div class='card-image'>
-                            <img src=${article.image} onerror="this.src='./images/no-image-available.png'" alt="">
-                        </div>
-                        <div class="card-content">
-                            <span class="news-source"><a href=${article.source.url} target="_blank">${article.source.name}</a></span>
-                            <div class="news-title">
-                                <h2><a href=${article.url} target="_blank">${article.title}</a></h2>
-                            </div>
-                        </div>
-                    </div>`;
-            
-                moreFinanceNews.appendChild(articleElement)
-            } else {
-                articleElement.innerHTML = 
-                    `<div class='card'>
-                        <div class='card-image'>
-                            <img src=${article.image} onerror="this.src='./images/no-image-available.png'" alt="">
-                        </div>
-                        <div class="card-content">
-                            <span class="news-source"><a href=${article.source.url} target="_blank">${article.source.name}</a></span>
-                            <div class="news-title">
-                                <h2><a href=${article.url} target="_blank">${article.title}</a></h2>
-                            </div>
-                            <div class="news-description">
-                                <p>${article.description}</p>
-                            </div>
-                        </div>
-                    </div>`;
-            
-                moreFinanceNews.appendChild(articleElement)
-            }            
-        }
-
-    } catch (error) {
-        console.error('Failed to fetch data from API', error)
-       
-    }
+  }
 }
 
 // sports news
 async function sportsNews(endpoint, countryCode) {
-    // API GNEWS variables/params
-    const gnews_params = {
-        API_KEY: gnewsApiKeys.apiKey_6,
-        country: countryCode,
-        category: 'sports',
-        language: 'en',
-        max : 9,
+  // API GNEWS variables/params
+  const gnews_params = {
+    API_KEY: gnewsApiKeys.apiKey_6,
+    country: countryCode,
+    category: 'sports',
+    language: 'en',
+    max: 9,
+  };
+
+  const {
+    API_KEY,
+    country,
+    category,
+    language,
+    max
+  } = gnews_params;
+
+  try {
+    const results = await fetchApiData(endpoint, country, category, language, max, API_KEY)
+
+    if (!results.articles) {
+      console.error('Invalid response format. No articles found.')
     };
-    
-    const { 
-        API_KEY,
-        country,
-        category,
-        language,
-        max
-    } = gnews_params;
 
-    try {
-        const results = await fetchApiData(endpoint, country, category, language, max, API_KEY)
+    const { articles } = results;
 
-        if (!results.articles) {
-            console.error('Invalid response format. No articles found.')
-        };
+    const sportsNews = document.querySelector('#sports-news .grid-container');
+    const nbaNews = document.querySelector('#more-sports-news .aside-content #nba-news')
+    const mlbNews = document.querySelector('#more-sports-news .aside-content #mlb-news')
 
-        const { articles } = results;
+    for (let ii = 0; ii < articles.length; ii++) {
+      const article = articles[ii];
 
-        const sportsNews = document.querySelector('#sports-news .grid-container');
-        const nbaNews = document.querySelector('#more-sports-news .aside-content #nba-news')
-        const mlbNews = document.querySelector('#more-sports-news .aside-content #mlb-news')
+      const articleElement = document.createElement('article');
+      articleElement.classList = 'grid-item';
 
-        for (let ii = 0; ii < articles.length; ii++) {
-            const article = articles[ii];
 
-            const articleElement = document.createElement('article');
-            articleElement.classList = 'grid-item';
 
-            
+      if (ii === 0) {
+        articleElement.innerHTML =
+          `<div class='card'>
+            <div class='card-image'>
+              <img src=${article.image} onerror="this.src='./images/no-image-available.png'" alt="">
+            </div>
+            <div class="card-content">
+              <span class="news-source"><a href=${article.source.url} target="_blank">${article.source.name}</a></span>
+              <div class="news-title">
+                <h2><a href=${article.url} target="_blank">${article.title}</a></h2>
+              </div>
+              <div class="news-description">
+                <p>${article.description}</p>
+              </div>
+            </div>
+          </div>`;
 
-            if (ii === 0) {
-                articleElement.innerHTML = 
-                `<div class='card'>
-                    <div class='card-image'>
-                        <img src=${article.image} onerror="this.src='./images/no-image-available.png'" alt="">
-                    </div>
-                    <div class="card-content">
-                        <span class="news-source"><a href=${article.source.url} target="_blank">${article.source.name}</a></span>
-                        <div class="news-title">
-                            <h2><a href=${article.url} target="_blank">${article.title}</a></h2>
-                        </div>
-                        <div class="news-description">
-                            <p>${article.description}</p>
-                        </div>
-                    </div>
-                </div>`;
+        sportsNews.appendChild(articleElement);
 
-                sportsNews.appendChild(articleElement);
+      } else {
+        articleElement.innerHTML =
+          `<div class='card'>
+            <div class='card-image'>
+              <img src=${article.image} onerror="this.src='./images/no-image-available.png'" alt="">
+            </div>
+            <div class="card-content">
+              <span class="news-source"><a href=${article.source.url} target="_blank">${article.source.name}</a></span>
+              <div class="news-title">
+                <h2><a href=${article.url} target="_blank">${article.title}</a></h2>
+              </div>
+            </div>
+          </div>`;
 
-            } else {
-                articleElement.innerHTML = 
-                `<div class='card'>
-                    <div class='card-image'>
-                        <img src=${article.image} onerror="this.src='./images/no-image-available.png'" alt="">
-                    </div>
-                    <div class="card-content">
-                        <span class="news-source"><a href=${article.source.url} target="_blank">${article.source.name}</a></span>
-                        <div class="news-title">
-                            <h2><a href=${article.url} target="_blank">${article.title}</a></h2>
-                        </div>
-                    </div>
-                </div>`;
-
-                sportsNews.appendChild(articleElement);
-            }
-        }
-
-    } catch (error) {
-        console.error('Failed to fetch data from API', error)
-       
+        sportsNews.appendChild(articleElement);
+      }
     }
+
+  } catch (error) {
+    console.error('Failed to fetch data from API', error)
+
+  }
 }
 
 // more sports news
 async function moreSportsNews(endpoint, countryCode) {
-    const apiKey = 'ecbfd1725be34758b06c79adaf8a85ef'
-    const apiUrl = `https://newsapi.org/v2/${endpoint}?country=us&category=sports&pageSize=9&apiKey=${apiKey}`;
-    const apiUrlNba = `https://newsapi.org/v2/${endpoint}?q=nba&pageSize=9&apiKey=${apiKey}`;
-    const apiUrlMlb = `https://newsapi.org/v2/${endpoint}?q=mlb&pageSize=9&apiKey=${apiKey}`;
+  const apiKey = 'ecbfd1725be34758b06c79adaf8a85ef'
+  const apiUrl = `https://newsapi.org/v2/${endpoint}?country=us&category=sports&pageSize=9&apiKey=${apiKey}`;
+  const apiUrlNba = `https://newsapi.org/v2/${endpoint}?q=nba&pageSize=9&apiKey=${apiKey}`;
+  const apiUrlMlb = `https://newsapi.org/v2/${endpoint}?q=mlb&pageSize=9&apiKey=${apiKey}`;
 
-    try {
-        const response = await fetch(apiUrlNba);
-        const res = await fetch(apiUrlMlb);
+  try {
+    const response = await fetch(apiUrlNba);
+    const res = await fetch(apiUrlMlb);
 
-        if (!response.ok) {
-            console.error('Invalid response format. No articles found.', response.statusText)
-        }
+    if (!response.ok) {
+      console.error('Invalid response format. No articles found.', response.statusText)
+    }
 
-        const result = await response.json();
+    const result = await response.json();
 
-        const { articles } = result;
+    const { articles } = result;
 
-        const nbaSportsNews = document.querySelector('#more-sports-news .aside-content ul#nba-news')
+    const nbaSportsNews = document.querySelector('#more-sports-news .aside-content ul#nba-news')
 
-        articles.forEach( article => {
-                
-            const liElement = document.createElement('li');
+    articles.forEach(article => {
 
-            liElement.innerHTML = 
-                `<span class="item-number">
+      const liElement = document.createElement('li');
+
+      liElement.innerHTML =
+        `<span class="item-number">
                     <img src=${article.image} onerror="this.src='./images/no-image-available.png'" alt="">
                 </span><a href=${article.url} target="_blank">${article.title}</a>`;
-            nbaSportsNews.appendChild(liElement);
-        })   
+      nbaSportsNews.appendChild(liElement);
+    })
 
-    } catch (error) {
-        console.error('Failed to fetch data from API', error)
-    }
+  } catch (error) {
+    console.error('Failed to fetch data from API', error)
+  }
 }
 
 // mlb news
 async function mlbSportsNews(endpoint, countryCode) {
-    const apiKey = gnewsApiKeys.apiKey_7;
-    const apiUrlMlb = `https://gnews.io/api/v4/${endpoint}?q=mlb&lang=en&country=us&apikey=${apiKey}`;
+  const apiKey = gnewsApiKeys.apiKey_7;
+  const apiUrlMlb = `https://gnews.io/api/v4/${endpoint}?q=mlb&lang=en&country=us&apikey=${apiKey}`;
 
-    try {
-        const response = await fetch(apiUrlMlb);
+  try {
+    const response = await fetch(apiUrlMlb);
 
-        if (!response.ok) {
-            console.error('Invalid response format. No articles found.', response.statusText)
-        }
+    if (!response.ok) {
+      console.error('Invalid response format. No articles found.', response.statusText)
+    }
 
-        const result = await response.json();
+    const result = await response.json();
 
-        const { articles } = result;
+    const { articles } = result;
 
-        const mlbSportsNews = document.querySelector('#more-sports-news .aside-content ul#mlb-news')
+    const mlbSportsNews = document.querySelector('#more-sports-news .aside-content ul#mlb-news')
 
-        articles.forEach( article => {
-                
-            const liElement = document.createElement('li');
+    articles.forEach(article => {
 
-            liElement.innerHTML = 
-                `<span class="item-number">
+      const liElement = document.createElement('li');
+
+      liElement.innerHTML =
+        `<span class="item-number">
                     <img src=${article.image} onerror="this.src='./images/no-image-available.png'" alt="">
                 </span><a href=${article.url} target="_blank">${article.title}</a>`;
-                
-            mlbSportsNews.appendChild(liElement);
-        })   
-        
-    } catch (error) {
-        console.error('Failed to fetch data from API', error)
-    }
+
+      mlbSportsNews.appendChild(liElement);
+    })
+
+  } catch (error) {
+    console.error('Failed to fetch data from API', error)
+  }
 }
 
 // nba news
 async function nbaSportsNews(endpoint, countryCode) {
-    const apiKey = gnewsApiKeys.apiKey_8;
-    const apiUrlNba = `https://gnews.io/api/v4/${endpoint}?q=nba&lang=en&country=us&apikey=${apiKey}`;
+  const apiKey = gnewsApiKeys.apiKey_8;
+  const apiUrlNba = `https://gnews.io/api/v4/${endpoint}?q=nba&lang=en&country=us&apikey=${apiKey}`;
 
-    try {
-        const response = await fetch(apiUrlNba);
+  try {
+    const response = await fetch(apiUrlNba);
 
-        if (!response.ok) {
-            console.error('Invalid response format. No articles found.', response.statusText)
-        }
+    if (!response.ok) {
+      console.error('Invalid response format. No articles found.', response.statusText)
+    }
 
-        const result = await response.json();
+    const result = await response.json();
 
-        const { articles } = result;
+    const { articles } = result;
 
-        const nbaSportsNews = document.querySelector('#more-sports-news .aside-content ul#nba-news')
+    const nbaSportsNews = document.querySelector('#more-sports-news .aside-content ul#nba-news')
 
-        articles.forEach( article => {
-                
-            const liElement = document.createElement('li');
+    articles.forEach(article => {
 
-            liElement.innerHTML = 
-                `<span class="item-number">
+      const liElement = document.createElement('li');
+
+      liElement.innerHTML =
+        `<span class="item-number">
                     <img src=${article.image} onerror="this.src='./images/no-image-available.png'" alt="">
                 </span><a href=${article.url} target="_blank">${article.title}</a>`;
-            nbaSportsNews.appendChild(liElement);
-        })   
-        
-    } catch (error) {
-        console.error('Failed to fetch data from API', error)
-    }
+      nbaSportsNews.appendChild(liElement);
+    })
+
+  } catch (error) {
+    console.error('Failed to fetch data from API', error)
+  }
 }
 
 // techonology news
 async function techNews(endpoint, countryCode) {
-    // API GNEWS variables/params
-    const gnews_params = {
-        API_KEY: gnewsApiKeys.apiKey_9,
-        country: countryCode,
-        category: 'technology',
-        language: 'en',
-        max : 10,
-    }
-    
-    const { 
-        API_KEY,
-        country,
-        category,
-        language,
-        max
-    } = gnews_params;
+  // API GNEWS variables/params
+  const gnews_params = {
+    API_KEY: gnewsApiKeys.apiKey_9,
+    country: countryCode,
+    category: 'technology',
+    language: 'en',
+    max: 10,
+  }
 
-    let itemCount = 0;
+  const {
+    API_KEY,
+    country,
+    category,
+    language,
+    max
+  } = gnews_params;
 
-    try {
-        const results = await fetchApiData(endpoint, country, category, language, max, API_KEY)
+  let itemCount = 0;
 
-        if (!results.articles) {
-            console.error('Invalid response format. No articles found.')
-        };
+  try {
+    const results = await fetchApiData(endpoint, country, category, language, max, API_KEY)
 
-        const { articles } = results;
+    if (!results.articles) {
+      console.error('Invalid response format. No articles found.')
+    };
 
-        const techNews = document.querySelector('#scitech-news .grid-container');
-        const moreScitechNews = document.querySelector('#more-scitech-news .aside-content ul')
+    const { articles } = results;
 
-        for (let ii = 0; ii < articles.length; ii++) {
-            const article = articles[ii];
+    const techNews = document.querySelector('#scitech-news .grid-container');
+    const moreScitechNews = document.querySelector('#more-scitech-news .aside-content ul')
 
-            const articleElement = document.createElement('article');
-            articleElement.classList = 'grid-item';
+    for (let ii = 0; ii < articles.length; ii++) {
+      const article = articles[ii];
 
-            if (ii < 7) {
+      const articleElement = document.createElement('article');
+      articleElement.classList = 'grid-item';
 
-                if (ii === 0) {
+      if (ii < 7) {
 
-                    articleElement.innerHTML = 
-                    `<div class='card'>
-                        <div class='card-image'>
-                            <img src=${article.image} onerror="this.src='./images/no-image-available.png'" alt="">
-                        </div>
-                        <div class="card-content">
-                            <span class="news-source"><a href=${article.source.url} target="_blank">${article.source.name}</a></span>
-                            <div class="news-title">
-                                <h2><a href=${article.url} target="_blank">${article.title}</a></h2>
-                            </div>
-                            <div class="news-description">
-                                <p>${article.description}</p>
-                            </div>
-                        </div>
-                    </div>`;
+        if (ii === 0) {
 
-                    techNews.appendChild(articleElement);
+          articleElement.innerHTML =
+            `<div class='card'>
+              <div class='card-image'>
+                <img src=${article.image} onerror="this.src='./images/no-image-available.png'" alt="">
+              </div>
+              <div class="card-content">
+                <span class="news-source"><a href=${article.source.url} target="_blank">${article.source.name}</a></span>
+                <div class="news-title">
+                  <h2><a href=${article.url} target="_blank">${article.title}</a></h2>
+                </div>
+                <div class="news-description">
+                  <p>${article.description}</p>
+                </div>
+              </div>
+            </div>`;
 
-                } else {
+          techNews.appendChild(articleElement);
 
-                    articleElement.innerHTML = 
-                    `<div class='card'>
-                        <div class='card-image'>
-                            <img src=${article.image} onerror="this.src='./images/no-image-available.png'" alt="">
-                        </div>
-                        <div class="card-content">
-                            <span class="news-source"><a href=${article.source.url} target="_blank">${article.source.name}</a></span>
-                            <div class="news-title">
-                                <h2><a href=${article.url} target="_blank">${article.title}</a></h2>
-                            </div>
-                        </div>
-                    </div>`;
+        } else {
 
-                    techNews.appendChild(articleElement);
+          articleElement.innerHTML =
+            `<div class='card'>
+              <div class='card-image'>
+                <img src=${article.image} onerror="this.src='./images/no-image-available.png'" alt="">
+              </div>
+              <div class="card-content">
+                <span class="news-source"><a href=${article.source.url} target="_blank">${article.source.name}</a></span>
+                <div class="news-title">
+                  <h2><a href=${article.url} target="_blank">${article.title}</a></h2>
+                </div>
+              </div>
+            </div>`;
 
-                }
-            } else if (ii >= 7 && ii < articles.length) {
-                
-                const liElement = document.createElement('li');
+          techNews.appendChild(articleElement);
 
-                if (liElement) {
-                    itemCount++;
-                }
+        }
+      } else if (ii >= 7 && ii < articles.length) {
 
-                liElement.innerHTML = 
-                    `<span class="item-number">${itemCount}</span><a href=${article.url} target="_blank">${article.title}</a>`;
+        const liElement = document.createElement('li');
 
-                moreScitechNews.appendChild(liElement);
-            }      
+        if (liElement) {
+          itemCount++;
         }
 
-    } catch (error) {
-        console.error('Failed to fetch data from API', error)
-       
+        liElement.innerHTML =
+          `<span class="item-number">${itemCount}</span><a href=${article.url} target="_blank">${article.title}</a>`;
+
+        moreScitechNews.appendChild(liElement);
+      }
     }
+
+  } catch (error) {
+    console.error('Failed to fetch data from API', error)
+
+  }
 }
 
 // science news
 async function scienceNews(endpoint, countryCode) {
-    // API GNEWS variables/params
-    const gnews_params = {
-        API_KEY: gnewsApiKeys.apiKey_7,
-        country: countryCode,
-        category: 'science',
-        language: 'en',
-        max : 10,
-    }
-    
-    const { 
-        API_KEY,
-        country,
-        category,
-        language,
-        max
-    } = gnews_params;
+  // API GNEWS variables/params
+  const gnews_params = {
+    API_KEY: gnewsApiKeys.apiKey_7,
+    country: countryCode,
+    category: 'science',
+    language: 'en',
+    max: 10,
+  }
 
-    try {
-        const results = await fetchApiData(endpoint, country, category, language, max, API_KEY)
+  const {
+    API_KEY,
+    country,
+    category,
+    language,
+    max
+  } = gnews_params;
 
-        if (!results.articles) {
-            console.error('Invalid response format. No articles found.')
-        };
+  try {
+    const results = await fetchApiData(endpoint, country, category, language, max, API_KEY)
 
-        const { articles } = results;
+    if (!results.articles) {
+      console.error('Invalid response format. No articles found.')
+    };
 
-    } catch (error) {
-        console.error('Failed to fetch data from API', error)
-       
-    }
+    const { articles } = results;
+
+  } catch (error) {
+    console.error('Failed to fetch data from API', error)
+
+  }
 }
 
 // entertainment news
 async function entmentNews(endpoint, countryCode) {
-    // API GNEWS variables/params
-    const gnews_params = {
-        API_KEY: gnewsApiKeys.apiKey_10,
-        country: countryCode,
-        category: 'entertainment',
-        language: 'en',
-        max : 10,
-    }
-    
-    const { 
-        API_KEY,
-        country,
-        category,
-        language,
-        max
-    } = gnews_params;
+  // API GNEWS variables/params
+  const gnews_params = {
+    API_KEY: gnewsApiKeys.apiKey_10,
+    country: countryCode,
+    category: 'entertainment',
+    language: 'en',
+    max: 10,
+  }
 
-    let itemCount = 0;
-    
-    try {
-        const results = await fetchApiData(endpoint, country, category, language, max, API_KEY)
+  const {
+    API_KEY,
+    country,
+    category,
+    language,
+    max
+  } = gnews_params;
 
-        if (!results.articles) {
-            console.error('Invalid response format. No articles found.')
-        };
+  let itemCount = 0;
 
-        const { articles } = results;
+  try {
+    const results = await fetchApiData(endpoint, country, category, language, max, API_KEY)
 
-        const entmentNews = document.querySelector('#entertainment-news .grid-container');
-        const moreEntmentNews = document.querySelector('#more-entertainment-news .aside-content ul');
+    if (!results.articles) {
+      console.error('Invalid response format. No articles found.')
+    };
 
-        for (let ii = 0; ii < articles.length; ii++) {
-            const article = articles[ii];
-            
-            const articleElement = document.createElement('article');
-            articleElement.classList = 'grid-item';
+    const { articles } = results;
 
-            if (ii < 7) {
+    const entmentNews = document.querySelector('#entertainment-news .grid-container');
+    const moreEntmentNews = document.querySelector('#more-entertainment-news .aside-content ul');
 
-                if (ii === 0) {
-                    articleElement.innerHTML = 
-                    `<div class='card'>
-                        <div class='card-image'>
-                            <img src=${article.image} onerror="this.src='./images/no-image-available.png'" alt="">
-                        </div>
-                        <div class="card-content">
-                            <span class="news-source"><a href=${article.source.url} target="_blank">${article.source.name}</a></span>
-                            <div class="news-title">
-                                <h2><a href=${article.url} target="_blank">${article.title}</a></h2>
-                            </div>
-                            <div class="news-description">
-                                <p>${article.description}</p>
-                            </div>
-                        </div>
-                    </div>`;
-            
-                    entmentNews.appendChild(articleElement);
-                } else {                    
+    for (let ii = 0; ii < articles.length; ii++) {
+      const article = articles[ii];
 
-                    articleElement.innerHTML = 
-                        `<div class='card'>
-                            <div class='card-image'>
-                                <img src=${article.image} onerror="this.src='./images/no-image-available.png'" alt="">
-                            </div>
-                            <div class="card-content">
-                                <span class="news-source"><a href=${article.source.url} target="_blank">${article.source.name}</a></span>
-                                <div class="news-title">
-                                    <h2><a href=${article.url} target="_blank">${article.title}</a></h2>
-                                </div>
-                            </div>
-                        </div>`;
-                    
-                    entmentNews.appendChild(articleElement)
-                }
-                
-            } else if (ii >= 7 && ii < articles.length) {
-                
-                const liElement = document.createElement('li');
+      const articleElement = document.createElement('article');
+      articleElement.classList = 'grid-item';
 
-                if (liElement) {
-                    itemCount++;
-                }
+      if (ii < 7) {
 
-                liElement.innerHTML = 
-                    `<span class="item-number">${itemCount}</span><a href=${article.url} target="_blank">${article.title}</a>`;
+        if (ii === 0) {
+          articleElement.innerHTML =
+            `<div class='card'>
+              <div class='card-image'>
+                <img src=${article.image} onerror="this.src='./images/no-image-available.png'" alt="">
+              </div>
+              <div class="card-content">
+                <span class="news-source"><a href=${article.source.url} target="_blank">${article.source.name}</a></span>
+                <div class="news-title">
+                    <h2><a href=${article.url} target="_blank">${article.title}</a></h2>
+                </div>
+                <div class="news-description">
+                    <p>${article.description}</p>
+                </div>
+              </div>
+            </div>`;
 
-                moreEntmentNews.appendChild(liElement)
-            }
+          entmentNews.appendChild(articleElement);
+        } else {
+
+          articleElement.innerHTML =
+            `<div class='card'>
+              <div class='card-image'>
+                <img src=${article.image} onerror="this.src='./images/no-image-available.png'" alt="">
+              </div>
+              <div class="card-content">
+                <span class="news-source"><a href=${article.source.url} target="_blank">${article.source.name}</a></span>
+                <div class="news-title">
+                  <h2><a href=${article.url} target="_blank">${article.title}</a></h2>
+                </div>
+              </div>
+            </div>`;
+
+          entmentNews.appendChild(articleElement)
         }
 
-    } catch (error) {
-        console.error('Failed to fetch data from API', error)
-       
+      } else if (ii >= 7 && ii < articles.length) {
+
+        const liElement = document.createElement('li');
+
+        if (liElement) {
+          itemCount++;
+        }
+
+        liElement.innerHTML =
+          `<span class="item-number">${itemCount}</span><a href=${article.url} target="_blank">${article.title}</a>`;
+
+        moreEntmentNews.appendChild(liElement)
+      }
     }
+
+  } catch (error) {
+    console.error('Failed to fetch data from API', error)
+
+  }
 }
 
 
 
 async function init() {
-    const ipInfo = await getIpInfo();
-    const countryCode = ipInfo.countryCode.toLowerCase();
+  const ipInfo = await getIpInfo();
+  const countryCode = ipInfo.country.toLowerCase();
 
-    headNews('top-headlines', countryCode);
-    trendNews('top-headlines', countryCode);
-    localNews('top-headlines', countryCode);
-    financeNews('top-headlines', countryCode);
-    moreFinanceNews('top-headlines', countryCode);
-    sportsNews('top-headlines', countryCode);
-    nbaSportsNews('search', countryCode);
-    mlbSportsNews('search', countryCode);
-    techNews('top-headlines', countryCode);
-    entmentNews('top-headlines', countryCode);
-    // moreSportsNews('top-headlines', countryCode);
-    // scienceNews('top-headlines', countryCode);
+  headNews('top-headlines', countryCode);
+  trendNews('top-headlines', countryCode);
+  localNews('top-headlines', countryCode);
+  financeNews('top-headlines', countryCode);
+  moreFinanceNews('top-headlines', countryCode);
+  sportsNews('top-headlines', countryCode);
+  nbaSportsNews('search', countryCode);
+  mlbSportsNews('search', countryCode);
+  techNews('top-headlines', countryCode);
+  entmentNews('top-headlines', countryCode);
+  // moreSportsNews('top-headlines', countryCode);
+  // scienceNews('top-headlines', countryCode);
 }
 
-// document.addEventListener('DOMContentLoaded', init)
+document.addEventListener('DOMContentLoaded', init)
 
 function showSpinner() {
-    const spin = document.querySelector('#loader-container');
-    spin.style.display = 'block'
+  const spin = document.querySelector('#loader-container');
+  spin.style.display = 'block'
 }
 
 function hideSpinner() {
-    const hide = document.querySelector('#loader-container')
-    hide.style.display = 'none'
+  const hide = document.querySelector('#loader-container')
+  hide.style.display = 'none'
 }

@@ -41,9 +41,8 @@ export function timeNow() {
     let seconds = date.getSeconds().toLocaleString();
     seconds < 10 ? seconds = '0' + seconds : seconds;
 
-
     return time_Now.innerHTML = `${hours}:${minutes}:${seconds} ${ampm}`;
 }
 
 const intervalId = setInterval(timeNow, 1000);
-setTimeout(intervalId, 0)
+setTimeout(intervalId,0)

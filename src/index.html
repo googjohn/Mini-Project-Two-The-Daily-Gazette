@@ -2,537 +2,529 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon" />
-    <!-- fontawesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- css -->
-    <!-- <link href="./css/styles.css" rel="stylesheet" /> -->
-    <link href="./css/style.css" rel="stylesheet" />
-    <!-- <link href="./css/utility.css" rel="stylesheet" /> -->
-    <link href="./css/uti.css" rel="stylesheet" />
-    <link href="./css/mediaquerries.css" rel="stylesheet" />
-    <title>The Daily Gazette</title>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon" />
+  <!-- fontawesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- css -->
+  <!-- <link href="./css/styles.css" rel="stylesheet" /> -->
+  <link href="css/index.css" rel="stylesheet" />
+  <!-- <link href="./css/utility.css" rel="stylesheet" /> -->
+  <link href="css/utilities.css" rel="stylesheet" />
+  <link href="css/weatherApp.css" rel="stylesheet" />
+  <!-- <link href="./css/mediaquerries.css" rel="stylesheet" /> -->
+  <title>The Daily Gazette</title>
 </head>
 
 <body>
-    <!-- header -->
-    <header>
-        <nav class="container">
-            <div class="logo">
-                <div class="spin-overlay">
-                    <div class="spinner"></div>
-                    <a href="/"><img src="./images/tdg-logo.png" alt="logo" /></a>
-                </div>
-            </div>
-            <div class="main-navigation">
-                <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="#finance-news">Finance</a></li>
-                    <li><a href="#entertainment-news">Entertainment</a></li>
-                    <li><a href="#scitech-news">Sci&Tech</a></li>
-                    <li><a href="#sports-news">Sports</a></li>
-                </ul>
-            </div>
-            <div class="user-search">
-                <div class="search">
-                    <form>
-                        <div class="form-group">
-                            <input type="search" id="search" name="search" class="" placeholder="Search" />
-                            <label for="search"><i class="fa-sharp fa-solid fa-magnifying-glass"></i></label>
-                        </div>
-                    </form>
-                </div>
-                <div class="user">
-                    <i class="fa-sharp fa-solid fa-user"></i>
-                </div>
-                <div class="mobile-menu">
-                    <button type="button" id="mobile-nav-btn" class="nav-toggle">
-                        <span class="mobile-btn"></span>
-                        <span class="mobile-btn"></span>
-                        <span class="mobile-btn"></span>
-                    </button>
-                </div>
-            </div>
-        </nav>
-    </header>
-
-    <!-- main -->
-    <main>
-        <section id="world-news">
-            <div class="container">
-                <div class="weather-location-track">
-                    <div class="weather-loc-container">
-                        <span class="location"></span>
-                        <span class="weather-icon"></span>
-                        <span class="temp"></span>
-                        <span class="unit dropdown">
-                            <i class="fa-solid fa-chevron-down"></i>
-                            <div class="weather-loc-box">
-                                <div class="loc">
-                                    <span class="location-inner"></span>
-                                    <span class="dropdown-inner">
-                                        <i class="fa-solid fa-ellipsis"></i>
-                                        <ul>
-                                            <li class="celcius">&deg;C Celcius</li>
-                                            <li class="fahrenheit">&deg;F Fahrenheit</li>
-                                            <li class="kelvin">&deg;K Kelvin</li>
-                                        </ul>
-                                    </span>
-                                </div>
-                                <div class="icon-description">
-                                    <div class="icon-temp-container">
-                                        <span class="icon"></span>
-                                        <span class="temp"></span>
-                                    </div>
-                                    <div class="weather-desc">
-                                        <span class="weather-description"></span>
-                                    </div>
-                                </div>
-                                <div class="hour-day-tab">
-                                    <div>
-                                        <h3 class="hour-tab">Hourly</h3>
-                                    </div>
-                                    <div>
-                                        <h3 class="day-tab">Daily</h3>
-                                    </div>
-                                </div>
-                                <div class="hour-daily-forecast">
-                                    <div class="hourly-forecast">
-                                        <!-- <div class="hourly-item">
-                                            <span class="time">1PM</span>
-                                            <span class="icon"></span>
-                                            <span class="temp">24</span>
-                                        </div> -->
-                                    </div>
-                                    <div class="daily-forecast"></div>
-                                </div>
-                                <div class="more-forecast">
-                                    <h3>See full forecast</h3>
-                                </div>
-                            </div>
-                        </span>
-                    </div>
-                </div>
-                <div id="salutation-date-time">
-                    <div class="salutation-date">
-                        <div class="salutation">
-                            <h1>Welcome to The Daily Gazette!</h1>
-                        </div>
-                        <div class="date-time">
-                            <span class="date-today"></span>
-                            <span class="time-now"></span>
-                        </div>
-                    </div>
-                </div>
-                <div id="head-news">
-                    <div class="grid-container">
-                        <article id="carousel-news" class="grid-item">
-                            <!-- <div class="card">
-                                <div class="card-image">
-                                    <img src="./images/dummy/img6.jpg" alt="">
-                                </div>
-                                <div class="card-content">
-                                    <div class="news-title">
-                                        <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, nemo?</h2>
-                                    </div>
-                                    <div class="news-description">
-                                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rerum id quaerat vero, fugiat voluptate eos.</p>
-                                    </div>
-                                </div>                       
-                            </div> -->
-                        </article>
-                        <div id="box-news" class="grid-item">
-                            <div class="grid-container">
-                                <!-- <article class="grid-item">
-                                    <div class="card">
-                                        <div class="card-image">
-                                            <img src="./images/dummy/img4.jpg" alt="">
-                                        </div>
-                                        <div class="card-content">
-                                            <div class="news-title">
-                                                <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, nemo?</h2>
-                                            </div>
-                                        </div>                       
-                                    </div>
-                                </article> -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div id="trend-news">
-                    <div class="section-title">
-                        <h2>Trending</h2>
-                    </div>
-                    <div class="trend-news">
-                        <div class="grid-container">
-                            <!-- <article class="grid-item">
-                                <div class="card">
-                                    <div class="card-image">
-                                        <img src="./images/dummy/img6.jpg" alt="">
-                                    </div>
-                                    <div class="card-content">
-                                        <div class="news-title">
-                                            <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, nemo?</h2>
-                                        </div>
-                                       
-                                    </div>                       
-                                </div>
-                            </article> -->
-                        </div>
-                        <aside id="more-trend-news">
-                            <div class="aside-title">
-                                <h3>More Trending News</h3>
-                            </div>
-                            <div class="aside-content">
-                                <ul>
-                                    <!-- <li><span class="item-number">1</span> Lorem ipsum dolor sit Lorem, ipsum dolor..</li> -->
-                                </ul>
-                            </div>
-                        </aside>         
-                    </div> 
-                </div>
-            </div>
-        </section>
-        <section id="local-news">
-            <div class="container">
-                <div class="section-title">
-                    <h2 class="">Latest Local News</h2>
-                </div>
-                <div class="grid-container">
-                    <!-- <article class="grid-item">
-                        <div class="card">
-                            <div class="card-image">
-                                <img src="./images/dummy/img1.jpg" alt="">
-                            </div>
-                            <div class="card-content">
-                                <h3 class="news-title">Lorem ipsum dolor sit amet.</h3>
-                                <p class="news-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae, totam.</p>
-                            </div>
-                        </div>
-                    </article> -->
-                </div>
-            </div>
-        </section>
-        <section id="finance-news">
-            <div class="container">
-                <div class="section-title">
-                    <h2 class="">Business and Finance</h2>
-                </div>
-                <article>
-                    <div class="grid-container">
-                        <!-- <article class="grid-item">
-                            <div class="card">
-                                <div class="card-image">
-                                    <img src="./images/dummy/img11.jpg" alt="">
-                                </div>
-                                <div class="card-content">
-                                    <h3 class="news-title">Lorem ipsum dolor sit amet.</h3>
-                                    <p class="news-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae, totam.</p>
-                                </div>
-                            </div>
-                        </article> -->
-                    </div>
-                    <div id="more-finance-news">  
-                        <div class="section-title">
-                            <h2>Popular in Business and Finance</h2>
-                        </div>  
-                        <div class="grid-container">
-                            <!-- <article class="grid-item">
-                                <div class="card">
-                                    <div class="card-image">
-                                        <img src="./images/dummy/img6.jpg" alt="">image
-                                    </div>
-                                    <div class="card-content">
-                                        <h3 class="news-title">Lorem ipsum dolor sit amet.</h3>
-                                        <p class="news-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae, totam.</p>
-                                    </div>
-                                </div>
-                            </article> -->
-                        </div>
-                    </div>
-                </article>
-            </div>
-        </section>
-        <section id="entertainment-news">
-            <div class="container">
-                <div class="section-title">
-                    <h2 class="">Entertainment</h2>
-                </div>
-                <div class="flex-container">
-                    <aside id="more-entertainment-news" class="flex-item">
-                        <div class="aside-title">
-                            <h3>More Entertainment Updates</h3>
-                        </div>
-                        <div class="aside-content">
-                            <ul>
-                                <!-- <li><span class="item-number">1</span><a href="">Lorem ipsum dolor sit amet consectetur adipisicing</a></li> -->  
-                            </ul>
-                        </div>
-                    </aside>
-                    <div class="grid-container flex-item" >
-                        <!-- <article class="grid-item">
-                            <div class="card">
-                                <div class="card-image">
-                                    <img src="./images/dummy/img1.jpg" alt="">image
-                                </div>
-                                <div class="card-content">
-                                    <h3 class="news-title">Lorem ipsum dolor sit amet.</h3>
-                                    <p class="news-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae, totam.</p>
-                                </div>
-                            </div>
-                        </article> -->
-                        
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section id="scitech-news">
-            <div class="container">
-                <div class="section-title">
-                    <h2 class="">Science and Technology</h2>
-                </div>
-                <div class="flex-container">
-                    <div class="grid-container flex-item">
-                       <!-- <article class="grid-item">
-                            <div class='card'>
-                                <div class='card-image'>
-                                    <img src=${article.image} onerror="this.src='./images/no-image-available.png'" alt="">
-                                </div>
-                                <div class="card-content">
-                                    <span class="news-source"><a href=${article.source.url} target="_blank">${article.source.name}</a></span>
-                                    <div class="news-title">
-                                        <h2><a href=${article.url} target="_blank">${article.title}</a></h2>
-                                    </div>
-                                    <div class="news-description">
-                                        <p>${article.description}</p>
-                                    </div>
-                                </div>
-                            </div>
-                       </article> -->
-                    </div>
-                    <aside id="more-scitech-news" class="flex-item">
-                        <div class="aside-title">
-                            <h3>More on Latest Technology</h3>
-                        </div>
-                        <div class="aside-content">
-                            <ul>
-                                <!-- <span class="item-number">${itemCount}</span><a href=${article.url} target="_blank">${article.title}</a> -->
-                            </ul>
-                        </div>
-                    </aside>
-                </div>
-            </div>
-        </section>
-        <section id="sports-news">
-            <div class="container">
-                <div class="section-title">
-                    <h2 class="">Sports</h2>
-                </div>
-                <div class="flex-container">
-                    <div class="grid-container flex-item">
-                        <!-- <article class="grid-item">
-                            <div class='card'>
-                                <div class='card-image'>
-                                    <img src=${article.image} onerror="this.src='./images/no-image-available.png'" alt="">
-                                </div>
-                                <div class="card-content">
-                                    <span class="news-source"><a href=${article.source.url} target="_blank">${article.source.name}</a></span>
-                                    <div class="news-title">
-                                        <h2><a href=${article.url} target="_blank">${article.title}</a></h2>
-                                    </div>
-                                    <div class="news-description">
-                                        <p>${article.description}</p>
-                                    </div>
-                                </div>
-                            </div>
-                       </article> -->
-                    </div>
-                    <aside id="more-sports-news" class="flex-item">
-                        <div class="aside-title">
-                            <h3>NBA News Updates</h3>
-                        </div>
-                        <div class="aside-content">
-                            <ul id="nba-news">
-                                <!-- <li><span class="item-number">${itemCount}</span><a href=${article.url} target="_blank">${article.title}</a></li> -->
-                            </ul>  
-                        </div>
-                        <div class="aside-title">
-                            <h3>MLB News Updates</h3>
-                        </div>
-                        <div class="aside-content">
-                            <ul id="mlb-news">
-                                <!-- <li><span class="item-number">${itemCount}</span><a href=${article.url} target="_blank">${article.title}</a></li> -->
-                            </ul>
-                        </div>
-                    </aside>
-                </div>
-                <div class="games-stats">
-
-                </div>
-            </div>
-        </section>    
-    </main>
-    <div id="loader-container">
-        <div class="loader"></div>
-        <img src="./images/spinner.png" alt="logo" />
-    </div>
-    <div class="back-to-top">
-        <button><i class="fa-solid fa-arrow-up"></i></button>
-    </div>
-    <!-- footer -->
-    <footer id="footer">
-        <div class="container">
-            <div class="flex-container">
-                <div class="flex-item">
-                    <div class="site-logo">
-                        <img src="./images/tdg-logo.png" alt="site logo">
-                    </div>
-                    <div class="site-about">
-                        <div class="foot-title">
-                            <h4>About Us</h4>
-                        </div>
-                        <div class="site-description">
-                            <p>The Daily Gazette is a leading news source that delivers
-                                comprehensive and timely coverage of local, national, and
-                                international events.</p>
-                        </div>
-                    </div>
-                    <div class="site-links">
-                        <div class="foot-title">
-                            <h4>Follow Us</h4>
-                        </div>
-                        <ul>
-                            <li>
-                                <a target="_blank" rel="noopener noreferrer" href="https://facebook.com" title="Facebook">
-                                    <i class="fab fa-facebook fa-2x"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a target="_blank" rel="noopener noreferrer" href="https://twitter.com"title="Twitter">
-                                    <i class="fab fa-twitter fa-2x"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a target="_blank" rel="noopener noreferrer" href="https://youtube.com" title="Youtube">
-                                  <i class="fab fa-youtube fa-2x"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a target="_blank" rel="noopener noreferrer" href="https://instagram.com" title="Instagram">
-                                  <i class="fab fa-instagram fa-2x"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a target="_blank" rel="noopener noreferrer" href="https://github.com" title="github">
-                                  <i class="fab fa-github fa-2x"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a target="_blank" rel="noopener noreferrer" href="https://discord.com" title="discord">
-                                  <i class="fab fa-discord fa-2x"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="copyrights">
-                        <h3>Copyright &copy; COGY&trade; | All Rights Reserved.</h3>       
-                    </div>
-                </div>
-                <div class="flex-item">
-                    <div class="grid-container">
-                        <div class="grid-item">
-                            <div class="foot-title">
-                                <h4>Resources</h4>
-                            </div>
-                            <div class="foot-content">
-                                <ul>
-                                    <li><a href=""><i class="fa-solid fa-chevron-right"></i>Gnews</a></li>
-                                    <li><a href=""><i class="fa-solid fa-chevron-right"></i>The News Api</a></li>
-                                    <li><a href=""><i class="fa-solid fa-chevron-right"></i>NewsApi</a></li>
-                                    <li><a href=""><i class="fa-solid fa-chevron-right"></i>ipinfo.io</a></li>
-                                    <li><a href=""><i class="fa-solid fa-chevron-right"></i>Visual Crossing</a></li>
-                                    <li><a href=""><i class="fa-solid fa-chevron-right"></i>Balldontlie</a></li>
-                                    <li><a href=""><i class="fa-solid fa-chevron-right"></i>Fastforex</a></li>
-                                </ul>
-                            </div>
-                            
-                        </div>
-                        <div class="grid-item">
-                            <div class="foot-title">
-                                <h4>Support</h4>
-                            </div>
-                            <div class="foot-content">
-                                <ul>
-                                    <li><a href=""><i class="fa-solid fa-chevron-right"></i>Documentation</a></li>
-                                    <li><a href=""><i class="fa-solid fa-chevron-right"></i>Change Logs</a></li>
-                                    <li><a href=""><i class="fa-solid fa-chevron-right"></i>Tools</a></li>
-                                </ul>
-                            </div>
-                            
-                        </div>
-                        <div class="grid-item">
-                            <div class="foot-title">
-                                <h4>Work with Us</h4>
-                            </div>
-                            <div class="foot-content">
-                                <ul>
-                                    <li><a href=""><i class="fa-solid fa-chevron-right"></i>Advertise</a></li>
-                                    <li><a href=""><i class="fa-solid fa-chevron-right"></i>Careers</a></li>
-                                    <li><a href=""><i class="fa-solid fa-chevron-right"></i>Updates</a></li>
-                                </ul>
-                            </div>
-                            
-                        </div>
-                        <div class="grid-item">
-                            <div class="foot-title">
-                                <h4>Legal</h4>
-                            </div>
-                            <div class="foot-content">
-                                <ul>
-                                    <li><a href=""><i class="fa-solid fa-chevron-right"></i>Privacy Policy</a></li>
-                                    <li><a href=""><i class="fa-solid fa-chevron-right"></i>Terms of Use</a></li>
-                                    <li><a href=""><i class="fa-solid fa-chevron-right"></i>License</a></li>
-                                </ul>
-                            </div>                       
-                        </div>
-                        <div class="grid-item">
-                            <div class="foot-title">
-                                <h4>Subscribe to News Letter</h4>
-                            </div>
-                            <div class="foot-content">
-                                <form action="">
-                                    <input type="text" name="fullname" id="fullname" autocomplete="off" placeholder="Your name...">
-                                    <input type="email" name="email" id="email" autocomplete="off" placeholder="Your email...">
-                                    <input type="submit" value="Subscribe" class="sub-btn">
-                                </form>
-                            </div>
-                            
-                        </div>
-                    </div>
-                </div>
-            </div>           
-            <div class="footer-navigation">
-                <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="#finance-news">Finance</a></li>
-                    <li><a href="#entertainment-news">Entertainment</a></li>
-                    <li><a href="#tech-news">Sci&Tech</a></li>
-                    <li><a href="#sports-news">Sports</a></li>
-                </ul>
-            </div>
+  <!-- header -->
+  <header>
+    <nav class="container">
+      <div class="logo">
+        <div class="spin-overlay">
+          <div class="spinner"></div>
+          <a href="/"><img src="./images/tdg-logo.png" alt="logo" /></a>
         </div>
-    </footer>
-
-    <!-- scripts -->
-    <script type="module" src="./js/index.js"></script>
-    <script type="module" src="./js/date.js"></script>
-    <script type="module" src="./js/mobileMenuAndButtons.js"></script>
-    <script type="module" src="./js/weather.js"></script>
+      </div>
+      <div class="main-navigation">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="#finance-news">Finance</a></li>
+          <li><a href="#entertainment-news">Entertainment</a></li>
+          <li><a href="#scitech-news">Sci&Tech</a></li>
+          <li><a href="#sports-news">Sports</a></li>
+        </ul>
+      </div>
+      <div class="user-search">
+        <div class="search">
+          <form>
+            <div class="form-group">
+              <input type="search" id="search" name="search" class="" placeholder="Search" />
+              <label for="search"><i class="fa-sharp fa-solid fa-magnifying-glass"></i></label>
+            </div>
+          </form>
+        </div>
+        <div class="user">
+          <i class="fa-sharp fa-solid fa-user"></i>
+        </div>
+        <div class="mobile-menu">
+          <button type="button" id="mobile-nav-btn" class="nav-toggle">
+            <span class="mobile-btn"></span>
+            <span class="mobile-btn"></span>
+            <span class="mobile-btn"></span>
+          </button>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <!-- main -->
+  <main>
+    <section id="world-news">
+      <div class="container">
+        <div class="weather-location-track">
+          <div class="weather-loc-container">
+            <span class="location"></span>
+            <span class="weather-icon"></span>
+            <span class="temp"></span>
+            <span class="unit dropdown">
+              <i class="fa-solid fa-chevron-down"></i>
+              <div class="weather-loc-box">
+                <div class="loc">
+                  <span class="location-inner"></span>
+                  <span class="dropdown-inner">
+                    <i class="fa-solid fa-ellipsis"></i>
+                    <ul>
+                      <li class="celcius">&deg;C Celcius</li>
+                      <li class="fahrenheit">&deg;F Fahrenheit</li>
+                      <li class="kelvin">&deg;K Kelvin</li>
+                    </ul>
+                  </span>
+                </div>
+                <div class="icon-description">
+                  <div class="icon-temp-container">
+                    <span class="icon"></span>
+                    <span class="temp"></span>
+                  </div>
+                  <div class="weather-desc">
+                    <span class="weather-description"></span>
+                  </div>
+                </div>
+                <div class="hour-day-tab">
+                  <div>
+                    <h3 class="hour-tab">Hourly</h3>
+                  </div>
+                  <div>
+                    <h3 class="day-tab">Daily</h3>
+                  </div>
+                </div>
+                <div class="hour-daily-forecast">
+                  <div class="hourly-forecast">
+                    <!-- <div class="hourly-item">
+                      <span class="time">1PM</span>
+                      <span class="icon"></span>
+                      <span class="temp">24</span>
+                    </div> -->
+                  </div>
+                  <div class="daily-forecast"></div>
+                </div>
+                <div class="more-forecast">
+                  <h3>See full forecast</h3>
+                </div>
+              </div>
+            </span>
+          </div>
+        </div>
+        <div id="salutation-date-time">
+          <div class="salutation-date">
+            <div class="salutation">
+              <h1>Welcome to The Daily Gazette!</h1>
+            </div>
+            <div class="date-time">
+              <span class="date-today"></span>
+              <span class="time-now"></span>
+            </div>
+          </div>
+        </div>
+        <div id="head-news">
+          <div class="grid-container">
+            <article id="carousel-news" class="grid-item">
+               <!-- <div class="card">
+                   <div class="card-image">
+                     <img src="./images/dummy/img6.jpg" alt="">
+                   </div>
+                   <div class="card-content">
+                     <div class="news-title">
+                       <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, nemo?</h2>
+                     </div>
+                     <div class="news-description">
+                       <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rerum id quaerat vero, fugiat voluptate eos.</p>
+                     </div>
+                   </div>                       
+               </div> -->
+            </article>
+            <div id="box-news" class="grid-item">
+              <div class="grid-container">
+              <!-- <article class="grid-item">
+                <div class="card">
+                 <div class="card-image">
+                   <img src="./images/dummy/img4.jpg" alt="">
+                 </div>
+                 <div class="card-content">
+                   <div class="news-title">
+                     <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, nemo?</h2>
+                   </div>
+                 </div>                       
+                </div>
+              </article> -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="trend-news">
+          <div class="section-title">
+              <h2>Trending</h2>
+          </div>
+          <div class="trend-news">
+            <div class="grid-container">
+              <!-- <article class="grid-item">
+                <div class="card">
+                  <div class="card-image">
+                    <img src="./images/dummy/img6.jpg" alt="">
+                  </div>
+                  <div class="card-content">
+                    <div class="news-title">
+                      <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, nemo?</h2>
+                    </div>
+                  </div>                       
+                </div>
+              </article> -->
+            </div>
+            <aside id="more-trend-news">
+              <div class="aside-title">
+                <h3>More Trending News</h3>
+              </div>
+              <div class="aside-content">
+                <ul>
+                  <!-- <li><span class="item-number">1</span> Lorem ipsum dolor sit Lorem, ipsum dolor..</li> -->
+                </ul>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="local-news">
+      <div class="container">
+        <div class="section-title">
+          <h2 class="">Latest Local News</h2>
+        </div>
+        <div class="grid-container">
+          <!-- <article class="grid-item">
+              <div class="card">
+                  <div class="card-image">
+                      <img src="./images/dummy/img1.jpg" alt="">
+                  </div>
+                  <div class="card-content">
+                      <h3 class="news-title">Lorem ipsum dolor sit amet.</h3>
+                      <p class="news-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae, totam.</p>
+                  </div>
+              </div>
+          </article> -->
+        </div>
+      </div>
+    </section>
+    <section id="finance-news">
+      <div class="container">
+        <div class="section-title">
+          <h2 class="">Business and Finance</h2>
+        </div>
+        <article>
+          <div class="grid-container">
+            <!-- <article class="grid-item">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="./images/dummy/img11.jpg" alt="">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="news-title">Lorem ipsum dolor sit amet.</h3>
+                        <p class="news-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae, totam.</p>
+                    </div>
+                </div>
+            </article> -->
+          </div>
+          <div id="more-finance-news">
+            <div class="section-title">
+              <h2>Popular in Business and Finance</h2>
+            </div>
+            <div class="grid-container">
+              <!-- <article class="grid-item">
+                  <div class="card">
+                      <div class="card-image">
+                          <img src="./images/dummy/img6.jpg" alt="">image
+                      </div>
+                      <div class="card-content">
+                          <h3 class="news-title">Lorem ipsum dolor sit amet.</h3>
+                          <p class="news-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae, totam.</p>
+                      </div>
+                  </div>
+              </article> -->
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+    <section id="entertainment-news">
+      <div class="container">
+        <div class="section-title">
+          <h2 class="">Entertainment</h2>
+        </div>
+        <div class="flex-container">
+          <aside id="more-entertainment-news" class="flex-item">
+            <div class="aside-title">
+              <h3>More Entertainment Updates</h3>
+            </div>
+            <div class="aside-content">
+              <ul>
+                  <!-- <li><span class="item-number">1</span><a href="">Lorem ipsum dolor sit amet consectetur adipisicing</a></li> -->
+              </ul>
+            </div>
+          </aside>
+          <div class="grid-container flex-item">
+            <!-- <article class="grid-item">
+              <div class="card">
+                  <div class="card-image">
+                      <img src="./images/dummy/img1.jpg" alt="">image
+                  </div>
+                  <div class="card-content">
+                      <h3 class="news-title">Lorem ipsum dolor sit amet.</h3>
+                      <p class="news-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae, totam.</p>
+                  </div>
+              </div>
+            </article> -->
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="scitech-news">
+      <div class="container">
+        <div class="section-title">
+          <h2 class="">Science and Technology</h2>
+        </div>
+        <div class="flex-container">
+          <div class="grid-container flex-item">
+            <!-- <article class="grid-item">
+              <div class='card'>
+                  <div class='card-image'>
+                      <img src=${article.image} onerror="this.src='./images/no-image-available.png'" alt="">
+                  </div>
+                  <div class="card-content">
+                      <span class="news-source"><a href=${article.source.url} target="_blank">${article.source.name}</a></span>
+                      <div class="news-title">
+                          <h2><a href=${article.url} target="_blank">${article.title}</a></h2>
+                      </div>
+                      <div class="news-description">
+                          <p>${article.description}</p>
+                      </div>
+                  </div>
+              </div>
+           </article> -->
+          </div>
+          <aside id="more-scitech-news" class="flex-item">
+            <div class="aside-title">
+              <h3>More on Latest Technology</h3>
+            </div>
+            <div class="aside-content">
+              <ul>
+                  <!-- <span class="item-number">${itemCount}</span><a href=${article.url} target="_blank">${article.title}</a> -->
+              </ul>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+    <section id="sports-news">
+      <div class="container">
+        <div class="section-title">
+          <h2 class="">Sports</h2>
+        </div>
+        <div class="flex-container">
+          <div class="grid-container flex-item">
+            <!-- <article class="grid-item">
+              <div class='card'>
+                  <div class='card-image'>
+                      <img src=${article.image} onerror="this.src='./images/no-image-available.png'" alt="">
+                  </div>
+                  <div class="card-content">
+                      <span class="news-source"><a href=${article.source.url} target="_blank">${article.source.name}</a></span>
+                      <div class="news-title">
+                          <h2><a href=${article.url} target="_blank">${article.title}</a></h2>
+                      </div>
+                      <div class="news-description">
+                          <p>${article.description}</p>
+                      </div>
+                  </div>
+              </div>
+           </article> -->
+          </div>
+          <aside id="more-sports-news" class="flex-item">
+            <div class="aside-title">
+              <h3>NBA News Updates</h3>
+            </div>
+            <div class="aside-content">
+              <ul id="nba-news">
+                  <!-- <li><span class="item-number">${itemCount}</span><a href=${article.url} target="_blank">${article.title}</a></li> -->
+              </ul>
+            </div>
+            <div class="aside-title">
+              <h3>MLB News Updates</h3>
+            </div>
+            <div class="aside-content">
+              <ul id="mlb-news">
+                  <!-- <li><span class="item-number">${itemCount}</span><a href=${article.url} target="_blank">${article.title}</a></li> -->
+              </ul>
+            </div>
+          </aside>
+        </div>
+        <div class="games-stats">
+        </div>
+      </div>
+    </section>
+  </main>
+  <div id="loader-container">
+      <div class="loader"></div>
+      <img src="./images/spinner.png" alt="logo" />
+  </div>
+  <div class="back-to-top">
+      <button><i class="fa-solid fa-arrow-up"></i></button>
+  </div>
+  <!-- footer -->
+  <footer id="footer">
+    <div class="container">
+      <div class="flex-container">
+        <div class="flex-item">
+          <div class="site-logo">
+            <img src="./images/tdg-logo.png" alt="site logo">
+          </div>
+          <div class="site-about">
+            <div class="foot-title">
+              <h4>About Us</h4>
+            </div>
+            <div class="site-description">
+              <p>The Daily Gazette is a leading news source that delivers
+                comprehensive and timely coverage of local, national, and
+                international events.</p>
+            </div>
+          </div>
+          <div class="site-links">
+            <div class="foot-title">
+              <h4>Follow Us</h4>
+            </div>
+            <ul>
+              <li>
+                <a target="_blank" rel="noopener noreferrer" href="https://facebook.com" title="Facebook">
+                  <i class="fab fa-facebook fa-2x"></i>
+                </a>
+              </li>
+              <li>
+                <a target="_blank" rel="noopener noreferrer" href="https://twitter.com" title="Twitter">
+                  <i class="fab fa-twitter fa-2x"></i>
+                </a>
+              </li>
+              <li>
+                <a target="_blank" rel="noopener noreferrer" href="https://youtube.com" title="Youtube">
+                  <i class="fab fa-youtube fa-2x"></i>
+                </a>
+              </li>
+              <li>
+                <a target="_blank" rel="noopener noreferrer" href="https://instagram.com" title="Instagram">
+                  <i class="fab fa-instagram fa-2x"></i>
+                </a>
+              </li>
+              <li>
+                <a target="_blank" rel="noopener noreferrer" href="https://github.com" title="github">
+                  <i class="fab fa-github fa-2x"></i>
+                </a>
+              </li>
+              <li>
+                <a target="_blank" rel="noopener noreferrer" href="https://discord.com" title="discord">
+                  <i class="fab fa-discord fa-2x"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="copyrights">
+            <h3>Copyright &copy; COGY&trade; | All Rights Reserved.</h3>
+          </div>
+        </div>
+        <div class="flex-item">
+          <div class="grid-container">
+            <div class="grid-item">
+              <div class="foot-title">
+                <h4>Resources</h4>
+              </div>
+              <div class="foot-content">
+                <ul>
+                  <li><a href=""><i class="fa-solid fa-chevron-right"></i>Gnews</a></li>
+                  <li><a href=""><i class="fa-solid fa-chevron-right"></i>The News Api</a></li>
+                  <li><a href=""><i class="fa-solid fa-chevron-right"></i>NewsApi</a></li>
+                  <li><a href=""><i class="fa-solid fa-chevron-right"></i>ipinfo.io</a></li>
+                  <li><a href=""><i class="fa-solid fa-chevron-right"></i>Visual Crossing</a></li>
+                  <li><a href=""><i class="fa-solid fa-chevron-right"></i>Balldontlie</a></li>
+                  <li><a href=""><i class="fa-solid fa-chevron-right"></i>Fastforex</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="grid-item">
+              <div class="foot-title">
+                <h4>Support</h4>
+              </div>
+              <div class="foot-content">
+                <ul>
+                  <li><a href=""><i class="fa-solid fa-chevron-right"></i>Documentation</a></li>
+                  <li><a href=""><i class="fa-solid fa-chevron-right"></i>Change Logs</a></li>
+                  <li><a href=""><i class="fa-solid fa-chevron-right"></i>Tools</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="grid-item">
+              <div class="foot-title">
+                <h4>Work with Us</h4>
+              </div>
+              <div class="foot-content">
+                <ul>
+                  <li><a href=""><i class="fa-solid fa-chevron-right"></i>Advertise</a></li>
+                  <li><a href=""><i class="fa-solid fa-chevron-right"></i>Careers</a></li>
+                  <li><a href=""><i class="fa-solid fa-chevron-right"></i>Updates</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="grid-item">
+              <div class="foot-title">
+                <h4>Legal</h4>
+              </div>
+              <div class="foot-content">
+                <ul>
+                  <li><a href=""><i class="fa-solid fa-chevron-right"></i>Privacy Policy</a></li>
+                  <li><a href=""><i class="fa-solid fa-chevron-right"></i>Terms of Use</a></li>
+                  <li><a href=""><i class="fa-solid fa-chevron-right"></i>License</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="grid-item">
+              <div class="foot-title">
+                <h4>Subscribe to News Letter</h4>
+              </div>
+              <div class="foot-content">
+                <form action="">
+                  <input type="text" name="fullname" id="fullname" autocomplete="off" placeholder="Your name...">
+                  <input type="email" name="email" id="email" autocomplete="off" placeholder="Your email...">
+                  <input type="submit" value="Subscribe" class="sub-btn">
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-navigation">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="#finance-news">Finance</a></li>
+          <li><a href="#entertainment-news">Entertainment</a></li>
+          <li><a href="#tech-news">Sci&Tech</a></li>
+          <li><a href="#sports-news">Sports</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+  <!-- scripts -->
+  <script type="module" src="./js/index.js"></script>
+  <script type="module" src="./js/date.js"></script>
+  <script type="module" src="./js/mobileMenuAndButtons.js"></script>
+  <script type="module" src="./js/weather.js"></script>
 </body>
 
 </html>

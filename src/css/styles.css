@@ -393,10 +393,6 @@ nav>div {
   gap: 10px;
 }
 
-.weather-loc-container .dropdown .weather-loc-box>div {
-  /* margin: 10px 0; */
-}
-
 .weather-loc-box img {
   object-fit: contain;
 }
@@ -1166,10 +1162,6 @@ footer {
   gap: 0;
 }
 
-footer .flex-item {
-  /* flex: 1 1 calc(50% - 10px); */
-}
-
 footer .flex-item:first-child {
   /* width: 500px; */
   flex: 1 1 40%;
@@ -1241,10 +1233,6 @@ footer .flex-item .grid-container {
   padding: 30px 0;
   margin-top: 30px;
   border-top: 1px solid var(--tertiary-clr);
-}
-
-#footer .copyrights {
-  /* text-align: center; */
 }
 
 .copyrights h3 {

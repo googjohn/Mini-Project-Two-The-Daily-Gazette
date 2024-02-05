@@ -260,6 +260,9 @@ async function trendNews(endpoint, countryCode) {
               <div class="news-title">
                 <h2><a href=${article.url} target="_blank">${article.title}</a></h2>
               </div>
+              <div class="news-description">
+                <p>${article.description}</p>
+              </div>
             </div>
           </div>`;
 

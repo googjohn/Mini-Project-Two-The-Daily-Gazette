@@ -34,8 +34,10 @@
   --gray-rgb: 141, 148, 158;
   --dark-navy: #020c1b;
   --navy: #0a192f;
+  --navy-rgb: 10, 25, 47;
   --light-navy: #112240;
   --lightest-navy: #233554;
+  --lightest-navy-rgb: 35, 53, 84;
   --navy-shadow: rgba(2, 12, 27, 0.7);
   --dark-slate: #495670;
   --slate: #8892b0;
@@ -70,9 +72,11 @@
   --fs-sec-title: 1.5rem;
   --fs-news-source: .6rem;
   --fs-news-title: 1rem;
-  --fs-news-description: .85rem;
+  --fs-news-description: .8rem;
   --fs-aside-num: 1.5rem;
   --fs-aside-a: .8rem;
+  --fs-foot-content: .8rem;
+  --fs-9: .9rem;
 
   /* font weight */
   --fw-600: 600;
@@ -108,6 +112,7 @@ body, html {
   width: 100%;
   height: 100%;
   position: relative;
+  background-color: var(--light-navy);
   font-family: 'Poppins', sans-serif;
 }
 ul, ol {
@@ -131,20 +136,24 @@ a {
   margin: auto;
   padding: var(--padding);
 }
+.container:not(header .container, footer .container) {
+  background-color: var(--gray-20);
+}
 section {
   width: 100%;
   height: 100%;
-  padding-top: 90px;
+  padding-top: 80px;
   padding-bottom: 20px;
-  backdrop-filter: var(--filter);
-  &:nth-child(even) {
+  z-index: 1;
+  /* &:nth-child(odd) {
     background-color: var(--light-navy);
   }
-  &:nth-child(odd) {
+  &:nth-child(even) {
     background-color: var(--gray-05);
-  }
+  } */
 }
 .section-title h2 {
+  color: var(--text-black);
   font-size: var(--fs-sec-title);
   font-weight: var(--fw-600);
   margin-bottom: 5px; 
@@ -152,6 +161,7 @@ section {
 
 /* aside content */
 aside {
+  /* box-shadow: var(--bs-cards); */
   .aside-title {
     padding: var(--padding);
     background-color: var(--gray-100);
@@ -163,7 +173,7 @@ aside {
   }
   .aside-content {
     overflow: auto;
-
+    width: 375px;
     ul {
       li {
         display: flex;
@@ -191,6 +201,7 @@ aside {
           background-color: var(--gray-100)
         }
         a {
+          color: var(--text-black);
           flex-basis: calc(100% - 55px);
           font-size: var(--fs-aside-a);
         }
@@ -203,6 +214,8 @@ aside {
 .grid-container {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
+  grid-auto-flow: row;
+  grid-auto-rows: 90px;
   gap: var(--gap);
 
   .grid-item {
@@ -220,11 +233,16 @@ aside {
   overflow: hidden;
   width: 100%;
   height: 100%;
+  border-radius: var(--bradius);
   box-shadow: var(--bs-cards);
 
   .card-content {
     height: 50%;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    background-color: rgba(var(--black-rgb), .5);
     padding: calc(var(--padding)/2);
 
     .news-title h2 {
@@ -243,10 +261,12 @@ aside {
     width: 100%;
 
     img {
+      max-height: 100%;
+      max-width: 100%;
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: top center;
+      object-position: center;
     }
   }
   .news-source {
@@ -273,7 +293,7 @@ aside {
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: rgba(var(--black-rgb), .35);
+  background-color: rgba(var(--black-rgb), .5);
   z-index: 200;
 
   &::after {

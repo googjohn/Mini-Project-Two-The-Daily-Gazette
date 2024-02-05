@@ -488,6 +488,7 @@ header {
   .container {
     .flex-container {
       .flex-item {
+        flex: 1 1 calc(100% - 375px);
         &.grid-container {
           grid-template-areas:
           'A A A A A A A A A A A A'
@@ -523,6 +524,10 @@ header {
             }
           }
         }
+        &#more-entertainment-news,
+        &#more-scitech-news {
+          flex: 1 1 375px;
+        }
       }
     }
   }
@@ -533,6 +538,7 @@ header {
   .container {
     .flex-container {
       .flex-item {
+        flex: 1 1 calc(100% - 375px);
         &.grid-container {
           grid-template-areas:  
           'A A A A A A A A A A A A'
@@ -574,6 +580,7 @@ header {
           }
         }
         &#more-sports-news {
+          flex: 1 1 375px;
           .aside-content {
             height: 540px;
             margin-bottom: 10px;

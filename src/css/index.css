@@ -303,8 +303,6 @@ header {
         }
       }
       .card {
-        /* height: 100%; */
-        /* width: 100%; */
 
         .card-image {
           width: 100%;
@@ -316,7 +314,6 @@ header {
           top: 0;
           left: 0;
           height: 100%;
-          /* background-color: rgba(var(--black-rgb), .5); */
         }            
       }
     }
@@ -342,7 +339,7 @@ header {
 
         .card {
           .card-content {
-            background-color: var(--gray-10);
+            background-color: var(--gray-20);
             justify-content: start;
             a {
               color: var(--text-black);
@@ -390,10 +387,9 @@ header {
       &:nth-child(8) { grid-area: H }
 
       .card {
-        /* background-color: var(--white-20); */
 
         .card-content {
-          background-color: var(--gray-10);
+          background-color: var(--gray-20);
           justify-content: start;
           .news-title a {
             color: var(--text-black);

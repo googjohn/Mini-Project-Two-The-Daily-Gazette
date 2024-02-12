@@ -46,6 +46,7 @@ header {
           left: -20px;
           border-radius: 50%;
           animation: 1.2s spin infinite linear;
+          z-index: 1;
         }
       }
       a {
@@ -257,6 +258,13 @@ header {
     font-weight: var(--fw-300);
     font-size: 1.2rem;
     margin-left: auto;
+    display: flex;
+
+    .time-now {
+      width: 115px;
+      display: flex;
+      justify-content: end;
+    }
   }
   .date-today {
     margin-right: 10px;
@@ -338,8 +346,11 @@ header {
         &:nth-child(3) { grid-area: C }
 
         .card {
+          &:hover {
+            opacity: .9;
+          }
           .card-content {
-            background-color: var(--gray-20);
+            background-color: var(--gray-20);/*white - gray-20*/
             justify-content: start;
             a {
               color: var(--text-black);
@@ -387,9 +398,11 @@ header {
       &:nth-child(8) { grid-area: H }
 
       .card {
-
+        &:hover {
+          opacity: .9;
+        }
         .card-content {
-          background-color: var(--gray-20);
+          background-color: var(--gray-20);/*white - gray-20*/
           justify-content: start;
           .news-title a {
             color: var(--text-black);
@@ -426,7 +439,6 @@ header {
             top: 0;
             height: 100%;
             width: 100%;
-            /* background-color: rgba(var(--black-rgb), .5); */
           }
           .card-image {
             height: 100%;
@@ -442,6 +454,7 @@ header {
         'B B B A A A A A A C C C'
         'D D D A A A A A A E E E'
         'D D D A A A A A A E E E'
+        'F F F F F F G G G G G G'
         'F F F F F F G G G G G G'
         'F F F F F F G G G G G G'
         'H H H H I I I I J J J J'
@@ -465,7 +478,6 @@ header {
               height: 100%;
               top: 0;
               position: absolute;
-              /* background-color: rgba(var(--black-rgb), .5); */
             }
             .card-image {
               width: 100%;
@@ -483,6 +495,9 @@ header {
 #scitech-news {
   .container {
     .flex-container {
+      &#technology-news {
+        margin-bottom: 10px;
+      }
       .flex-item {
         flex: 1 1 calc(100% - 375px);
         &.grid-container {
@@ -511,7 +526,6 @@ header {
                 height: 100%;
                 top: 0;
                 position: absolute;
-                /* background-color: rgba(var(--black-rgb), .5); */
               }
               .card-image {
                 width: 100%;
@@ -521,7 +535,8 @@ header {
           }
         }
         &#more-entertainment-news,
-        &#more-scitech-news {
+        &#more-science-news,
+        &#more-technology-news {
           flex: 1 1 375px;
         }
       }
@@ -583,16 +598,16 @@ header {
 
             ul li span {
               flex-basis: auto;
-              height: 100px;
-              width: 100px;
+              height: 90px;
+              width: 90px;
               font-size: 1.5rem;
-              background-color: var(--gray-100);
+              background-color: var(--navy);
 
               img {
                 border-radius: 50%;
                 margin: 5px;
-                width: 100px;
-                height: 100px;
+                width: 90px;
+                height: 90px;
                 object-fit: cover;
               }
             }

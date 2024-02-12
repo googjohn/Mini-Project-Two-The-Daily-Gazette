@@ -66,6 +66,7 @@ mobileBtn.addEventListener('click', () => {
   });
 });
 
+
 // back to top button
 const backToTopButton = document.querySelector('.back-to-top button');
 backToTopButton.addEventListener('click', backToTop)

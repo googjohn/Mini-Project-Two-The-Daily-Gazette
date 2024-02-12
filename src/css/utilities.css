@@ -1,5 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
-
+@font-face {
+  font-family: Dune;
+  src: url('/src/fonts/Dune_Rise.otf') format('opentype'), url('/src/fonts/Dune_Rise.ttf') format('truetype');
+}
 *,
 ::before,
 ::after {
@@ -104,6 +107,10 @@
   --bs-lightBlue: 0 0 4px 2px var(--aqua);
   --bs-darkRed: 0 0 4px 2px rgba(160, 6, 6, 1);
   --bs-cards: 0 0 4px 0 rgba(var(--black-rgb), .5);
+  --bs-cards-lup-ddown: 4px -4px 10px 0 rgba(var(--white-rgb), 0.75),
+    -4px 4px 10px 0 rgba(var(--black-rgb), 0.45);
+  --bs-back-btn:  2px -2px 4px 0 rgba(var(--white-rgb), .35),
+    -2px 2px 4px 0 rgba(var(--black-rgb), .25);
 
   /* transition */
   --transition: all 350ms ease-in-out;
@@ -113,7 +120,7 @@ body, html {
   height: 100%;
   position: relative;
   background-color: var(--light-navy);
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins', 'Dune', sans-serif;
 }
 ul, ol {
   list-style: none;
@@ -137,7 +144,7 @@ a {
   padding: var(--padding);
 }
 .container:not(header .container, footer .container) {
-  background-color: var(--gray-25);
+  background-color: var(--gray-10);/* 10 - 30*/
 }
 section {
   width: 100%;
@@ -152,11 +159,29 @@ section {
     background-color: var(--gray-05);
   } */
 }
-.section-title h2 {
-  color: var(--text-black);
-  font-size: var(--fs-sec-title);
-  font-weight: var(--fw-600);
-  margin-bottom: 5px; 
+.section-title {
+  width: max-content;
+  position: relative;
+  /* display: flex;
+  justify-content: space-between;
+  align-items: center; */
+
+  h2 {
+    color: var(--text-black);
+    font-size: var(--fs-sec-title);
+    font-weight: var(--fw-600);
+    margin-bottom: 5px; 
+  }
+  .see-more {
+    position: absolute;
+    top: 0;
+    right: -50px;
+    color: var(--text-black);
+    font-size: .6rem;
+    font-weight: var(--fw-300);
+    text-decoration: underline;
+    text-transform: uppercase;
+  }
 }
 
 /* aside content */
@@ -164,7 +189,7 @@ aside {
   /* box-shadow: var(--bs-cards); */
   .aside-title {
     padding: var(--padding);
-    background-color: var(--gray-100);
+    background-color: var(--navy);
 
     h3 {
       color: var(--text-white);
@@ -180,12 +205,15 @@ aside {
         align-items: center;
         gap: var(--gap);
         width: 100%;
+        box-shadow: var(--bs-cards);
         
         &:nth-child(even) {
-          background-color: var(--gray-45);
+          background-color: var(--gray-10);/*10 - 30*/
+          /* box-shadow: var(--bs-cards); */
         }
         &:nth-child(odd) {
-          background-color: var(--gray-25);
+          background-color: var(--gray-20); /*white - gray-20*/
+          /* box-shadow: var(--bs-cards); */
         }
         span {
           flex-basis: 45px;
@@ -198,7 +226,7 @@ aside {
           border-radius: 50%;
           margin: 5px;
           font-size: var(--fs-aside-num);
-          background-color: var(--gray-100)
+          background-color: var(--navy)
         }
         a {
           color: var(--text-black);
@@ -217,10 +245,6 @@ aside {
   grid-auto-flow: row;
   grid-auto-rows: 90px;
   gap: var(--gap);
-
-  .grid-item {
-    overflow: hidden;
-  }
 }
 .flex-container {
   display: flex;
@@ -235,6 +259,7 @@ aside {
   height: 100%;
   border-radius: var(--bradius);
   /* box-shadow: var(--bs-cards); */
+  box-shadow: var(--bs-cards-lup-ddown);
 
   .card-content {
     height: 50%;
@@ -280,6 +305,11 @@ aside {
     border-radius: calc(var(--bradius)*4);
     background-color: rgba(var(--black-rgb), .15);
     backdrop-filter: var(--filter);
+  }
+  &:hover {
+    .card-content {
+      background-color: rgba(var(--black-rgb), .3);
+    }
   }
 }
 
@@ -345,21 +375,26 @@ aside {
   width: 45px;
   height: 60px;
   outline: none;
-  border: none;
   cursor: pointer;
   z-index: 100;
+  border: none;
   border-radius: calc(var(--bradius)*6);
-  background-color: rgba(var(--black-rgb), .5);
+  background-color: rgba(var(--black-rgb), .3);
   backdrop-filter: var(--filter);
-  box-shadow: var(--bs-lightBlue);
+  box-shadow: var(--bs-back-btn);
 
   i {
     color: var(--aqua);
     font-size: 1.4rem;
   }
-  &:hover i {
-    animation: 1s bounce infinite alternate-reverse;
-  }
+  &:hover {
+    --bs-back-btn-hover:  -2px 2px 4px 0 rgba(var(--white-rgb), .35) inset,
+      2px -2px 4px 0 rgba(var(--black-rgb), .25) inset;
+    box-shadow: var(--bs-back-btn-hover);
+    i {
+      animation: 1s bounce infinite alternate-reverse;
+    }
+  } 
 }
 
 /* keyframe animations */

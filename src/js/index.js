@@ -33,7 +33,7 @@
 // listItemStyle(mtn)
 // listItemStyle(men)
 // listItemStyle(msn)
-import { getIpInfo } from "./weather.js";
+import { getIpInfo } from "./script.js";
 
 // apikeys global variable
 const gnewsApiKeys = {
@@ -114,7 +114,7 @@ async function fetchApiData(endpoint, country, category, language, max, API_KEY)
       console.error(`Failed to fetch data. Status: ${response.status}, ${response.statusText}`);
       hideSpinner();
       return;
-    };
+    }
 
     const result = await response.json();
 
@@ -151,7 +151,7 @@ async function headNews(endpoint, countryCode) {
 
     if (!results.articles) {
       console.error('Invalid response format. No articles found.')
-    };
+    }
 
     const { articles } = results;
 
@@ -235,7 +235,7 @@ async function trendNews(endpoint, countryCode) {
 
     if (!results.articles) {
       console.error('Invalid response format. No articles found.')
-    };
+    }
 
     const { articles } = results;
 
@@ -312,7 +312,7 @@ async function localNews(endpoint, countryCode) {
 
     if (!results.articles) {
       console.error('Invalid response format. No articles found.')
-    };
+    }
 
     const { articles } = results;
 
@@ -370,7 +370,7 @@ async function financeNews(endpoint, countryCode) {
 
     if (!results.articles) {
       console.error('Invalid response format. No articles found.')
-    };
+    }
 
     const { articles } = results;
 
@@ -428,7 +428,7 @@ async function financeNews(endpoint, countryCode) {
 }
 
 // more finance news
-async function moreFinanceNews(endpoint, countryCode) {
+async function moreFinanceNews(endpoint) {
   // API GNEWS variables/params
   const gnews_params = {
     API_KEY: gnewsApiKeys.apiKey_5,
@@ -451,7 +451,7 @@ async function moreFinanceNews(endpoint, countryCode) {
 
     if (!results.articles) {
       console.error('Invalid response format. No articles found.')
-    };
+    }
 
     const { articles } = results;
 
@@ -529,13 +529,11 @@ async function sportsNews(endpoint, countryCode) {
 
     if (!results.articles) {
       console.error('Invalid response format. No articles found.')
-    };
+    }
 
     const { articles } = results;
 
     const sportsNews = document.querySelector('#sports-news .grid-container');
-    const nbaNews = document.querySelector('#more-sports-news .aside-content #nba-news')
-    const mlbNews = document.querySelector('#more-sports-news .aside-content #mlb-news')
 
     for (let ii = 0; ii < articles.length; ii++) {
       const article = articles[ii];
@@ -589,9 +587,9 @@ async function sportsNews(endpoint, countryCode) {
 }
 
 // more sports news
-async function moreSportsNews(endpoint, countryCode) {
+async function moreSportsNews(endpoint) {
   const apiKey = 'ecbfd1725be34758b06c79adaf8a85ef'
-  const apiUrl = `https://newsapi.org/v2/${endpoint}?country=us&category=sports&pageSize=9&apiKey=${apiKey}`;
+  // const apiUrl = `https://newsapi.org/v2/${endpoint}?country=us&category=sports&pageSize=9&apiKey=${apiKey}`;
   const apiUrlNba = `https://newsapi.org/v2/${endpoint}?q=nba&pageSize=9&apiKey=${apiKey}`;
   const apiUrlMlb = `https://newsapi.org/v2/${endpoint}?q=mlb&pageSize=9&apiKey=${apiKey}`;
 
@@ -606,7 +604,8 @@ async function moreSportsNews(endpoint, countryCode) {
     const result = await response.json();
 
     const { articles } = result;
-
+    const { articles: artikols } = res;
+    console.log(artikols);
     const nbaSportsNews = document.querySelector('#more-sports-news .aside-content ul#nba-news')
 
     articles.forEach(article => {
@@ -615,8 +614,8 @@ async function moreSportsNews(endpoint, countryCode) {
 
       liElement.innerHTML =
         `<span class="item-number">
-                    <img src=${article.image} onerror="this.src='./images/no-image-available.png'" alt="">
-                </span><a href=${article.url} target="_blank">${article.title}</a>`;
+          <img src=${article.image} onerror="this.src='./images/no-image-available.png'" alt="">
+        </span><a href=${article.url} target="_blank">${article.title}</a>`;
       nbaSportsNews.appendChild(liElement);
     })
 
@@ -626,7 +625,7 @@ async function moreSportsNews(endpoint, countryCode) {
 }
 
 // mlb news
-async function mlbSportsNews(endpoint, countryCode) {
+async function mlbSportsNews(endpoint) {
   const apiKey = gnewsApiKeys.apiKey_7;
   const apiUrlMlb = `https://gnews.io/api/v4/${endpoint}?q=mlb&lang=en&country=us&apikey=${apiKey}`;
 
@@ -649,8 +648,8 @@ async function mlbSportsNews(endpoint, countryCode) {
 
       liElement.innerHTML =
         `<span class="item-number">
-                    <img src=${article.image} onerror="this.src='./images/no-image-available.png'" alt="">
-                </span><a href=${article.url} target="_blank">${article.title}</a>`;
+          <img src=${article.image} onerror="this.src='./images/no-image-available.png'" alt="">
+        </span><a href=${article.url} target="_blank">${article.title}</a>`;
 
       mlbSportsNews.appendChild(liElement);
     })
@@ -661,7 +660,7 @@ async function mlbSportsNews(endpoint, countryCode) {
 }
 
 // nba news
-async function nbaSportsNews(endpoint, countryCode) {
+async function nbaSportsNews(endpoint) {
   const apiKey = gnewsApiKeys.apiKey_8;
   const apiUrlNba = `https://gnews.io/api/v4/${endpoint}?q=nba&lang=en&country=us&apikey=${apiKey}`;
 
@@ -684,8 +683,8 @@ async function nbaSportsNews(endpoint, countryCode) {
 
       liElement.innerHTML =
         `<span class="item-number">
-                    <img src=${article.image} onerror="this.src='./images/no-image-available.png'" alt="">
-                </span><a href=${article.url} target="_blank">${article.title}</a>`;
+          <img src=${article.image} onerror="this.src='./images/no-image-available.png'" alt="">
+        </span><a href=${article.url} target="_blank">${article.title}</a>`;
       nbaSportsNews.appendChild(liElement);
     })
 
@@ -720,12 +719,12 @@ async function techNews(endpoint, countryCode) {
 
     if (!results.articles) {
       console.error('Invalid response format. No articles found.')
-    };
+    }
 
     const { articles } = results;
 
-    const techNews = document.querySelector('#scitech-news .grid-container');
-    const moreScitechNews = document.querySelector('#more-scitech-news .aside-content ul')
+    const techNews = document.querySelector('#technology-news .grid-container');
+    const moreTechNews = document.querySelector('#more-technology-news .aside-content ul')
 
     for (let ii = 0; ii < articles.length; ii++) {
       const article = articles[ii];
@@ -784,7 +783,7 @@ async function techNews(endpoint, countryCode) {
         liElement.innerHTML =
           `<span class="item-number">${itemCount}</span><a href=${article.url} target="_blank">${article.title}</a>`;
 
-        moreScitechNews.appendChild(liElement);
+        moreTechNews.appendChild(liElement);
       }
     }
 
@@ -813,15 +812,80 @@ async function scienceNews(endpoint, countryCode) {
     max
   } = gnews_params;
 
+  let itemCount = 0;
+
   try {
     const results = await fetchApiData(endpoint, country, category, language, max, API_KEY)
 
     if (!results.articles) {
       console.error('Invalid response format. No articles found.')
-    };
+    }
 
     const { articles } = results;
 
+    const sciNews = document.querySelector('#science-news .grid-container');
+    const moreSciNews = document.querySelector('#more-science-news .aside-content ul');
+
+    for (let ii = 0; ii < articles.length; ii++) {
+      const article = articles[ii];
+
+      const articleElement = document.createElement('article');
+      articleElement.classList = 'grid-item';
+
+      if (ii < 7) {
+
+        if (ii === 0) {
+
+          articleElement.innerHTML =
+            `<div class='card'>
+              <div class='card-image'>
+                <img src=${article.image} onerror="this.src='./images/no-image-available.png'" alt="">
+              </div>
+              <div class="card-content">
+                <span class="news-source"><a href=${article.source.url} target="_blank">${article.source.name}</a></span>
+                <div class="news-title">
+                  <h2><a href=${article.url} target="_blank">${article.title}</a></h2>
+                </div>
+                <div class="news-description">
+                  <p>${article.description}</p>
+                </div>
+              </div>
+            </div>`;
+
+          sciNews.appendChild(articleElement);
+
+        } else {
+
+          articleElement.innerHTML =
+            `<div class='card'>
+              <div class='card-image'>
+                <img src=${article.image} onerror="this.src='./images/no-image-available.png'" alt="">
+              </div>
+              <div class="card-content">
+                <span class="news-source"><a href=${article.source.url} target="_blank">${article.source.name}</a></span>
+                <div class="news-title">
+                  <h2><a href=${article.url} target="_blank">${article.title}</a></h2>
+                </div>
+              </div>
+            </div>`;
+
+          sciNews.appendChild(articleElement);
+
+        }
+      } else if (ii >= 7 && ii < articles.length) {
+
+        const liElement = document.createElement('li');
+
+        if (liElement) {
+          itemCount++;
+        }
+
+        liElement.innerHTML =
+          `<span class="item-number">${itemCount}</span><a href=${article.url} target="_blank">${article.title}</a>`;
+
+        moreSciNews.appendChild(liElement);
+      }
+    }
   } catch (error) {
     console.error('Failed to fetch data from API', error)
 
@@ -854,7 +918,7 @@ async function entmentNews(endpoint, countryCode) {
 
     if (!results.articles) {
       console.error('Invalid response format. No articles found.')
-    };
+    }
 
     const { articles } = results;
 
@@ -942,11 +1006,13 @@ async function init() {
   mlbSportsNews('search', countryCode);
   techNews('top-headlines', countryCode);
   entmentNews('top-headlines', countryCode);
+  scienceNews('top-headlines', countryCode);
   // moreSportsNews('top-headlines', countryCode);
-  // scienceNews('top-headlines', countryCode);
 }
 
-document.addEventListener('DOMContentLoaded', init)
+document.addEventListener('DOMContentLoaded', () => {
+  init();
+})
 
 function showSpinner() {
   const spin = document.querySelector('#loader-container');

@@ -15,8 +15,9 @@
   <!-- <link href="./css/utility.css" rel="stylesheet" /> -->
   <link href="css/index.css" rel="stylesheet" />
   <link href="css/utilities.css" rel="stylesheet" />
-  <link href="css/weatherApp.css" rel="stylesheet" />
+  <!-- <link href="css/weatherApp.css" rel="stylesheet" /> -->
   <link href="css/mediaquery.css" rel="stylesheet" />
+  <link href="css/wapp2.css" rel="stylesheet" />
   <title>The Daily Gazette</title>
 </head>
 
@@ -32,11 +33,11 @@
       </div>
       <div class="main-navigation">
         <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="#finance-news">Finance</a></li>
-          <li><a href="#entertainment-news">Entertainment</a></li>
-          <li><a href="#scitech-news">Sci&Tech</a></li>
-          <li><a href="#sports-news">Sports</a></li>
+          <li><a class="nav-link" href="/src/index.html">Home</a></li>
+          <li><a class="nav-link" href="#finance-news">Finance</a></li>
+          <li><a class="nav-link" href="#entertainment-news">Entertainment</a></li>
+          <li><a class="nav-link" href="#scitech-news">Sci&Tech</a></li>
+          <li><a class="nav-link" href="#sports-news">Sports</a></li>
         </ul>
       </div>
       <div class="user-search">
@@ -65,57 +66,133 @@
   <main>
     <section id="world-news">
       <div class="container">
-        <div class="weather-location-track">
-          <div class="weather-loc-container">
-            <span class="location"></span>
-            <span class="weather-icon"></span>
-            <span class="temp"></span>
-            <span class="unit dropdown">
+        <div class="weather-container"> 
+          <div class="weather-banner">
+            <div class="current-location"></div>
+            <div class="current-condition-icon"></div>
+            <div class="current-temp"></div>
+            <div class="dropdown">
               <i class="fa-solid fa-chevron-down"></i>
-              <div class="weather-loc-box">
-                <div class="loc">
-                  <span class="location-inner"></span>
-                  <span class="dropdown-inner">
+              <div class="forecast-container">
+                <div class="forecast-item">
+                  <div class="current-location"></div>
+                  <div class="dropdown-inner">
                     <i class="fa-solid fa-ellipsis"></i>
-                    <ul>
+                    <ul class="unit-container">
                       <li class="celcius">&deg;C Celcius</li>
                       <li class="fahrenheit">&deg;F Fahrenheit</li>
                       <li class="kelvin">&deg;K Kelvin</li>
                     </ul>
-                  </span>
+                  </div>
                 </div>
-                <div class="icon-description">
+                <div class="forecast-item">
                   <div class="icon-temp-container">
-                    <span class="icon"></span>
-                    <span class="temp"></span>
-                  </div>
-                  <div class="weather-desc">
-                    <span class="weather-description"></span>
+                    <div class="current-condition-icon"></div>
+                    <div class="current-temp"></div>
+                    <div class="weather-description">There will be scattered rain. Don't forget to bring umbrella!</div>
                   </div>
                 </div>
-                <div class="hour-day-tab">
-                  <div>
-                    <h3 class="hour-tab">Hourly</h3>
-                  </div>
-                  <div>
-                    <h3 class="day-tab">Daily</h3>
+                <div class="forecast-item">
+                  <div class="hour-day-forecast">
+                    <div class="hour-day-selection">
+                      <div class="hour-tab active">Hourly</div>
+                      <div class="day-tab">Daily</div>
+                    </div>
+                    <div class="hour-day-cards">
+                      <div class="hourly-forecast">
+                        <div class="hourly-item">
+                          <span class="time">01PM</span>
+                          <span class="icon">
+                            <img src="https://googjohn.github.io/hosted-assets/weather-icons/png/PartlyCloudyNight.png" alt="">
+                          </span>
+                          <span class="current-temp">24&deg;C</span>
+                          <span class="precipitate">9%</span>
+                        </div>
+                        <div class="hourly-item">
+                          <span class="time">01PM</span>
+                          <span class="icon">
+                            <img src="https://googjohn.github.io/hosted-assets/weather-icons/png/PartlyCloudyNight.png" alt="">
+                          </span>
+                          <span class="current-temp">24&deg;C</span>
+                          <span class="precipitate">9%</span>
+                        </div>
+                        <div class="hourly-item">
+                          <span class="time">01PM</span>
+                          <span class="icon">
+                            <img src="https://googjohn.github.io/hosted-assets/weather-icons/png/PartlyCloudyNight.png" alt="">
+                          </span>
+                          <span class="current-temp">24&deg;C</span>
+                          <span class="precipitate">9%</span>
+                        </div>
+                        <div class="hourly-item">
+                          <span class="time">01PM</span>
+                          <span class="icon">
+                            <img src="https://googjohn.github.io/hosted-assets/weather-icons/png/PartlyCloudyNight.png" alt="">
+                          </span>
+                          <span class="current-temp">24&deg;C</span>
+                          <span class="precipitate">9%</span>
+                        </div>
+                        <div class="hourly-item">
+                          <span class="time">01PM</span>
+                          <span class="icon">
+                            <img src="https://googjohn.github.io/hosted-assets/weather-icons/png/PartlyCloudyNight.png" alt="">
+                          </span>
+                          <span class="current-temp">24&deg;C</span>
+                          <span class="precipitate">9%</span>
+                        </div>
+                      </div>
+                      <div class="daily-forecast">
+                        <div class="daily-item">
+                          <span class="day">Today</span>
+                          <span class="icon">
+                            <img src="https://googjohn.github.io/hosted-assets/weather-icons/png/PartlyCloudyNight.png" alt="">
+                          </span>
+                          <span class="current-temp">24&deg;C</span>
+                          <span class="precipitate">9%</span>
+                        </div>
+                        <div class="daily-item">
+                          <span class="day">Tue</span>
+                          <span class="icon">
+                            <img src="https://googjohn.github.io/hosted-assets/weather-icons/png/PartlyCloudyNight.png" alt="">
+                          </span>
+                          <span class="current-temp">24&deg;C</span>
+                          <span class="precipitate">9%</span>
+                        </div>
+                        <div class="daily-item">
+                          <span class="day">Wed</span>
+                          <span class="icon">
+                            <img src="https://googjohn.github.io/hosted-assets/weather-icons/png/PartlyCloudyNight.png" alt="">
+                          </span>
+                          <span class="current-temp">24&deg;C</span>
+                          <span class="precipitate">9%</span>
+                        </div>
+                        <div class="daily-item">
+                          <span class="day">Thu</span>
+                          <span class="icon">
+                            <img src="https://googjohn.github.io/hosted-assets/weather-icons/png/PartlyCloudyNight.png" alt="">
+                          </span>
+                          <span class="current-temp">24&deg;C</span>
+                          <span class="precipitate">9%</span>
+                        </div>
+                        <div class="daily-item">
+                          <span class="day">Fri</span>
+                          <span class="icon">
+                            <img src="https://googjohn.github.io/hosted-assets/weather-icons/png/PartlyCloudyNight.png" alt="">
+                          </span>
+                          <span class="current-temp">24&deg;C</span>
+                          <span class="precipitate">9%</span>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
-                <div class="hour-daily-forecast">
-                  <div class="hourly-forecast">
-                    <!-- <div class="hourly-item">
-                      <span class="time">1PM</span>
-                      <span class="icon"></span>
-                      <span class="temp">24</span>
-                    </div> -->
+                <div class="forecast-item">
+                  <div class="more-forecast">
+                    <h3>See full forecast</h3>
                   </div>
-                  <div class="daily-forecast"></div>
-                </div>
-                <div class="more-forecast">
-                  <h3>See full forecast</h3>
                 </div>
               </div>
-            </span>
+            </div>
           </div>
         </div>
         <div id="salutation-date-time">
@@ -221,6 +298,7 @@
       <div class="container">
         <div class="section-title">
           <h2 class="">Business and Finance</h2>
+          <span class="see-more">*Visit page</span>
         </div>
         <!-- <article> -->
           <div class="grid-container">
@@ -261,6 +339,7 @@
       <div class="container">
         <div class="section-title">
           <h2 class="">Entertainment</h2>
+          <span class="see-more">*Visit page</span>
         </div>
         <div class="flex-container">
           <aside id="more-entertainment-news" class="flex-item">
@@ -292,9 +371,10 @@
     <section id="scitech-news">
       <div class="container">
         <div class="section-title">
-          <h2 class="">Science and Technology</h2>
+          <h2 class="">Technology</h2>
+          <span class="see-more">*Visit page</span>
         </div>
-        <div class="flex-container">
+        <div class="flex-container" id="technology-news">
           <div class="grid-container flex-item">
             <!-- <article class="grid-item">
               <div class='card'>
@@ -313,7 +393,7 @@
               </div>
            </article> -->
           </div>
-          <aside id="more-scitech-news" class="flex-item">
+          <aside id="more-technology-news" class="flex-item">
             <div class="aside-title">
               <h3>More on Latest Technology</h3>
             </div>
@@ -324,12 +404,47 @@
             </div>
           </aside>
         </div>
+        <div class="section-title">
+          <h2 class="">Science</h2>
+          <span class="see-more">*Visit page</span>
+        </div>
+        <div class="flex-container" id="science-news">
+          <aside id="more-science-news" class="flex-item">
+            <div class="aside-title">
+              <h3>More Science News</h3>
+            </div>
+            <div class="aside-content">
+              <ul>
+                  <!-- <span class="item-number">${itemCount}</span><a href=${article.url} target="_blank">${article.title}</a> -->
+              </ul>
+            </div>
+          </aside>
+          <div class="grid-container flex-item">
+            <!-- <article class="grid-item">
+              <div class='card'>
+                  <div class='card-image'>
+                      <img src=${article.image} onerror="this.src='./images/no-image-available.png'" alt="">
+                  </div>
+                  <div class="card-content">
+                      <span class="news-source"><a href=${article.source.url} target="_blank">${article.source.name}</a></span>
+                      <div class="news-title">
+                          <h2><a href=${article.url} target="_blank">${article.title}</a></h2>
+                      </div>
+                      <div class="news-description">
+                          <p>${article.description}</p>
+                      </div>
+                  </div>
+              </div>
+           </article> -->
+          </div>
+        </div>
       </div>
     </section>
     <section id="sports-news">
       <div class="container">
         <div class="section-title">
           <h2 class="">Sports</h2>
+          <span class="see-more">*Visit page</span>
         </div>
         <div class="flex-container">
           <div class="grid-container flex-item">
@@ -374,13 +489,18 @@
       </div>
     </section>
   </main>
+
+  <!-- spinner / loader -->
   <div id="loader-container">
       <div class="loader"></div>
       <img src="./images/spinner.png" alt="logo" />
   </div>
+
+  <!-- back to top button -->
   <div class="back-to-top">
       <button><i class="fa-solid fa-arrow-up"></i></button>
   </div>
+
   <!-- footer -->
   <footer id="footer">
     <div class="container">
@@ -520,11 +640,14 @@
       </div>
     </div>
   </footer>
+
   <!-- scripts -->
   <script type="module" src="./js/index.js"></script>
+  <script type="module" src="./js/script.js"></script>
   <script type="module" src="./js/date.js"></script>
   <script type="module" src="./js/mobileMenuAndButtons.js"></script>
-  <script type="module" src="./js/weather.js"></script>
+  <script type="module" src="./js/wapp.js"></script>
+  <!-- <script type="module" src="./js/weather.js"></script> -->
 </body>
 
 </html>

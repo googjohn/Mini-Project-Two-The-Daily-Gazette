@@ -1,0 +1,180 @@
+/* @font-face {
+  font-family: Dune;
+  src: url(/src/fonts/Dune_Rise.otf) format('opentype');
+} */
+.weather-container {
+  --bs-wp: -4px 4px 10px 0 rgba(0, 0, 0, .5) , 4px -4px 10px 0 rgba(255, 255, 255, .2) ;
+  --bs-wpi: -4px 4px 10px 0 rgba(0, 0, 0, .5) inset, 4px -4px 10px 0 rgba(255, 255, 255, .2)inset;
+  display: flex;
+  justify-content: end;
+  /* align-items: center; */
+  /* width: fit-content; */
+  /* margin: 5px 10px; */
+  /* margin-left: auto; */
+  /* box-shadow: var(--bs-wp); */
+  /* border-radius: 50px; */
+  position: sticky;
+  top: 80px;
+  
+ 
+  .weather-banner {
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 15px;
+    width: content;
+    height: 40px;
+    gap: calc(var(--gap)*2);
+    /* margin-left: auto; */
+    border-radius: 5px;
+    background-color: var(--light-navy);
+    font-family: 'Poppins', 'Dune', sans-serif;
+    color: var(--text-white);
+    box-shadow: var(--bs-wp);
+
+    .current-weather-icon {
+      height: 30px;
+      img {
+        height: 100%;
+        width: 100%;
+      }
+    }
+    &:hover {
+      box-shadow: var(--bs-wpi);
+    }
+    .dropdown {
+      padding: 10px;
+      i {
+        font-size: 1.2rem;
+        transition: var(--transition);
+      }
+      .forecast-container {
+        opacity: 0;
+        pointer-events: none;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: content;
+        height: 420px;
+        padding: 20px;
+        border-radius: 5px;
+        transform: translateY(0) translateX(10px);
+        transition: var(--transition);
+        box-shadow: var(--bs-wp);
+        background: url('/src/images/icons/weather_backgrounds/bright-sun-in-blue-sky.jpg') no-repeat top center/cover;
+        backdrop-filter: blur(4px);
+        .forecast-items {
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          gap: var(--gap);
+
+          .forecast-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            &:first-child {
+              .unit-container {
+                &.dropdown-inner {
+                  position: relative;
+                  i {
+                    padding: 5px 6px;
+                    /* background-color: var(--light-navy); */
+                    border-radius: 10px;
+                    
+                  }
+                  &:hover i {
+                      background-color: rgba(var(--white-rgb), .25);
+                    }
+                  ul {
+                    opacity: 0;
+                    pointer-events: none;
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    padding: 10px;
+                    transform: translateY(-10px) translateX(10px);
+                    transition: var(--transition);
+                    border-radius: 10px;
+                    box-shadow: var(--bs-wp);
+                    line-height: 2;
+                    z-index: 1000;
+                    background: url('/src/images/icons/weather_backgrounds/sky-clouds-background.jpg') no-repeat top center/ cover;
+                    width: max-content;
+                  }
+                  &:hover ul {
+                    opacity: 1;
+                    pointer-events: all;
+                    height: auto;
+                    cursor: pointer;
+                    transform: translateY(30px) translateX(0px);
+                    transition: var(--transition);
+                  }
+                }
+              }
+            }
+            &:nth-child(2) {
+              gap: 20px;
+              .current-weather-icon {
+                  height: 80px;
+                img {
+                  vertical-align: middle;
+                  height: 100%;
+                }
+              }
+              .current-temp {
+                flex-basis: max-content;
+                font-size: 3rem;
+              }
+              .weather-description {
+                flex-basis: 40%;
+              }
+            }
+            &:nth-child(3) {
+              justify-content: start;
+              box-shadow: var(--bs-wp);
+              width: max-content;
+              border-radius: 5px;
+              overflow: hidden;
+              cursor: pointer;
+              /* border: 1px solid var(--gray-45); */
+
+              & > div {
+                flex-basis: 50%;
+                width: 50%;
+                &:first-child {
+                  border-right: 1px solid rgba(var(--white-rgb),.1);
+                }
+                h3 {
+                  padding: 5px 15px;
+                  font-weight: var(--fw-300);
+                  font-size: var(--fs);
+                  border-bottom: 2px solid transparent;
+                  &.active {
+                    border-bottom: 2px solid var(--aqua);
+                  }
+                }
+              }
+            }
+            &:last-child {
+            }
+          }
+        }
+      }
+      &:hover {
+        .forecast-container {
+          opacity: 1;
+          pointer-events: all;
+          transform: translateY(40px) translateX(-10px);
+          transition: var(--transition);
+        }
+        i {
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+}

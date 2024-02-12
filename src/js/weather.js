@@ -19,6 +19,9 @@ export async function getIpInfo() {
   // return result;
 }
 
+// this seems redundant with the use of getIpInfo() but this is actually more precise in city result
+// also i tried if in this simple way can bypass cors blocking by using ipinfo that allows cors to get ip - it did not :D
+// did not work because still would be requesting from client side XD
 async function getIpGeoLocation() {
 
   const ipAdd = await getIpInfo();
@@ -49,10 +52,11 @@ async function getWeatherData(endpoint) {
 
   const req = await fetch(openWeatherUrl);
   const res = await req.json();
+  console.log(res);
 
   const response = await fetch(visualCrossingUrl);
-
   const result = await response.json();
+  console.log(result);
 
   const icon = result.currentConditions.icon
   const condition = result.currentConditions.conditions
@@ -137,8 +141,10 @@ function conditionHandle(condition) {
       return 'https://googjohn.github.io/hosted-assets/weather-icons/svg/MostlySunnyDay.svg'
     case 'clear-night':
       return 'https://googjohn.github.io/hosted-assets/weather-icons/svg/MostlyClearNight.svg'
-    case 'cloudy':
+    case 'cloudy-day':
       return 'https://googjohn.github.io/hosted-assets/weather-icons/svg/MostlyCloudyDay.svg'
+    case 'cloudy-night':
+      return 'https://googjohn.github.io/hosted-assets/weather-icons/svg/MostlyCloudyNight.svg'
     default:
       return 'https://googjohn.github.io/hosted-assets/weather-icons/svg/PartlySunnyDay.svg'
   }
@@ -227,91 +233,89 @@ function weatherForecastHandle(weatherData) {
         hourlyItemContainer.style.boxShadow = boxShadowLightDown;
         moreForecast.style.boxShadow = boxShadowLightDown;
         dropdownUl.style.boxShadow = boxShadowLightDown;
-        mouseOverNight();
-        mouseOutNight();
+        mouseOverNight(hourlyItemContainer, moreForecast, dropdownUl, boxShadowLightDownInset);
+        mouseOutNight(hourlyItemContainer, moreForecast, dropdownUl, boxShadowLightDown);
       } else if (timeDigits <= 5) {
         hourlyItemContainer.style.boxShadow = boxShadowLightUp;
         moreForecast.style.boxShadow = boxShadowLightUp;
         dropdownUl.style.boxShadow = boxShadowLightUp;
-        mouseOverDay();
-        mouseOutDay();
+        mouseOverDay(hourlyItemContainer, moreForecast, dropdownUl, boxShadowLightUpInset);
+        mouseOutDay(hourlyItemContainer, moreForecast, dropdownUl, boxShadowLightUp);
       } else if (timeDigits === 12) {
         hourlyItemContainer.style.boxShadow = boxShadowLightUp;
         moreForecast.style.boxShadow = boxShadowLightUp;
         dropdownUl.style.boxShadow = boxShadowLightUp;
-        mouseOverDay();
-        mouseOutDay();
+        mouseOverDay(hourlyItemContainer, moreForecast, dropdownUl, boxShadowLightUpInset);
+        mouseOutDay(hourlyItemContainer, moreForecast, dropdownUl, boxShadowLightUp);
       }
     } else if (timeAm) {
       if (timeDigits === 12) {
         hourlyItemContainer.style.boxShadow = boxShadowLightDown;
         moreForecast.style.boxShadow = boxShadowLightDown;
         dropdownUl.style.boxShadow = boxShadowLightDown;
-        mouseOverNight();
-        mouseOutNight();
+        mouseOverNight(hourlyItemContainer, moreForecast, dropdownUl, boxShadowLightDownInset);
+        mouseOutNight(hourlyItemContainer, moreForecast, dropdownUl, boxShadowLightDown);
       } else if (timeDigits < 5) {
         hourlyItemContainer.style.boxShadow = boxShadowLightDown;
         moreForecast.style.boxShadow = boxShadowLightDown;
         dropdownUl.style.boxShadow = boxShadowLightDown;
-        mouseOverNight();
-        mouseOutNight();
-      } else if (timeDigits >= 5) {
+        mouseOverNight(hourlyItemContainer, moreForecast, dropdownUl, boxShadowLightDownInset);
+        mouseOutNight(hourlyItemContainer, moreForecast, dropdownUl, boxShadowLightDown);
+      } else if (timeDigits > 5) {
         hourlyItemContainer.style.boxShadow = boxShadowLightUp;
         moreForecast.style.boxShadow = boxShadowLightUp;
         dropdownUl.style.boxShadow = boxShadowLightUp;
-        mouseOverDay();
-        mouseOutDay();
+        mouseOverDay(hourlyItemContainer, moreForecast, dropdownUl, boxShadowLightUpInset);
+        mouseOutDay(hourlyItemContainer, moreForecast, dropdownUl, boxShadowLightUp);
       }
-    }
-
-    function mouseOverDay() {
-      hourlyItemContainer.addEventListener('mouseover', () => {
-        hourlyItemContainer.style.boxShadow = boxShadowLightUpInset;
-      })
-      moreForecast.addEventListener('mouseover', () => {
-        moreForecast.style.boxShadow = boxShadowLightUpInset;
-      })
-      dropdownUl.addEventListener('mouseover', () => {
-        dropdownUl.style.boxShadow = boxShadowLightUpInset;
-      })
-    }
-    function mouseOverNight() {
-      hourlyItemContainer.addEventListener('mouseover', () => {
-        hourlyItemContainer.style.boxShadow = boxShadowLightDownInset;
-      })
-      moreForecast.addEventListener('mouseover', () => {
-        moreForecast.style.boxShadow = boxShadowLightDownInset;
-      })
-      dropdownUl.addEventListener('mouseover', () => {
-        dropdownUl.style.boxShadow = boxShadowLightDownInset;
-      })
-    }
-    function mouseOutDay() {
-      moreForecast.addEventListener('mouseout', () => {
-        moreForecast.style.boxShadow = boxShadowLightUp;
-      })
-      hourlyItemContainer.addEventListener('mouseout', () => {
-        hourlyItemContainer.style.boxShadow = boxShadowLightUp;
-      })
-      dropdownUl.addEventListener('mouseout', () => {
-        dropdownUl.style.boxShadow = boxShadowLightUp;
-      })
-    }
-    function mouseOutNight() {
-      moreForecast.addEventListener('mouseout', () => {
-        moreForecast.style.boxShadow = boxShadowLightDown;
-      })
-      hourlyItemContainer.addEventListener('mouseout', () => {
-        hourlyItemContainer.style.boxShadow = boxShadowLightDown;
-      })
-      dropdownUl.addEventListener('mouseout', () => {
-        dropdownUl.style.boxShadow = boxShadowLightDown;
-      })
     }
   }
 }
 
-
+function mouseOverDay(obj1, obj2, obj3, style) {
+  obj1.addEventListener('mouseover', () => {
+    obj1.style.boxShadow = style;
+  })
+  obj2.addEventListener('mouseover', () => {
+    obj2.style.boxShadow = style;
+  })
+  obj3.addEventListener('mouseover', () => {
+    obj3.style.boxShadow = style;
+  })
+}
+function mouseOverNight(obj1, obj2, obj3, style) {
+  obj1.addEventListener('mouseover', () => {
+    obj1.style.boxShadow = style;
+  })
+  obj2.addEventListener('mouseover', () => {
+    obj2.style.boxShadow = style;
+  })
+  obj3.addEventListener('mouseover', () => {
+    obj3.style.boxShadow = style;
+  })
+}
+function mouseOutDay(obj1, obj2, obj3, style) {
+  obj1.addEventListener('mouseout', () => {
+    obj1.style.boxShadow = style;
+  })
+  obj2.addEventListener('mouseout', () => {
+    obj2.style.boxShadow = style;
+  })
+  obj3.addEventListener('mouseout', () => {
+    obj3.style.boxShadow = style;
+  })
+}
+function mouseOutNight(obj1, obj2, obj3, style) {
+  obj1.addEventListener('mouseout', () => {
+    obj1.style.boxShadow = style;
+  })
+  obj2.addEventListener('mouseout', () => {
+    obj2.style.boxShadow = style;
+  })
+  obj3.addEventListener('mouseout', () => {
+    obj3.style.boxShadow = style;
+  })
+}
 
 function celciusHandle(temp) {
   return Math.floor((temp - 32) * (5 / 9));
@@ -326,25 +330,25 @@ function kelvinHandle(temp) {
   return Math.floor(celciusHandle(temp) + kelvinBase);
 }
 
-const hourDayTab = document.querySelector('.hour-day-tab');
+// const hourDayTab = document.querySelector('.hour-day-tab');
 
-hourDayTab.addEventListener('click', event => {
-  const target = event.target;
-  hourDayTabHandle(target)
-})
+// hourDayTab.addEventListener('click', event => {
+//   const target = event.target;
+//   hourDayTabHandle(target)
+// })
 
-function hourDayTabHandle(target) {
-  const hourTab = document.querySelector('.hour-tab')
-  const dayTab = document.querySelector('.day-tab')
+// function hourDayTabHandle(target) {
+//   const hourTab = document.querySelector('.hour-tab')
+//   const dayTab = document.querySelector('.day-tab')
 
-  if (target === hourTab) {
-    hourTab.style.borderBottom = '2px solid var(--aqua-clr)'
-    dayTab.style.borderBottom = 'none'
-  } else {
-    dayTab.style.borderBottom = '2px solid var(--aqua-clr)'
-    hourTab.style.borderBottom = 'none'
-  }
-}
+//   if (target === hourTab) {
+//     hourTab.style.borderBottom = '2px solid var(--aqua-clr)'
+//     dayTab.style.borderBottom = 'none'
+//   } else {
+//     dayTab.style.borderBottom = '2px solid var(--aqua-clr)'
+//     hourTab.style.borderBottom = 'none'
+//   }
+// }
 
 const dropdownInner = document.querySelector('.dropdown-inner')
 dropdownInner.addEventListener('click', event => {
@@ -358,19 +362,22 @@ function dropdownButtonHandle(event) {
 
   const target = event.target;
 
-  if (target === dropdownI) {
-    dropdownI.classList.add('active')
-    if (dropdownUl.style.display === 'block') {
+  if (target) {
+    if (target === dropdownI) {
+      dropdownI.classList.add('active')
+      if (dropdownUl.style.display === 'block') {
+        dropdownUl.style.display = 'none';
+        dropdownI.classList.remove('active')
+      } else {
+        dropdownUl.style.display = 'block';
+      }
+    } else {
       dropdownUl.style.display = 'none';
       dropdownI.classList.remove('active')
-    } else {
-      dropdownUl.style.display = 'block';
-    }
+    }  
   } else {
     dropdownUl.style.display = 'none';
-    dropdownI.classList.remove('active')
   }
-
 }
 
 

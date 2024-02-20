@@ -1,5 +1,5 @@
 // set date function
-function dateToday() {
+export function dateToday() {
     const day_Today = document.querySelector('.date-today');
     const date = new Date();
     const dateOptions = {

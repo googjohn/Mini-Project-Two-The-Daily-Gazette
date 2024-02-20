@@ -55,6 +55,7 @@ export async function getIpInfo() {
   const ipInfoUrl =  `${ipInfoHost}json?token=${ipInfoKey}`
   
   try {
+    showLoading()
     const response = await fetch(ipInfoUrl);
 
     if (!response.ok) {
@@ -62,6 +63,7 @@ export async function getIpInfo() {
     }
 
     const result = await response.json();
+    hideLoading();
 
     return result;
   } catch (error) {
@@ -80,6 +82,7 @@ export async function getIpGeoLocation() {
   const ipGeoUrl = `${ipGeoHost}ipgeo?apiKey=${ipGeoKey}`;
 
   try {
+    showLoading();
     const response = await fetch(ipGeoUrl);
 
     if (!response.ok) {
@@ -87,7 +90,8 @@ export async function getIpGeoLocation() {
     }
 
     const result = await response.json();
-
+    hideLoading();
+    
     return result;
   } catch (error) {
     console.error('Failed to fetch from API', error);
@@ -101,7 +105,7 @@ export async function getWeatherData(endpoint, latitude, longitude) {
   const visualCrossingUrl = `${visualCrossingHost}${endpoint}/${latitude},${longitude}?&key=${visualCrossingKey}&iconSet=icons1`;
 
   try {
-    showLoading()
+    showLoading();
     const response = await fetch(visualCrossingUrl);
 
     if (!response.ok) {
@@ -117,6 +121,7 @@ export async function getWeatherData(endpoint, latitude, longitude) {
   }
   
 }
+
 // openweathermap 
 export async function getOpenWeatherData(endpoint, latitude, longitude) {
   const openWeatherKey = global.apiKeys.openWeatherKey;
@@ -124,7 +129,7 @@ export async function getOpenWeatherData(endpoint, latitude, longitude) {
   const openWeatherUrl = `${openWeatherHost}${endpoint}?lat=${latitude}&lon=${longitude}&appid=${openWeatherKey}`;
 
   try {
-    showLoading()
+    showLoading();
     const response = await fetch(openWeatherUrl);
 
     if (!response.ok) {
@@ -138,20 +143,15 @@ export async function getOpenWeatherData(endpoint, latitude, longitude) {
   } catch (error) {
     console.error('Failed to fetch from API', error);
   }
-  
 }
 
 
 // temperature handle for weather app
-export function handleCelcius (temp) {
-  return Math.floor((temp - 32) * (5 / 9));
-}
+export const handleCelcius = temp => Math.floor((temp - 32) * (5 / 9));
 
-export function handleFahrenheit (temp) {
-  return Math.floor(temp);
-}
+export const handleFahrenheit = temp => Math.floor(temp);
 
-export function handleKelvin (temp) {
+export const handleKelvin = temp => {
   const kelvinBase = 274.15;
   return Math.floor(handleCelcius(temp) + kelvinBase);
 }
@@ -166,3 +166,23 @@ function hideLoading () {
   const hide = document.querySelector('#loader-container');
   hide.style.display = 'none';
 }
+
+const weekdays = ['Sun', 'Mon','Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+
+// handle weekdays
+export function handleWeekdays(obj, forecastDays) {
+  const now = new Date()
+
+  const date = now.getDate();
+  console.log(date) // 20 - date today
+
+  const day = now.getDay();
+  console.log(day) // 2 - day of the week = tuesday
+
+  if (forecastDays == date) {
+    const daynow = now.toLocaleString('default', {weekday:'short'})
+    return daynow
+  }
+  return obj[day]
+}
+// handleWeekdays(weekdays, forecastDays)

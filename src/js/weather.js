@@ -213,12 +213,17 @@ function weatherForecastHandle(weatherData) {
 
     hourlyItemContainer.innerHTML =
       `<span class="time">
-                ${hourForecast.datetime.slice(0, 2) == 0 ?
-        12 :
-        hourForecast.datetime.slice(0, 2)
-      }${timePm ? "PM" : "AM"}</span>
-            <span class="icon"><img src="${conditionHandle(hourForecast.icon)}" title="${hourForecast.conditions}"></span>
-            <span class="temp">${celciusHandle(hourForecast.temp)}&deg;<span class="temp-unit">C</span></span>`
+        ${
+          hourForecast.datetime.slice(0, 2) == 0 ?
+          12 :
+          hourForecast.datetime.slice(0, 2)
+        }
+        ${
+          timePm ? "PM" : "AM"
+        }
+      </span>
+      <span class="icon"><img src="${conditionHandle(hourForecast.icon)}" title="${hourForecast.conditions}"></span>
+      <span class="temp">${celciusHandle(hourForecast.temp)}&deg;<span class="temp-unit">C</span></span>`
 
     hourlyForecastContainer.appendChild(hourlyItemContainer)
 

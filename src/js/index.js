@@ -1010,9 +1010,7 @@ async function init() {
   // moreSportsNews('top-headlines', countryCode);
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  init();
-})
+document.addEventListener('DOMContentLoaded', init);
 
 function showSpinner() {
   const spin = document.querySelector('#loader-container');

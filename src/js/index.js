@@ -33,7 +33,7 @@
 // listItemStyle(mtn)
 // listItemStyle(men)
 // listItemStyle(msn)
-import { getIpInfo } from "./script.js";
+import { getIpInfo, dateToday, timeNow } from "./script.js";
 
 // apikeys global variable
 const gnewsApiKeys = {
@@ -97,7 +97,16 @@ async function carouselNewsCycle() {
   // setInterval(carouselCycle, 5000)
 
 }
+const handleDateTime = () => {
+    const day_Today = document.querySelector('.date-today');
 
+    const timeIntervalId = setInterval(timeNow, 1000);
+    setTimeout(timeIntervalId, 0)
+
+    setTimeout(()=>{
+      day_Today.innerHTML = dateToday();    
+    }, 0)
+}
 
 // fetch api data
 async function fetchApiData(endpoint, country, category, language, max, API_KEY) {
@@ -995,6 +1004,8 @@ async function entmentNews(endpoint, countryCode) {
 async function init() {
   const ipInfo = await getIpInfo();
   const countryCode = ipInfo.country.toLowerCase();
+
+  handleDateTime();
 
   headNews('top-headlines', countryCode);
   trendNews('top-headlines', countryCode);

@@ -1,5 +1,15 @@
-import { timeNow, dateToday } from "./date.js";
-import { getIpGeoLocation, getIpInfo, getWeatherData, handleCelcius, handleFahrenheit, handleKelvin, handleWeekdays } from "./script.js";
+import {
+  timeNow,
+  dateToday,
+  getIpGeoLocation,
+  getIpInfo,
+  getWeatherData,
+  handleCelcius,
+  handleFahrenheit,
+  handleKelvin,
+  handleWeekdays
+} from "./script.js";
+
 document.addEventListener('DOMContentLoaded', handleAll);
 
 // global variables
@@ -19,17 +29,14 @@ const handleWeatherData = async(endpoint) => {
   // const longitude = loc.slice(8, 16);
 
   const weatherData = await getWeatherData(endpoint, latitude, longitude);
+  const {currentConditions, days} = weatherData;
 
-  const dailyForecast = weatherData.days;
-  const hourlyForecast = weatherData.days[0].hours;
-  const timeHourly = weatherData.days[0].hours[0];
-  const description = weatherData.days[0].description;
-  const currentTime = weatherData.currentConditions.datetime.slice(0,2);  
+  const description = days[0].description;
+  const currentTime = currentConditions.datetime.slice(0,2);  
   
-  
-  const condition = weatherData.currentConditions.conditions;
-  const conditionIcon = weatherData.currentConditions.icon;
-  const currentTemp = weatherData.currentConditions.temp;
+  const condition = currentConditions.conditions;
+  const conditionIcon = currentConditions.icon;
+  const currentTemp = currentConditions.temp;
 
   handleCity(city, province);
   tempChangeHandle(weatherData);
@@ -38,7 +45,7 @@ const handleWeatherData = async(endpoint) => {
   handleHourDayForecast(weatherData)
 }
 
-// call inside handleIcon to utilize condition data argument as argument
+// call inside handleIcon
 const handleConditions = (conditionIcon, currentTime) => {
   switch (conditionIcon) {
     case 'partly-cloudy-day':
@@ -59,36 +66,19 @@ const handleConditions = (conditionIcon, currentTime) => {
       } else if (currentTime <= 23) {
         return 'https://googjohn.github.io/hosted-assets/weather-icons/svg/MostlyCloudyNight.svg';
       }
-      // if (!timePm) {
-      //   if (currentTime == 12) {
-      //     return 'https://googjohn.github.io/hosted-assets/weather-icons/svg/MostlyCloudyDay.svg';
-      //   } else if (currentTime < 6) {
-      //     return 'https://googjohn.github.io/hosted-assets/weather-icons/svg/MostlyCloudyDay.svg';    
-      //   } else if (currentTime >= 6) {
-      //     return 'https://googjohn.github.io/hosted-assets/weather-icons/svg/MostlyCloudyNight.svg';
-      //   }
-      // } else {
-      //   if (currentTime == 12) {
-      //     return 'https://googjohn.github.io/hosted-assets/weather-icons/svg/MostlyCloudyNight.svg';
-      //   } else if (currentTime <= 6) {
-      //     return 'https://googjohn.github.io/hosted-assets/weather-icons/svg/MostlyCloudyNight.svg';
-      //   } else if (currentTime > 6) {
-      //     return 'https://googjohn.github.io/hosted-assets/weather-icons/svg/MostlyCloudyDay.svg';
-      //   }
-      // }
     default:
       return 'https://googjohn.github.io/hosted-assets/weather-icons/svg/PartlySunnyDay.svg'
   }
 }
 
-// call inside handleWeatherData to utilize condition icon data as argument
+// call inside handleWeatherData
 function handleIcon(conditionIcon, condition, currentTime) {
   const currentConditionIcons = document.querySelectorAll('.current-condition-icon');
   currentConditionIcons.forEach( icon => {
     icon.innerHTML = `<img src='${handleConditions(conditionIcon, currentTime)}' title='${condition == "Overcast" ? "Mostly Cloudy" : condition}' alt='condition icon'>`;
   })
 }
-// call inside handleWeatherData to utilize getIpInfo data as argument
+// call inside handleWeatherData
 function handleCity(city, province) {
   const currentLocation = document.querySelectorAll('.weather-banner .current-location');
   currentLocation.forEach( location => {
@@ -96,13 +86,13 @@ function handleCity(city, province) {
   })
 }
 
-// call inside handleWeatherData to utilize temperature data as argument
+// call inside handleWeatherData
 function handleDescription(description) {
   const weatherDescription = document.querySelector('.weather-description');
   weatherDescription.textContent = description;
 }
 
-// call inside handleWeatherData to utilize temperature data as argument
+// call inside handleWeatherData
 function tempChangeHandle(weatherData) {
   const currTemp = weatherData.currentConditions.temp;
   const hourTemp = weatherData.days[0].hours[0].temp;
@@ -111,6 +101,7 @@ function tempChangeHandle(weatherData) {
   const hourlyCard = document.querySelectorAll('.hourly-item');
   const dailyCard = document.querySelectorAll('.daily-item');
   const currentTemp = document.querySelectorAll('.current-temp');
+  const tempMax = document.querySelectorAll('.temp-max');
   currentTemp.forEach(tempItem => {
     tempItem.setAttribute('title', 'Temperature in Celcius')
     tempItem.innerHTML = `${handleCelcius(currTemp)}&deg;C`;
@@ -177,57 +168,50 @@ function tempChangeHandle(weatherData) {
 const handleHourDayForecast = (weatherData) => {
   const hourForecast = document.querySelector('.hourly-forecast');
   const dayForecast = document.querySelector('.daily-forecast');
+  console.log(weatherData.currentConditions)
   const dailyForecast = weatherData.days;
+  console.log(dailyForecast)
   const hourlyForecast = weatherData.days[0].hours;
+  console.log(hourlyForecast)
   const currentTime = weatherData.currentConditions.datetime.slice(0,2); //check if needs to be parseInt()
-
+  
   let itemCountHourly = 0;
 
   for (let key in hourlyForecast) {
-
     const hourlyCondition = hourlyForecast[key].conditions;
     const hourlyIcon = hourlyForecast[key].icon;
     const hourlyTemp = hourlyForecast[key].temp;
     const hourlyPrecip = hourlyForecast[key].precipprob;
-    const hourlyTime = hourlyForecast[key].datetime.slice(0,2);
+    const hourlyTime = hourlyForecast[key].datetime.slice(0,2);    
 
     const hourlyCard = document.createElement('div');
       hourlyCard.setAttribute('class', 'hourly-item');
       hourlyCard.innerHTML = 
-        `<span class="time">${hourlyTime}${
-          hourlyTime < 12  ? 'AM' : 'PM'}</span>
+        `<span class="time">${hourlyTime > 12 ? hourlyTime - 12 : hourlyTime < 10 ? hourlyTime.slice(1) : hourlyTime == 0 ? '12' : hourlyTime}${
+          hourlyTime < 12  ? ' AM' : ' PM'}</span>
         <span class="icon">
           <img src="${handleConditions(hourlyIcon, hourlyTime)}" title="${hourlyCondition == "Overcast" ? "Mostly Cloudy" : hourlyCondition}">
         </span>
-        <span class="hourly-temp" title="Temperature">${handleCelcius(hourlyTemp)}&deg;C</span>
-        <span class="precipitate" title="Probability of rain">${hourlyPrecip}%</span>`;
+        <span class="hourly-temp" title="Temperature">${handleCelcius(hourlyTemp)}&deg;</span>
+        <span class="precipitate" title="Probability of rain">
+          <i class="fa-solid fa-droplet"></i>${hourlyPrecip}%
+        </span>`;
     
-      if (key >= parseInt(currentTime)) {
+      if (parseInt(key % hourlyForecast.length) >= parseInt(currentTime)) {
         hourForecast.appendChild(hourlyCard);
         itemCountHourly++;   
       }
     
-    if (itemCountHourly > 6) {
+    if (itemCountHourly > 4) {
       break;
     }
   }
-
-  // const currentDate = dailyForecast[0].datetime.slice(8,10);
-  // console.log(currentDate, typeof currentDate);
   
   const weekdays = ['Sun', 'Mon','Tue', 'Wed', 'Thu', 'Fri', 'Sat']
   
   const now = new Date()
-  const day = now.getDay()
-  console.log(day, typeof day) // 2 use as index to for weekdays
-
   const date = now.getDate();
-  console.log(date, typeof date) // 20
-
   const daynow = now.toLocaleString('default', {weekday: 'short'})
-  console.log(daynow) // Tue
-
-  const month = now.toLocaleString('default', {month: 'short'})
 
   let itemCountDaily = 0;
 
@@ -235,30 +219,26 @@ const handleHourDayForecast = (weatherData) => {
     const dailyCondition = dailyForecast[key].conditions;
     const dailyIcon = dailyForecast[key].icon;
     const dailyTemp = dailyForecast[key].temp;
-    const dailyPrecip = dailyForecast[key].precipprob;
+    const dailyTempMax = dailyForecast[key].tempmax;
     const forecastDays = dailyForecast[key].datetime.slice(8,10)
-    console.log(forecastDays, typeof forecastDays) // [20...] convert daynow and then convert to day and then use to get weekday
-    const parseDays = dailyForecast[key].datetime
-    const pd = Date.parse(parseDays)
-    console.log(pd)
-
-    const whatdate = pd / 1000 / 60 / 60 / 24 / 12 / 365
-    console.log(whatdate)
 
     if (forecastDays >= date) {
       const dailyCard = document.createElement('div');
         dailyCard.setAttribute('class', 'daily-item');
         dailyCard.innerHTML = 
-          `<span class="day">${month + forecastDays}</span>
+          `<span class="day" title="${handleWeekdays(weekdays,itemCountDaily)}">${handleWeekdays(weekdays,itemCountDaily) === daynow ? 'Today' : handleWeekdays(weekdays,itemCountDaily)}</span>
           <span class="icon">
             <img src="${handleConditions(dailyIcon)}" title="${dailyCondition == "Overcast" ? "Mostly Cloudy" : dailyCondition}">
           </span>
-          <span class="daily-temp" title="Temperature">${handleCelcius(dailyTemp)}&deg;C</span>
-          <span class="precipitate" title="Probabality of rain">${dailyPrecip}%</span>`;
+          <span class="daily-temp" title="Temperature">${handleCelcius(dailyTemp)}&deg;</span>
+          <span class="temp-max" title="Max Temperature">
+            ${handleCelcius(dailyTempMax)}&deg;
+          </span>`;
         dayForecast.appendChild(dailyCard);
       itemCountDaily++;
     }
-    if (itemCountDaily > 6) {
+
+    if (itemCountDaily > 4) {
       break;
     }
   }

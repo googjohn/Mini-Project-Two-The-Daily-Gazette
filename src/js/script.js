@@ -47,7 +47,7 @@ export const global = {
   }
 }
 
-// ip data from ipinfo.io / seems redundant with ipgeo 
+// ip data from ipinfo.io
 // used to try tricking cors blocking from client side request - didn't work XD
 export async function getIpInfo() {
   const ipInfoHost = global.apiUrls.ipInfoHost;
@@ -67,12 +67,13 @@ export async function getIpInfo() {
 
     return result;
   } catch (error) {
+    setTimeout(hideLoading, 3000); // stops infinite showloading if cors blocked
     console.error('Failed to fetch from API', error)
   }
   
 }
 
-// ip data from ipgeo / more precise city and probably lat and lon
+// ip data from ipgeo
 export async function getIpGeoLocation() {
   // const { ip } = await getIpInfo();
 
@@ -94,11 +95,12 @@ export async function getIpGeoLocation() {
     
     return result;
   } catch (error) {
+    setTimeout(hideLoading, 3000); // stops infinite showloading if cors blocked
     console.error('Failed to fetch from API', error);
   }
 }
 
-// fetch weather data from visualcrossing - personally, i think better than openweathermap
+// fetch weather data from visualcrossing
 export async function getWeatherData(endpoint, latitude, longitude) {
   const visualCrossingKey = global.apiKeys.visualCrossingKey;
   const visualCrossingHost = global.apiUrls.visualCrossingHost;
@@ -122,7 +124,7 @@ export async function getWeatherData(endpoint, latitude, longitude) {
   
 }
 
-// openweathermap 
+// fetch weather data from openweathermap 
 export async function getOpenWeatherData(endpoint, latitude, longitude) {
   const openWeatherKey = global.apiKeys.openWeatherKey;
   const openWeatherHost = global.apiUrls.openWeatherHost;
@@ -145,15 +147,72 @@ export async function getOpenWeatherData(endpoint, latitude, longitude) {
   }
 }
 
+// handle weekdays 
+export const handleWeekdays = (weekdays,itemCountDaily) => {
+  const now = new Date();
+  const daynow = now.toLocaleString('default',{weekday: 'short'}) // use the value to get index in weekdays
+  const dayIndex = weekdays.indexOf(daynow)
+  const newWeekdays = weekdays.slice(dayIndex).concat(weekdays.slice(0,dayIndex)) // make the today's index 0 while appending the previous value to the last
+  
+  if (dayIndex !== -1) {
+    return newWeekdays[itemCountDaily]
+  }
+}
 
 // temperature handle for weather app
-export const handleCelcius = temp => Math.floor((temp - 32) * (5 / 9));
+export const handleCelcius = temp => Math.round(((temp - 32) * (5 / 9)) * 10) / 10;
 
-export const handleFahrenheit = temp => Math.floor(temp);
+export const handleFahrenheit = temp => Math.round(temp * 10) / 10;
 
 export const handleKelvin = temp => {
   const kelvinBase = 274.15;
-  return Math.floor(handleCelcius(temp) + kelvinBase);
+  return Math.round((handleCelcius(temp) + kelvinBase) * 10) / 10;
+}
+
+// set date function
+export function dateToday() {
+  const date = new Date();
+  const dateOptions = {
+      month: 'long',
+      weekday: 'long',
+      day: '2-digit',
+  }
+  
+  // using iternationalization api for global time format
+  const { weekday, day, month } = new Intl.DateTimeFormat('default', dateOptions).formatToParts(date)
+  .reduce((acc, part) => {
+    acc[part.type] = part.value;
+    return acc;
+  }, {});
+
+  // using a much simpler formatting
+  const currentDay = date.toLocaleString('default', { weekday: 'long' });
+  const currentDate = date.toLocaleString('default', { day: '2-digit' });
+  const currentMonth = date.toLocaleString('default', { month: 'long'});
+
+  const date_Today = `${currentDay}, ${currentDate} ${currentMonth}`;
+  
+  return date_Today;
+} 
+
+// set time function
+export function timeNow() {
+  const time_Now = document.querySelector('.time-now');
+
+  const date = new Date();
+  let hours = date.getHours().toLocaleString();
+  let ampm = hours < 12 ? 'AM' : 'PM';
+  hours = hours % 12;
+  hours = hours ? hours : 12;
+  hours < 10 ? hours = '0' + hours : hours;
+
+  let minutes = date.getMinutes().toLocaleString();
+  minutes < 10 ? minutes = '0' + minutes : minutes;
+
+  let seconds = date.getSeconds().toLocaleString();
+  seconds < 10 ? seconds = '0' + seconds : seconds;
+
+  return time_Now.innerHTML = `${hours}:${minutes}:${seconds} ${ampm}`;
 }
 
 // spinner / loader
@@ -166,23 +225,3 @@ function hideLoading () {
   const hide = document.querySelector('#loader-container');
   hide.style.display = 'none';
 }
-
-const weekdays = ['Sun', 'Mon','Tue', 'Wed', 'Thu', 'Fri', 'Sat']
-
-// handle weekdays
-export function handleWeekdays(obj, forecastDays) {
-  const now = new Date()
-
-  const date = now.getDate();
-  console.log(date) // 20 - date today
-
-  const day = now.getDay();
-  console.log(day) // 2 - day of the week = tuesday
-
-  if (forecastDays == date) {
-    const daynow = now.toLocaleString('default', {weekday:'short'})
-    return daynow
-  }
-  return obj[day]
-}
-// handleWeekdays(weekdays, forecastDays)
